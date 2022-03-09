@@ -102,5 +102,10 @@ namespace DLLClientLink
                 MessageBox.Show($"Form: {frmName} doesn't exist");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ShowForm("fm001", "t001");
+        }
     }
 }
