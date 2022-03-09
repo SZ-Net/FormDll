@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLLClientLink", "DLLClientLink\DLLClientLink.csproj", "{CAF7B0C9-EEFA-4FCF-AD1F-35E62CC5B97D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fm001", "fm001\fm001.csproj", "{2FD67A42-8005-4397-A4A3-06A611DC3ECF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAF7B0C9-EEFA-4FCF-AD1F-35E62CC5B97D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF7B0C9-EEFA-4FCF-AD1F-35E62CC5B97D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF7B0C9-EEFA-4FCF-AD1F-35E62CC5B97D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF7B0C9-EEFA-4FCF-AD1F-35E62CC5B97D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD67A42-8005-4397-A4A3-06A611DC3ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD67A42-8005-4397-A4A3-06A611DC3ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD67A42-8005-4397-A4A3-06A611DC3ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD67A42-8005-4397-A4A3-06A611DC3ECF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48DE1534-2C0B-482E-AE83-38D8217C3886}
+	EndGlobalSection
+EndGlobal
