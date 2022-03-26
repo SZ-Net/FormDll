@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -49,9 +50,14 @@ namespace DLLClientLink
 
         private void ClientMain_Load(object sender, EventArgs e)
         {
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
             //division(25, 0);
             DllToLoadMenu(dllLocation);
-            //ShowForm("fm001", "t001");
+           // ShowForm("HslCommunicationDemo", "FormSelect");
         }
 
 
@@ -374,6 +380,37 @@ namespace DLLClientLink
             }
         }
 
+        private System.Windows.Forms.Timer timer;
+        private Process cur = null;
+        private PerformanceCounter curpcp = null;
+        private const int MB_DIV = 1024 * 1024;
 
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (curpcp != null)
+            {
+                string RamInfo = (curpcp.NextValue() / MB_DIV).ToString("F1") + "MB";
+                this.RamValue.Text = "Ram: " + RamInfo;
+                Console.Write(RamInfo);
+            }
+
+        }
+
+        /// <summary>
+        /// 窗体第一次显示时发生
+        /// 添加 软件升级更新检测
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClientMain_Shown(object sender, EventArgs e)
+        {
+            System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(ThreadPoolCheckVersion), null);
+        }
+
+        private void ThreadPoolCheckVersion(object state)
+        {
+            cur = Process.GetCurrentProcess();
+            curpcp = new PerformanceCounter("Process", "Working Set - Private", cur.ProcessName);
+        }
     }
 }

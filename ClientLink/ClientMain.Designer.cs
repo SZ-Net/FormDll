@@ -37,27 +37,28 @@ namespace DLLClientLink
             this.menuItemHelp = new System.Windows.Forms.MenuItem();
             this.MainMenu = new System.Windows.Forms.MainMenu(this.components);
             this.menuItemRefresh = new System.Windows.Forms.MenuItem();
+            this.TileHorizontal = new System.Windows.Forms.MenuItem();
+            this.TileVertical = new System.Windows.Forms.MenuItem();
             this.ImgList = new System.Windows.Forms.ImageList(this.components);
             this.ClientStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.PanelLeftAll = new System.Windows.Forms.Panel();
-            this.PanelExpander = new System.Windows.Forms.Panel();
-            this.ExpanderPictureBox = new System.Windows.Forms.PictureBox();
             this.PanelTreePanelSearch = new System.Windows.Forms.Panel();
             this.tView = new System.Windows.Forms.TreeView();
             this.PanelSearch = new System.Windows.Forms.Panel();
             this.pbGo = new System.Windows.Forms.PictureBox();
             this.tbGO = new System.Windows.Forms.TextBox();
-            this.TileHorizontal = new System.Windows.Forms.MenuItem();
-            this.TileVertical = new System.Windows.Forms.MenuItem();
+            this.PanelExpander = new System.Windows.Forms.Panel();
+            this.ExpanderPictureBox = new System.Windows.Forms.PictureBox();
+            this.RamValue = new System.Windows.Forms.ToolStripStatusLabel();
             this.ClientStatusStrip.SuspendLayout();
             this.PanelLeftAll.SuspendLayout();
-            this.PanelExpander.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ExpanderPictureBox)).BeginInit();
             this.PanelTreePanelSearch.SuspendLayout();
             this.PanelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGo)).BeginInit();
+            this.PanelExpander.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ExpanderPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuItemSetUp
@@ -100,6 +101,18 @@ namespace DLLClientLink
             this.menuItemRefresh.Text = "Refresh";
             this.menuItemRefresh.Click += new System.EventHandler(this.menuItem_Click);
             // 
+            // TileHorizontal
+            // 
+            this.TileHorizontal.Index = 3;
+            this.TileHorizontal.Text = "TileHorizontal";
+            this.TileHorizontal.Click += new System.EventHandler(this.menuItem_Click);
+            // 
+            // TileVertical
+            // 
+            this.TileVertical.Index = 4;
+            this.TileVertical.Text = "TileVertical";
+            this.TileVertical.Click += new System.EventHandler(this.menuItem_Click);
+            // 
             // ImgList
             // 
             this.ImgList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -110,7 +123,8 @@ namespace DLLClientLink
             // 
             this.ClientStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ClientStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabel1,
+            this.RamValue});
             this.ClientStatusStrip.Location = new System.Drawing.Point(0, 408);
             this.ClientStatusStrip.Name = "ClientStatusStrip";
             this.ClientStatusStrip.Size = new System.Drawing.Size(697, 26);
@@ -140,28 +154,6 @@ namespace DLLClientLink
             this.PanelLeftAll.Name = "PanelLeftAll";
             this.PanelLeftAll.Size = new System.Drawing.Size(178, 408);
             this.PanelLeftAll.TabIndex = 27;
-            // 
-            // PanelExpander
-            // 
-            this.PanelExpander.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.PanelExpander.Controls.Add(this.ExpanderPictureBox);
-            this.PanelExpander.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PanelExpander.Location = new System.Drawing.Point(156, 0);
-            this.PanelExpander.Name = "PanelExpander";
-            this.PanelExpander.Size = new System.Drawing.Size(22, 408);
-            this.PanelExpander.TabIndex = 16;
-            // 
-            // ExpanderPictureBox
-            // 
-            this.ExpanderPictureBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ExpanderPictureBox.Image = global::DLLClientLink.Properties.Resources.change;
-            this.ExpanderPictureBox.Location = new System.Drawing.Point(0, 0);
-            this.ExpanderPictureBox.Name = "ExpanderPictureBox";
-            this.ExpanderPictureBox.Size = new System.Drawing.Size(22, 27);
-            this.ExpanderPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ExpanderPictureBox.TabIndex = 0;
-            this.ExpanderPictureBox.TabStop = false;
-            this.ExpanderPictureBox.Click += new System.EventHandler(this.Expander_Click);
             // 
             // PanelTreePanelSearch
             // 
@@ -213,17 +205,33 @@ namespace DLLClientLink
             this.tbGO.Size = new System.Drawing.Size(111, 24);
             this.tbGO.TabIndex = 11;
             // 
-            // TileHorizontal
+            // PanelExpander
             // 
-            this.TileHorizontal.Index = 3;
-            this.TileHorizontal.Text = "TileHorizontal";
-            this.TileHorizontal.Click += new System.EventHandler(this.menuItem_Click);
+            this.PanelExpander.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.PanelExpander.Controls.Add(this.ExpanderPictureBox);
+            this.PanelExpander.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PanelExpander.Location = new System.Drawing.Point(156, 0);
+            this.PanelExpander.Name = "PanelExpander";
+            this.PanelExpander.Size = new System.Drawing.Size(22, 408);
+            this.PanelExpander.TabIndex = 16;
             // 
-            // TileVertical
+            // ExpanderPictureBox
             // 
-            this.TileVertical.Index = 4;
-            this.TileVertical.Text = "TileVertical";
-            this.TileVertical.Click += new System.EventHandler(this.menuItem_Click);
+            this.ExpanderPictureBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ExpanderPictureBox.Image = global::DLLClientLink.Properties.Resources.change;
+            this.ExpanderPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.ExpanderPictureBox.Name = "ExpanderPictureBox";
+            this.ExpanderPictureBox.Size = new System.Drawing.Size(22, 27);
+            this.ExpanderPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ExpanderPictureBox.TabIndex = 0;
+            this.ExpanderPictureBox.TabStop = false;
+            this.ExpanderPictureBox.Click += new System.EventHandler(this.Expander_Click);
+            // 
+            // RamValue
+            // 
+            this.RamValue.Name = "RamValue";
+            this.RamValue.Size = new System.Drawing.Size(45, 20);
+            this.RamValue.Text = "Ram:";
             // 
             // ClientMain
             // 
@@ -243,15 +251,16 @@ namespace DLLClientLink
             this.Text = "Client";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientMain_FormClosed);
             this.Load += new System.EventHandler(this.ClientMain_Load);
+            this.Shown += new System.EventHandler(this.ClientMain_Shown);
             this.ClientStatusStrip.ResumeLayout(false);
             this.ClientStatusStrip.PerformLayout();
             this.PanelLeftAll.ResumeLayout(false);
-            this.PanelExpander.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ExpanderPictureBox)).EndInit();
             this.PanelTreePanelSearch.ResumeLayout(false);
             this.PanelSearch.ResumeLayout(false);
             this.PanelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGo)).EndInit();
+            this.PanelExpander.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ExpanderPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,6 +287,7 @@ namespace DLLClientLink
         private System.Windows.Forms.PictureBox ExpanderPictureBox;
         private System.Windows.Forms.MenuItem TileHorizontal;
         private System.Windows.Forms.MenuItem TileVertical;
+        private System.Windows.Forms.ToolStripStatusLabel RamValue;
     }
 }
 
