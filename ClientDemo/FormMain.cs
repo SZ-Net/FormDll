@@ -8,20 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace ClientDemo
 {
     
     public partial class FormMain : Form
     {
-        public static Color ThemeColor = Color.FromArgb(64, 64, 64);
+        public static Color Color = Color.FromArgb(64, 64, 64);
         private ImageList imageList;
         private Dictionary<string, int> formIconImageIndex = new Dictionary<string, int>();
 
         private System.Windows.Forms.Timer timer;
-        private Process cur = null;
-        private PerformanceCounter curpcp = null;
-        private const int MB_DIV = 1024 * 1024;
         public FormMain()
         {
            
@@ -36,10 +34,19 @@ namespace ClientDemo
         {
 
             dockPanel1.Theme = vS2015BlueTheme1;
+            //dockPanel1.Theme = vS2015DarkTheme1;
+            //dockPanel1.Theme = vS2015LightTheme1;
 
-            ThemeColor = menuStrip1.BackColor;
+            Color = menuStrip1.BackColor;
 
-            new FormLogin().Show(dockPanel1);
+            //new FormLogin().Show(dockPanel1);
+            //窗体加载的时候
+            //DockContent form = new FormLogin();
+            //form.Name = "WelcomeForm";
+            //form.TabText = "Welcome";
+            //form.Show(dockPanel1);
+
+
 
             timer = new Timer();
             timer.Interval = 1000;
@@ -48,6 +55,8 @@ namespace ClientDemo
 
             TreeViewIni();
         }
+
+        //treeview
         private TreeNode GetTreeNodeByIndex(string name, int index, Type form)
         {
             formIconImageIndex.Add(form.Name, index);
@@ -58,9 +67,9 @@ namespace ClientDemo
         }
         private void TreeViewIni()
         {
-            TreeNode melsecNode = new TreeNode("Melsec Plc [三菱]", 8, 8);
-            melsecNode.Nodes.Add(GetTreeNodeByIndex("EtherNet/IP(CIP)", 8, typeof(FormLogin)));
-           
+            TreeNode melsecNode = new TreeNode("TestONE", 8, 8);
+            melsecNode.Nodes.Add(GetTreeNodeByIndex("Login", 8, typeof(FormLogin)));
+            melsecNode.Nodes.Add(GetTreeNodeByIndex("TestDemo", 8, typeof(TestDemo)));
             treeView1.Nodes.Add(melsecNode);
         }
 
@@ -77,10 +86,64 @@ namespace ClientDemo
 
             if (treeNode.Tag is Type type)
             {
-               
-                   //type.Show(dockPanel1);
-                
+
+                //type.Show(dockPanel1);
+                var type111 = Type.GetType(treeNode.Tag.ToString());
+                ShowDocument(Type.GetType(treeNode.Tag.ToString()), treeNode.Name);
+
             }
         }
+        public void ShowDocument(Type formType, string tabText, params object[] args)
+        {
+            IDockContent docForm = FindDocument(formType.Name);
+            if (docForm == null)
+            {
+                try
+                {
+                    DockContent form = (DockContent)Activator.CreateInstance(formType, args);
+                    form.Name = formType.Name;
+                    form.TabText = tabText;
+                    if (dockPanel1.DocumentStyle == DocumentStyle.SystemMdi)
+                    {
+                        form.MdiParent = this;
+                        form.Show(dockPanel1);
+                    }
+                    else
+                    {
+                        form.Show(dockPanel1);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                docForm.DockHandler.Activate();
+            }
+        }
+
+        private IDockContent FindDocument(string text)
+        {
+            if (dockPanel1.DocumentStyle == DocumentStyle.SystemMdi)
+            {
+                foreach (Form form in MdiChildren)
+                    if (form.Text == text)
+                        return form as IDockContent;
+                return null;
+            }
+            else
+            {
+                foreach (IDockContent content in dockPanel1.Documents)
+                    if (content.DockHandler.TabText == text)
+                        return content;
+
+                return null;
+            }
+        }
+
+
+
     }
 }

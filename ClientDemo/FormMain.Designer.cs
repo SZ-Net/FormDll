@@ -40,6 +40,8 @@ namespace ClientDemo
             this.blogsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.vS2015DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme();
+            this.vS2015LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015LightTheme();
             this.contextMenuStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -63,9 +65,9 @@ namespace ClientDemo
             // dockPanel1
             // 
             this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockPanel1.Location = new System.Drawing.Point(215, 28);
+            this.dockPanel1.Location = new System.Drawing.Point(165, 30);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Size = new System.Drawing.Size(1087, 439);
+            this.dockPanel1.Size = new System.Drawing.Size(599, 506);
             this.dockPanel1.TabIndex = 45;
             // 
             // tabPage1
@@ -74,9 +76,9 @@ namespace ClientDemo
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(207, 410);
+            this.tabPage1.Size = new System.Drawing.Size(157, 477);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "所有设备列表";
+            this.tabPage1.Text = "TreeView";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // treeView1
@@ -84,7 +86,7 @@ namespace ClientDemo
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(201, 404);
+            this.treeView1.Size = new System.Drawing.Size(151, 471);
             this.treeView1.TabIndex = 31;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
@@ -92,17 +94,17 @@ namespace ClientDemo
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
+            this.tabControl1.Location = new System.Drawing.Point(0, 30);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(0, 0);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(215, 439);
+            this.tabControl1.Size = new System.Drawing.Size(165, 506);
             this.tabControl1.TabIndex = 44;
             // 
             // blogsToolStripMenuItem
             // 
             this.blogsToolStripMenuItem.Name = "blogsToolStripMenuItem";
-            this.blogsToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
+            this.blogsToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
             this.blogsToolStripMenuItem.Text = "Blogs [博客]";
             // 
             // aboutToolStripMenuItem
@@ -122,7 +124,7 @@ namespace ClientDemo
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1302, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(764, 30);
             this.menuStrip1.TabIndex = 43;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -130,7 +132,7 @@ namespace ClientDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1302, 467);
+            this.ClientSize = new System.Drawing.Size(764, 536);
             this.Controls.Add(this.dockPanel1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
@@ -159,6 +161,8 @@ namespace ClientDemo
         private System.Windows.Forms.ToolStripMenuItem blogsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme vS2015DarkTheme1;
+        private WeifenLuo.WinFormsUI.Docking.VS2015LightTheme vS2015LightTheme1;
     }
 }
 

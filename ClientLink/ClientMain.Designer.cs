@@ -42,6 +42,7 @@ namespace DLLClientLink
             this.ImgList = new System.Windows.Forms.ImageList(this.components);
             this.ClientStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.RamValue = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.PanelLeftAll = new System.Windows.Forms.Panel();
             this.PanelTreePanelSearch = new System.Windows.Forms.Panel();
@@ -51,7 +52,6 @@ namespace DLLClientLink
             this.tbGO = new System.Windows.Forms.TextBox();
             this.PanelExpander = new System.Windows.Forms.Panel();
             this.ExpanderPictureBox = new System.Windows.Forms.PictureBox();
-            this.RamValue = new System.Windows.Forms.ToolStripStatusLabel();
             this.ClientStatusStrip.SuspendLayout();
             this.PanelLeftAll.SuspendLayout();
             this.PanelTreePanelSearch.SuspendLayout();
@@ -135,6 +135,12 @@ namespace DLLClientLink
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(102, 20);
             this.toolStripStatusLabel1.Text = "加载dll数量：";
+            // 
+            // RamValue
+            // 
+            this.RamValue.Name = "RamValue";
+            this.RamValue.Size = new System.Drawing.Size(45, 20);
+            this.RamValue.Text = "Ram:";
             // 
             // splitter1
             // 
@@ -226,12 +232,6 @@ namespace DLLClientLink
             this.ExpanderPictureBox.TabIndex = 0;
             this.ExpanderPictureBox.TabStop = false;
             this.ExpanderPictureBox.Click += new System.EventHandler(this.Expander_Click);
-            // 
-            // RamValue
-            // 
-            this.RamValue.Name = "RamValue";
-            this.RamValue.Size = new System.Drawing.Size(45, 20);
-            this.RamValue.Text = "Ram:";
             // 
             // ClientMain
             // 

@@ -73,6 +73,12 @@
     <Compile Include="UserControls\DateTimePicker.Designer.cs">
       <DependentUpon>DateTimePicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UserControlHead.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UserControlHead.Designer.cs">
+      <DependentUpon>UserControlHead.cs</DependentUpon>
+    </Compile>
     <Compile Include="Version.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DateTimePicker.resx">
       <DependentUpon>DateTimePicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UserControlHead.resx">
+      <DependentUpon>UserControlHead.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Version.resx">
       <DependentUpon>Version.cs</DependentUpon>
