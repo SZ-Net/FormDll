@@ -91,6 +91,8 @@
     <Content Include="Image\bg.jpg" />
     <Content Include="Image\bg1.jpg" />
     <Content Include="Image\bg2.jpg" />
+    <Content Include="Image\dll.png" />
+    <Content Include="Image\tv1.png" />
     <Content Include="Resources\Authority.png" />
     <Content Include="Resources\change.png" />
   </ItemGroup>

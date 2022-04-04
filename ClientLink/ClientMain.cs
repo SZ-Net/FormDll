@@ -103,6 +103,11 @@ namespace DLLClientLink
         private void initializeTreeView(ArrayList menuIDList, ArrayList menuCaptionList, ArrayList menuParentIDList)
         {
             int count = menuIDList.Count;
+            ImgList.Images.Add(Image.FromFile(@"E:\SourceCode\DLLClientLink\ClientLink\Image\tv1.png"));
+            
+            ImgList.ImageSize = new Size(22,22);
+            tView.ImageList = ImgList;
+            tView.ImageIndex = 0;
             for (int i = 0; i < count; i++)
             {
                 if (menuParentIDList[i].ToString() == string.Empty)

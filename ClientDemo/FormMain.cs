@@ -67,10 +67,19 @@ namespace ClientDemo
         }
         private void TreeViewIni()
         {
+
             TreeNode melsecNode = new TreeNode("TestONE", 8, 8);
             melsecNode.Nodes.Add(GetTreeNodeByIndex("Login", 8, typeof(FormLogin)));
             melsecNode.Nodes.Add(GetTreeNodeByIndex("TestDemo", 8, typeof(TestDemo)));
             treeView1.Nodes.Add(melsecNode);
+            treeView1.ImageList = imglist;
+            imglist.Images.Add(Image.FromFile(@"E:\SourceCode\DLLClientLink\ClientDemo\tv1.png"));
+            /*imglist.ImageSize = new Size(22, 22);
+            treeView1.ImageList = imglist;
+            treeView1.ImageIndex = 0;*/
+
+
+
         }
 
         private void Timer_Tick(object sender, EventArgs e)
