@@ -42,6 +42,7 @@ namespace Demo10002
             this.PanelSearch = new System.Windows.Forms.Panel();
             this.PanelLeftAll = new System.Windows.Forms.Panel();
             this.ImgList = new System.Windows.Forms.ImageList(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.Body.SuspendLayout();
             this.Head.SuspendLayout();
             this.ClientStatusStrip.SuspendLayout();
@@ -59,6 +60,7 @@ namespace Demo10002
             // 
             // Body
             // 
+            this.Body.Controls.Add(this.button1);
             this.Body.Controls.Add(this.splitter1);
             this.Body.Controls.Add(this.ClientStatusStrip);
             this.Body.Controls.Add(this.PanelLeftAll);
@@ -179,6 +181,16 @@ namespace Demo10002
             this.ImgList.ImageSize = new System.Drawing.Size(16, 16);
             this.ImgList.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(529, 155);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -215,6 +227,7 @@ namespace Demo10002
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox ExpanderPictureBox;
         private System.Windows.Forms.ImageList ImgList;
+        private System.Windows.Forms.Button button1;
     }
 }
 

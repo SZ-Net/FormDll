@@ -17,5 +17,10 @@ namespace Demo10002
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Footer.Height = 400;
+        }
     }
 }

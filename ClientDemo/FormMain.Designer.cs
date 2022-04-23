@@ -66,9 +66,9 @@ namespace ClientDemo
             // dockPanel1
             // 
             this.dockPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockPanel1.Location = new System.Drawing.Point(188, 28);
+            this.dockPanel1.Location = new System.Drawing.Point(188, 30);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.Size = new System.Drawing.Size(606, 408);
+            this.dockPanel1.Size = new System.Drawing.Size(606, 406);
             this.dockPanel1.TabIndex = 45;
             // 
             // tabPage1
@@ -77,7 +77,7 @@ namespace ClientDemo
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(180, 379);
+            this.tabPage1.Size = new System.Drawing.Size(180, 377);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TreeView";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@ namespace ClientDemo
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(174, 373);
+            this.treeView1.Size = new System.Drawing.Size(174, 371);
             this.treeView1.TabIndex = 31;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
@@ -95,11 +95,11 @@ namespace ClientDemo
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
+            this.tabControl1.Location = new System.Drawing.Point(0, 30);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.Padding = new System.Drawing.Point(0, 0);
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(188, 408);
+            this.tabControl1.Size = new System.Drawing.Size(188, 406);
             this.tabControl1.TabIndex = 44;
             // 
             // blogsToolStripMenuItem
@@ -114,7 +114,7 @@ namespace ClientDemo
             this.blogsToolStripMenuItem});
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(69, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(69, 26);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // menuStrip1
@@ -125,7 +125,7 @@ namespace ClientDemo
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(794, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(794, 30);
             this.menuStrip1.TabIndex = 43;
             this.menuStrip1.Text = "menuStrip1";
             // 
