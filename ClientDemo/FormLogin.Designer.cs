@@ -36,7 +36,7 @@ namespace ClientDemo
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.userControlHead1 = new svr.UserControls.UserControlHead();
+            this.userControlHead1 = new BaseLib.UserControls.UserControlHead();
             this.SuspendLayout();
             // 
             // linkLabel1
@@ -139,6 +139,6 @@ namespace ClientDemo
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private svr.UserControls.UserControlHead userControlHead1;
+        private BaseLib.UserControls.UserControlHead userControlHead1;
     }
 }

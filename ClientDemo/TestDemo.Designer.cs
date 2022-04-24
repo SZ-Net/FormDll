@@ -30,10 +30,10 @@ namespace ClientDemo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.userControlHead1 = new svr.UserControls.UserControlHead();
+            this.userControlHead1 = new BaseLib.UserControls.UserControlHead();
             this.visualStudioToolStripExtender1 = new WeifenLuo.WinFormsUI.Docking.VisualStudioToolStripExtender(this.components);
             this.dockPanel1 = new WeifenLuo.WinFormsUI.Docking.DockPanel();
-            this.dateTimePicker1 = new svr.UserControls.DateTimePicker();
+            this.dateTimePicker1 = new BaseLib.UserControls.DateTimePicker();
             this.SuspendLayout();
             // 
             // userControlHead1
@@ -85,9 +85,9 @@ namespace ClientDemo
 
         #endregion
 
-        private svr.UserControls.UserControlHead userControlHead1;
+        private BaseLib.UserControls.UserControlHead userControlHead1;
         private WeifenLuo.WinFormsUI.Docking.VisualStudioToolStripExtender visualStudioToolStripExtender1;
         private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel1;
-        private svr.UserControls.DateTimePicker dateTimePicker1;
+        private BaseLib.UserControls.DateTimePicker dateTimePicker1;
     }
 }

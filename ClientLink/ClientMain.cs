@@ -1,7 +1,4 @@
-﻿
-using DLLClientLink.Properties;
-using svr;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,12 +7,14 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UtilityLibrary;
-using UtilityLibrary.LogHelper;
+using BaseLib;
+using DLLClientLink.Properties;
 
 namespace DLLClientLink
 {
@@ -38,24 +37,23 @@ namespace DLLClientLink
 
         public ClientMain()
         {
-
-            Application.EnableVisualStyles();
-            base.IsMdiContainer = true;
-            base.WindowState = FormWindowState.Maximized;
+            IsMdiContainer = true;
+            WindowState = FormWindowState.Maximized;
             InitializeComponent();
-            var handle = base.Handle;
             dllLocation = Environment.CurrentDirectory + "\\DllLib\\";
 
         }
 
         private void ClientMain_Load(object sender, EventArgs e)
         {
+            
+            this.LocalIP.Text = "IP: " + GetClientIP();
             timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;
             timer.Start();
 
-            //division(25, 0);
+            division(25, 0);
             DllToLoadMenu(dllLocation);
            // ShowForm("HslCommunicationDemo", "FormSelect");
         }
@@ -70,7 +68,7 @@ namespace DLLClientLink
             }
             catch (Exception e)
             {
-                Log.WriteLog(Log.WriteExceptionMsg(e,string.Empty));
+                GlobalData.textLogger.WriteText(e);
             }
         }
 
@@ -88,13 +86,13 @@ namespace DLLClientLink
             for (int i = 0; i < array.Length; i++)
             {
                 checkDll.SetDllFilePath(array[i]);
-                ExecutionResult executionResult = checkDll.Exec();
-                if (executionResult.Status)
+                ReturnResults returnResults = checkDll.Exec();
+                if (returnResults.Status)
                 {
                     num++;
                     ParentList.Add("");
                     MenuIDList.Add(num);
-                    CaptionList.Add(executionResult.AnythingObj.ToString());
+                    CaptionList.Add(returnResults.Anything.ToString());
                 }
             }
             initializeTreeView(MenuIDList, CaptionList, ParentList);
@@ -103,6 +101,7 @@ namespace DLLClientLink
         private void initializeTreeView(ArrayList menuIDList, ArrayList menuCaptionList, ArrayList menuParentIDList)
         {
             int count = menuIDList.Count;
+            this.dllCount.Text = "Dll Count: " + menuIDList.Count.ToString();
             ImgList.Images.Add(Image.FromFile(@"E:\SourceCode\DLLClientLink\ClientLink\Image\tv1.png"));
             
             ImgList.ImageSize = new Size(22,22);
@@ -237,14 +236,14 @@ namespace DLLClientLink
             {
                 lx = this.ExpanderPictureBox.Location.X;
                 sx = PanelLeftAll.Size.Width;
-                ExpanderPictureBox.Image = Resources.change;
+                ExpanderPictureBox.Image = Resources.Expander;
                 ExpanderPictureBox.Location = new Point(0, ExpanderPictureBox.Location.Y);
                 PanelLeftAll.Size = new Size(ExpanderPictureBox.Size.Width, PanelLeftAll.Size.Height);
                 flag = true;
             }
             else
             {
-                ExpanderPictureBox.Image = Resources.change;
+                ExpanderPictureBox.Image = Resources.Expander;
                 ExpanderPictureBox.Location = new Point(lx, ExpanderPictureBox.Location.Y);
                 PanelLeftAll.Size = new Size(sx, PanelLeftAll.Size.Height);
                 flag = false;
@@ -257,12 +256,28 @@ namespace DLLClientLink
             MenuItem menuItem = (MenuItem)sender;
             switch (menuItem.Text.ToString())
             {
-                case "Refresh":
-                    Refresh();
+                case "Login":
+                    fmLogin fmLogin = new fmLogin();
+                    fmLogin.ShowDialog();
+                    if (fmLogin.LoginACK) {
+                    this.User.Text = fmLogin.UserId;
+                        fmLogin.Close();
+                    }
                     break;
-                case "&About Client":
-                    svr.Version version = new svr.Version("About Client");
+                case "SetUp":
+                    SetUp setUp = new SetUp();
+                    setUp.ShowDialog();
+                    break;
+                case "Exit":
+                    System.Environment.Exit(0);
+                    break;
+                
+                case "About Client":
+                    BaseLib.Version version = new BaseLib.Version("About Client");
                     version.ShowDialog(this);
+                    break;
+                case "Cascade":
+                    LayoutMdi(MdiLayout.Cascade);
                     break;
                 case "TileHorizontal":
                     LayoutMdi(MdiLayout.TileHorizontal);
@@ -292,7 +307,7 @@ namespace DLLClientLink
             string  ClasseName = "Main";
             string PackagePath = ((dllLocation.LastIndexOf("\\") <= 2) ? (dllLocation + "\\" + treeSelectText + ".dll") : (dllLocation + treeSelectText + ".dll"));
             
-            Form[] mdiChildren = base.MdiChildren;
+            Form[] mdiChildren = MdiChildren;
             Type type = null;
             foreach (Form form in mdiChildren)
             {
@@ -303,8 +318,8 @@ namespace DLLClientLink
                     {
                         form.WindowState = FormWindowState.Normal;
                     }
-                   // form.WindowState = FormWindowState.Maximized; //最大化
-                    form.Activate();
+                    // form.WindowState = FormWindowState.Maximized; //最大化
+                    form.Activate(); //激活该窗口
                     flag = true;
                     break;
                 }
@@ -323,7 +338,8 @@ namespace DLLClientLink
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
-                Log.WriteLog(Log.WriteExceptionMsg(e, string.Empty));
+                // Log.WriteLog(Log.WriteExceptionMsg(e, string.Empty));
+                GlobalData.textLogger.WriteText(e.ToString());
             }
             Type type2 = assembly.GetType(treeSelectText + "." + ClasseName);
             if (type2 != null)
@@ -359,7 +375,7 @@ namespace DLLClientLink
 
         private void pbGo_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show($"doesn't exist");
         }
 
 
@@ -400,10 +416,29 @@ namespace DLLClientLink
             }
 
         }
-
+        private static string GetClientIP()
+        {
+            string text = "";
+            string text2 = "";
+            IPHostEntry iPHostEntry = null;
+            if (string.IsNullOrEmpty(text))
+            {
+                text2 = Dns.GetHostName();
+                iPHostEntry = Dns.GetHostEntry(text2);
+                IPAddress[] addressList = iPHostEntry.AddressList;
+                foreach (IPAddress iPAddress in addressList)
+                {
+                    if (iPAddress.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        text = iPAddress.ToString();
+                        break;
+                    }
+                }
+            }
+            return text;
+        }
         /// <summary>
         /// 窗体第一次显示时发生
-        /// 添加 软件升级更新检测
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -417,5 +452,6 @@ namespace DLLClientLink
             cur = Process.GetCurrentProcess();
             curpcp = new PerformanceCounter("Process", "Working Set - Private", cur.ProcessName);
         }
+
     }
 }

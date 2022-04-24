@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UtilityLibrary;
-using UtilityLibrary.LogHelper;
-
+using BaseLib;
 namespace DLLClientLink
 {
     static class Program
@@ -18,6 +16,7 @@ namespace DLLClientLink
         [STAThread]
         static void Main()
         {
+            GlobalData.textLogger = new TextLogger($"logs/{DateTime.Now:yyMMdd}.log");
             Exception e = null;
             try
             {  
@@ -30,7 +29,7 @@ namespace DLLClientLink
 
 
                 #region 应用程序的主入口点
-                ExecutionResult executionResult = new ExecutionResult();
+                ReturnResults returnResults = new ReturnResults();
                 bool createdNew = false;
                 Mutex mutex = new Mutex(initiallyOwned: false, "ClientLink.exe", out createdNew);
                 Application.EnableVisualStyles();
@@ -38,8 +37,8 @@ namespace DLLClientLink
 
                 if (!createdNew)
                 {
-                    executionResult.Message = "ClientLink is running!";
-                    MessageBox.Show(executionResult.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    returnResults.Message = "ClientLink is running!";
+                    MessageBox.Show(returnResults.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
                 else
                 {
@@ -58,7 +57,7 @@ namespace DLLClientLink
             {
                 if (e != null) {
                     string str = GetExceptionMsg(e, string.Empty);
-                    Log.WriteLog(str);
+                    GlobalData.textLogger.WriteText(str);
                 }
                  
             }
@@ -70,15 +69,15 @@ namespace DLLClientLink
             
             string str = GetExceptionMsg(e.Exception, e.ToString());
             MessageBox.Show(str, "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            Log.WriteLog(str);
+            GlobalData.textLogger.WriteText(str);
         }
 
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             string str = GetExceptionMsg(e.ExceptionObject as Exception, e.ToString());
             MessageBox.Show(str, "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            Log.WriteLog(str);
-            
+            GlobalData.textLogger.WriteText(str);
+
         }
 
         /// <summary>

@@ -31,18 +31,24 @@ namespace DLLClientLink
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientMain));
-            this.menuItemSetUp = new System.Windows.Forms.MenuItem();
-            this.menuItemSystem = new System.Windows.Forms.MenuItem();
-            this.menuItemAbout = new System.Windows.Forms.MenuItem();
-            this.menuItemHelp = new System.Windows.Forms.MenuItem();
+            this.SetUp = new System.Windows.Forms.MenuItem();
+            this.menuItem_System = new System.Windows.Forms.MenuItem();
+            this.Login = new System.Windows.Forms.MenuItem();
+            this.Exit = new System.Windows.Forms.MenuItem();
+            this.About = new System.Windows.Forms.MenuItem();
+            this.menuItem_Help = new System.Windows.Forms.MenuItem();
             this.MainMenu = new System.Windows.Forms.MainMenu(this.components);
-            this.menuItemRefresh = new System.Windows.Forms.MenuItem();
+            this.menuItem_MDILayout = new System.Windows.Forms.MenuItem();
+            this.Cascade = new System.Windows.Forms.MenuItem();
             this.TileHorizontal = new System.Windows.Forms.MenuItem();
             this.TileVertical = new System.Windows.Forms.MenuItem();
+            this.menuItem_Refresh = new System.Windows.Forms.MenuItem();
             this.ImgList = new System.Windows.Forms.ImageList(this.components);
             this.ClientStatusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dllCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.RamValue = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LocalIP = new System.Windows.Forms.ToolStripStatusLabel();
+            this.User = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.PanelLeftAll = new System.Windows.Forms.Panel();
             this.PanelTreePanelSearch = new System.Windows.Forms.Panel();
@@ -61,57 +67,86 @@ namespace DLLClientLink
             ((System.ComponentModel.ISupportInitialize)(this.ExpanderPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuItemSetUp
+            // SetUp
             // 
-            this.menuItemSetUp.Index = 0;
-            this.menuItemSetUp.Text = "SetUp";
+            this.SetUp.Index = 1;
+            this.SetUp.Text = "SetUp";
+            this.SetUp.Click += new System.EventHandler(this.menuItem_Click);
             // 
-            // menuItemSystem
+            // menuItem_System
             // 
-            this.menuItemSystem.Index = 0;
-            this.menuItemSystem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItemSetUp});
-            this.menuItemSystem.Text = "System";
+            this.menuItem_System.Index = 0;
+            this.menuItem_System.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.Login,
+            this.SetUp,
+            this.Exit});
+            this.menuItem_System.Text = "System";
             // 
-            // menuItemAbout
+            // Login
             // 
-            this.menuItemAbout.Index = 0;
-            this.menuItemAbout.Text = "&About Client";
-            this.menuItemAbout.Click += new System.EventHandler(this.menuItem_Click);
+            this.Login.Index = 0;
+            this.Login.Text = "Login";
+            this.Login.Click += new System.EventHandler(this.menuItem_Click);
             // 
-            // menuItemHelp
+            // Exit
             // 
-            this.menuItemHelp.Index = 1;
-            this.menuItemHelp.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItemAbout});
-            this.menuItemHelp.Text = "&Help";
+            this.Exit.Index = 2;
+            this.Exit.Text = "Exit";
+            this.Exit.Click += new System.EventHandler(this.menuItem_Click);
+            // 
+            // About
+            // 
+            this.About.Index = 0;
+            this.About.Text = "About Client";
+            this.About.Click += new System.EventHandler(this.menuItem_Click);
+            // 
+            // menuItem_Help
+            // 
+            this.menuItem_Help.Index = 3;
+            this.menuItem_Help.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.About});
+            this.menuItem_Help.Text = "Help";
             // 
             // MainMenu
             // 
             this.MainMenu.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.menuItemSystem,
-            this.menuItemHelp,
-            this.menuItemRefresh,
+            this.menuItem_System,
+            this.menuItem_MDILayout,
+            this.menuItem_Refresh,
+            this.menuItem_Help});
+            // 
+            // menuItem_MDILayout
+            // 
+            this.menuItem_MDILayout.Index = 1;
+            this.menuItem_MDILayout.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.Cascade,
             this.TileHorizontal,
             this.TileVertical});
+            this.menuItem_MDILayout.Text = "MDILayout";
             // 
-            // menuItemRefresh
+            // Cascade
             // 
-            this.menuItemRefresh.Index = 2;
-            this.menuItemRefresh.Text = "Refresh";
-            this.menuItemRefresh.Click += new System.EventHandler(this.menuItem_Click);
+            this.Cascade.Index = 0;
+            this.Cascade.Text = "Cascade";
+            this.Cascade.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // TileHorizontal
             // 
-            this.TileHorizontal.Index = 3;
+            this.TileHorizontal.Index = 1;
             this.TileHorizontal.Text = "TileHorizontal";
             this.TileHorizontal.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // TileVertical
             // 
-            this.TileVertical.Index = 4;
+            this.TileVertical.Index = 2;
             this.TileVertical.Text = "TileVertical";
             this.TileVertical.Click += new System.EventHandler(this.menuItem_Click);
+            // 
+            // menuItem_Refresh
+            // 
+            this.menuItem_Refresh.Index = 2;
+            this.menuItem_Refresh.Text = "Refresh";
+            this.menuItem_Refresh.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // ImgList
             // 
@@ -123,24 +158,38 @@ namespace DLLClientLink
             // 
             this.ClientStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ClientStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.RamValue});
+            this.dllCount,
+            this.RamValue,
+            this.LocalIP,
+            this.User});
             this.ClientStatusStrip.Location = new System.Drawing.Point(0, 408);
             this.ClientStatusStrip.Name = "ClientStatusStrip";
             this.ClientStatusStrip.Size = new System.Drawing.Size(697, 26);
             this.ClientStatusStrip.TabIndex = 26;
             // 
-            // toolStripStatusLabel1
+            // dllCount
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(102, 20);
-            this.toolStripStatusLabel1.Text = "加载dll数量：";
+            this.dllCount.Name = "dllCount";
+            this.dllCount.Size = new System.Drawing.Size(102, 20);
+            this.dllCount.Text = "加载dll数量：";
             // 
             // RamValue
             // 
             this.RamValue.Name = "RamValue";
             this.RamValue.Size = new System.Drawing.Size(45, 20);
             this.RamValue.Text = "Ram:";
+            // 
+            // LocalIP
+            // 
+            this.LocalIP.Name = "LocalIP";
+            this.LocalIP.Size = new System.Drawing.Size(26, 20);
+            this.LocalIP.Text = "IP:";
+            // 
+            // User
+            // 
+            this.User.Name = "User";
+            this.User.Size = new System.Drawing.Size(46, 20);
+            this.User.Text = "User:";
             // 
             // splitter1
             // 
@@ -191,17 +240,17 @@ namespace DLLClientLink
             this.PanelSearch.Name = "PanelSearch";
             this.PanelSearch.Size = new System.Drawing.Size(156, 27);
             this.PanelSearch.TabIndex = 9;
-            this.PanelSearch.Visible = false;
             // 
             // pbGo
             // 
-            this.pbGo.Image = global::DLLClientLink.Properties.Resources.Authority;
-            this.pbGo.Location = new System.Drawing.Point(120, 4);
+            this.pbGo.Image = global::DLLClientLink.Properties.Resources.query;
+            this.pbGo.Location = new System.Drawing.Point(120, 2);
             this.pbGo.Name = "pbGo";
             this.pbGo.Size = new System.Drawing.Size(30, 23);
             this.pbGo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbGo.TabIndex = 12;
             this.pbGo.TabStop = false;
+            this.pbGo.Click += new System.EventHandler(this.pbGo_Click);
             // 
             // tbGO
             // 
@@ -224,7 +273,7 @@ namespace DLLClientLink
             // ExpanderPictureBox
             // 
             this.ExpanderPictureBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ExpanderPictureBox.Image = global::DLLClientLink.Properties.Resources.change;
+            this.ExpanderPictureBox.Image = global::DLLClientLink.Properties.Resources.Expander;
             this.ExpanderPictureBox.Location = new System.Drawing.Point(0, 0);
             this.ExpanderPictureBox.Name = "ExpanderPictureBox";
             this.ExpanderPictureBox.Size = new System.Drawing.Size(22, 27);
@@ -267,15 +316,15 @@ namespace DLLClientLink
         }
 
         #endregion
-        private System.Windows.Forms.MenuItem menuItemSetUp;
-        private System.Windows.Forms.MenuItem menuItemSystem;
-        private System.Windows.Forms.MenuItem menuItemAbout;
-        private System.Windows.Forms.MenuItem menuItemHelp;
+        private System.Windows.Forms.MenuItem SetUp;
+        private System.Windows.Forms.MenuItem menuItem_System;
+        private System.Windows.Forms.MenuItem About;
+        private System.Windows.Forms.MenuItem menuItem_Help;
         private System.Windows.Forms.MainMenu MainMenu;
         private System.Windows.Forms.ImageList ImgList;
         private System.Windows.Forms.StatusStrip ClientStatusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.MenuItem menuItemRefresh;
+        private System.Windows.Forms.ToolStripStatusLabel dllCount;
+        private System.Windows.Forms.MenuItem menuItem_Refresh;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel PanelLeftAll;
         private System.Windows.Forms.Panel PanelTreePanelSearch;
@@ -285,9 +334,15 @@ namespace DLLClientLink
         private System.Windows.Forms.TextBox tbGO;
         private System.Windows.Forms.Panel PanelExpander;
         private System.Windows.Forms.PictureBox ExpanderPictureBox;
+        private System.Windows.Forms.ToolStripStatusLabel RamValue;
+        private System.Windows.Forms.ToolStripStatusLabel LocalIP;
+        private System.Windows.Forms.MenuItem Exit;
+        private System.Windows.Forms.MenuItem menuItem_MDILayout;
+        private System.Windows.Forms.MenuItem Cascade;
         private System.Windows.Forms.MenuItem TileHorizontal;
         private System.Windows.Forms.MenuItem TileVertical;
-        private System.Windows.Forms.ToolStripStatusLabel RamValue;
+        private System.Windows.Forms.MenuItem Login;
+        private System.Windows.Forms.ToolStripStatusLabel User;
     }
 }
 
