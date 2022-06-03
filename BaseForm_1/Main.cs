@@ -17,5 +17,13 @@ namespace BaseForm_1
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ftp ftp1 = new ftp("47.103.68.175", 21, "test", "123456");
+            var Data = ftp1.GetFtpListItemsJson("/");
+
+            SuccessMSG(Data.ToString());
+        }
     }
 }

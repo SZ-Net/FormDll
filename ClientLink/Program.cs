@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BaseLib;
+using BaseLib.Tools;
+
 namespace DLLClientLink
 {
     static class Program
@@ -42,8 +43,14 @@ namespace DLLClientLink
                 }
                 else
                 {
-                    Application.Run(new ClientMain());
-
+                    
+                    BaseLib.fmLogin fmLogin = new BaseLib.fmLogin();
+                    fmLogin.ShowDialog();
+                    if (fmLogin.LoginACK)
+                    {
+                        Application.Run(new ClientMain());
+                        fmLogin.Close();
+                    }
                 }
                 #endregion
             }

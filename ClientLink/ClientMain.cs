@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BaseLib;
+using BaseLib.Tools;
 using DLLClientLink.Properties;
 
 namespace DLLClientLink
@@ -46,8 +47,47 @@ namespace DLLClientLink
 
         private void ClientMain_Load(object sender, EventArgs e)
         {
-            
-            this.LocalIP.Text = "IP: " + GetClientIP();
+            string[] s = new string[] { "1","2" };
+            Console.WriteLine(s[1]);
+
+            //byte[] bytes = new byte[] { 0x65, 0x31, 0x00 };
+
+            //string s;
+            //string f = string.Format("{0,:G}", "NS98W04-B6");
+            //s = string.Format("{0,-12:G}", "NS98W04-B6");
+            //byte[] str_byte = new byte[s.Length];
+            //char[] str1 = new char[s.Length];
+            //s.CopyTo(0, str1, 0, s.Length);
+            //for (int i = 0; i < str1.Length; i++) str_byte[i] = Convert.ToByte(str1[i]);
+
+            ////
+            //List<byte> list = str_byte.ToList();
+            //for (int i = str_byte.Length - 1; i >= 0; i--)
+            //{
+            //    if (str_byte[i] == 32)
+            //    {
+            //        list.RemoveAt(i);
+            //    }
+            //    else
+            //    {
+            //        break;
+            //    }
+            //}
+            //byte[] clearbytesnull = list.ToArray();
+
+            //s = System.Text.Encoding.Default.GetString(clearbytesnull);
+            //FileStream file1 = new FileStream(@"E:\tt.txt", FileMode.OpenOrCreate);
+            //file1.Write(Encoding.ASCII.GetBytes("qwertyuiopsdfghjklxcvbnm,"),0,0);
+
+
+
+
+
+
+
+
+
+            //this.LocalIP.Text = "IP: " + GetClientIP();
             timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;

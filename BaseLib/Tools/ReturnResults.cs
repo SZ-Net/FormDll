@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BaseLib
+namespace BaseLib.Tools
 {
     [Serializable]
     public class ReturnResults

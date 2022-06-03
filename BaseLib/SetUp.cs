@@ -59,24 +59,22 @@ namespace BaseLib
         #region tab
         private XmlDocument xmlDoc;
         private string clientEnvConfigFileName;
-        private string executablePath = Application.ExecutablePath;
 
 
 		private void SetUp_Load(object sender, EventArgs e)
 		{
-			executablePath = executablePath.Substring(0, executablePath.LastIndexOf("\\") + 1);
-			clientEnvConfigFileName = executablePath + "ClientEnv.config";
+			clientEnvConfigFileName = AppDomain.CurrentDomain.BaseDirectory + "\\ConfigModel";
 			xmlDoc = new XmlDocument();
 			if (File.Exists(clientEnvConfigFileName))
 			{
 				xmlDoc.Load(clientEnvConfigFileName);
-				DispBasic(flag: true);
+				DisplayBase(flag: true);
 				DispDB(update: true, 0);
 				DispAdvance(flag: true);
 			}
 			else
 			{
-				MessageBox.Show("Env.Config or ClientEnv.config does not exist,PLS check it!!!");
+				MessageBox.Show(" Client config File does not exist,PLS check it.");
 			}
 			btBSave.Enabled = false;
 			btBCancel.Enabled = false;
@@ -85,7 +83,7 @@ namespace BaseLib
 			// this.SetUpTitle.Text += " (Version: " + FileVersionInfo.GetVersionInfo(Application.StartupPath + "\\DLLClientLink.exe").Comments + ")";
 		}
 
-		private void DispBasic(bool flag)
+		private void DisplayBase(bool flag)
 		{
 			if (flag)
 			{
@@ -105,7 +103,6 @@ namespace BaseLib
 
 				tbLine.ReadOnly = true;
 				tbSection.ReadOnly = true;
-
 				tbStation.ReadOnly = true;
 				tbLanguage.ReadOnly = true;
 				cbCheckDomain.Enabled = false;
@@ -116,7 +113,6 @@ namespace BaseLib
 
 				tbLine.ReadOnly = false;
 				tbSection.ReadOnly = false;
-
 				tbStation.ReadOnly = false;
 				tbLanguage.ReadOnly = false;
 				cbCheckDomain.Enabled = true;
@@ -126,7 +122,7 @@ namespace BaseLib
 
 		private void btBModify_Click(object sender, EventArgs e)
 		{
-			DispBasic(flag: false);
+			DisplayBase(flag: false);
 			if (tbLoginType.Text == "")
 			{
 				cmbLoginType.SelectedIndex = 0;
@@ -173,7 +169,7 @@ namespace BaseLib
 			xmlNode = xmlDoc.SelectSingleNode("environment/client_parameter/load_in_memory");
 			xmlNode.InnerText = cbLoadInMemory.Text;
 			xmlDoc.Save(clientEnvConfigFileName);
-			DispBasic(flag: true);
+			DisplayBase(flag: true);
 			btBSave.Enabled = false;
 			btBCancel.Enabled = false;
 			btASave_Click(null, null);
@@ -181,7 +177,7 @@ namespace BaseLib
 
 		private void btBCancel_Click(object sender, EventArgs e)
 		{
-			DispBasic(flag: true);
+			DisplayBase(flag: true);
 			btBSave.Enabled = false;
 			btBCancel.Enabled = false;
 			btACancel_Click(null, null);

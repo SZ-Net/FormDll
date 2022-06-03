@@ -62,10 +62,10 @@ namespace BaseLib
             this.txtX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtX.ForeColor = System.Drawing.Color.Transparent;
             this.txtX.Image = global::BaseLib.Properties.Resources.close_black;
-            this.txtX.Location = new System.Drawing.Point(231, 10);
+            this.txtX.Location = new System.Drawing.Point(254, 9);
             this.txtX.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtX.Name = "txtX";
-            this.txtX.Size = new System.Drawing.Size(22, 25);
+            this.txtX.Size = new System.Drawing.Size(30, 34);
             this.txtX.TabIndex = 104;
             this.txtX.UseVisualStyleBackColor = false;
             this.txtX.Click += new System.EventHandler(this.XorCancle_Click);

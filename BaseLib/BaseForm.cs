@@ -27,7 +27,7 @@ namespace BaseLib
         {
             string[] msg = new string[2];
             msg[0] = "[APP 错误消息] " + DateTime.Now.ToString() + " | ";
-            msg[1] = "errorMSG";
+            msg[1] = errorMSG;
             ShowLog(msg, vLog.display, Color.Red);
         }
 
@@ -35,7 +35,7 @@ namespace BaseLib
         {
             string[] msg = new string[2];
             msg[0] = "[APP 警告消息] " + DateTime.Now.ToString() + " | ";
-            msg[1] = "warningMSG"; 
+            msg[1] = warningMSG; 
           
             ShowLog(msg, vLog.display, Color.Yellow);
         }
@@ -44,7 +44,7 @@ namespace BaseLib
         {
             string[] msg = new string[2];
             msg[0] = "[APP 成功消息] " + DateTime.Now.ToString() + " | ";
-            msg[1] = "successMSG";
+            msg[1] = successMSG;
             ShowLog(msg, vLog.display, Color.Blue);
         }
 

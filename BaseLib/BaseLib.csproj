@@ -62,23 +62,24 @@
     <Compile Include="BaseForm1.Designer.cs">
       <DependentUpon>BaseForm1.cs</DependentUpon>
     </Compile>
-    <Compile Include="CheckDll.cs" />
+    <Compile Include="Tools\CheckDll.cs" />
     <Compile Include="fmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fmLogin.Designer.cs">
       <DependentUpon>fmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="IniFile.cs" />
+    <Compile Include="Tools\ConfigModel.cs" />
+    <Compile Include="Tools\IniFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReturnResults.cs" />
+    <Compile Include="Tools\ReturnResults.cs" />
     <Compile Include="SetUp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SetUp.Designer.cs">
       <DependentUpon>SetUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="TextLogger.cs" />
+    <Compile Include="Tools\TextLogger.cs" />
     <Compile Include="UserControls\DateTimePicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,7 +124,7 @@
     <EmbeddedResource Include="Version.resx">
       <DependentUpon>Version.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClientEnv.config">
+    <None Include="ConfigModel">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">

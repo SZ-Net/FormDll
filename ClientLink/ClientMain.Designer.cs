@@ -162,9 +162,10 @@ namespace DLLClientLink
             this.RamValue,
             this.LocalIP,
             this.User});
-            this.ClientStatusStrip.Location = new System.Drawing.Point(0, 408);
+            this.ClientStatusStrip.Location = new System.Drawing.Point(0, 459);
             this.ClientStatusStrip.Name = "ClientStatusStrip";
-            this.ClientStatusStrip.Size = new System.Drawing.Size(697, 26);
+            this.ClientStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            this.ClientStatusStrip.Size = new System.Drawing.Size(784, 26);
             this.ClientStatusStrip.TabIndex = 26;
             // 
             // dllCount
@@ -193,9 +194,9 @@ namespace DLLClientLink
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(178, 0);
+            this.splitter1.Location = new System.Drawing.Point(200, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 408);
+            this.splitter1.Size = new System.Drawing.Size(3, 459);
             this.splitter1.TabIndex = 28;
             this.splitter1.TabStop = false;
             // 
@@ -207,7 +208,7 @@ namespace DLLClientLink
             this.PanelLeftAll.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelLeftAll.Location = new System.Drawing.Point(0, 0);
             this.PanelLeftAll.Name = "PanelLeftAll";
-            this.PanelLeftAll.Size = new System.Drawing.Size(178, 408);
+            this.PanelLeftAll.Size = new System.Drawing.Size(200, 459);
             this.PanelLeftAll.TabIndex = 27;
             // 
             // PanelTreePanelSearch
@@ -218,16 +219,16 @@ namespace DLLClientLink
             this.PanelTreePanelSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelTreePanelSearch.Location = new System.Drawing.Point(0, 0);
             this.PanelTreePanelSearch.Name = "PanelTreePanelSearch";
-            this.PanelTreePanelSearch.Size = new System.Drawing.Size(156, 408);
+            this.PanelTreePanelSearch.Size = new System.Drawing.Size(175, 459);
             this.PanelTreePanelSearch.TabIndex = 29;
             // 
             // tView
             // 
             this.tView.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tView.Location = new System.Drawing.Point(0, 27);
+            this.tView.Location = new System.Drawing.Point(0, 29);
             this.tView.Name = "tView";
-            this.tView.Size = new System.Drawing.Size(156, 381);
+            this.tView.Size = new System.Drawing.Size(175, 430);
             this.tView.TabIndex = 10;
             this.tView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tView_MouseDoubleClick);
             // 
@@ -238,15 +239,15 @@ namespace DLLClientLink
             this.PanelSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelSearch.Location = new System.Drawing.Point(0, 0);
             this.PanelSearch.Name = "PanelSearch";
-            this.PanelSearch.Size = new System.Drawing.Size(156, 27);
+            this.PanelSearch.Size = new System.Drawing.Size(175, 29);
             this.PanelSearch.TabIndex = 9;
             // 
             // pbGo
             // 
             this.pbGo.Image = global::DLLClientLink.Properties.Resources.query;
-            this.pbGo.Location = new System.Drawing.Point(120, 2);
+            this.pbGo.Location = new System.Drawing.Point(135, 3);
             this.pbGo.Name = "pbGo";
-            this.pbGo.Size = new System.Drawing.Size(30, 23);
+            this.pbGo.Size = new System.Drawing.Size(34, 25);
             this.pbGo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbGo.TabIndex = 12;
             this.pbGo.TabStop = false;
@@ -255,9 +256,9 @@ namespace DLLClientLink
             // tbGO
             // 
             this.tbGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbGO.Location = new System.Drawing.Point(6, 3);
+            this.tbGO.Location = new System.Drawing.Point(7, 3);
             this.tbGO.Name = "tbGO";
-            this.tbGO.Size = new System.Drawing.Size(111, 24);
+            this.tbGO.Size = new System.Drawing.Size(124, 24);
             this.tbGO.TabIndex = 11;
             // 
             // PanelExpander
@@ -265,9 +266,9 @@ namespace DLLClientLink
             this.PanelExpander.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelExpander.Controls.Add(this.ExpanderPictureBox);
             this.PanelExpander.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PanelExpander.Location = new System.Drawing.Point(156, 0);
+            this.PanelExpander.Location = new System.Drawing.Point(175, 0);
             this.PanelExpander.Name = "PanelExpander";
-            this.PanelExpander.Size = new System.Drawing.Size(22, 408);
+            this.PanelExpander.Size = new System.Drawing.Size(25, 459);
             this.PanelExpander.TabIndex = 16;
             // 
             // ExpanderPictureBox
@@ -276,7 +277,7 @@ namespace DLLClientLink
             this.ExpanderPictureBox.Image = global::DLLClientLink.Properties.Resources.Expander;
             this.ExpanderPictureBox.Location = new System.Drawing.Point(0, 0);
             this.ExpanderPictureBox.Name = "ExpanderPictureBox";
-            this.ExpanderPictureBox.Size = new System.Drawing.Size(22, 27);
+            this.ExpanderPictureBox.Size = new System.Drawing.Size(25, 29);
             this.ExpanderPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.ExpanderPictureBox.TabIndex = 0;
             this.ExpanderPictureBox.TabStop = false;
@@ -284,15 +285,15 @@ namespace DLLClientLink
             // 
             // ClientMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(697, 434);
+            this.ClientSize = new System.Drawing.Size(784, 485);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.PanelLeftAll);
             this.Controls.Add(this.ClientStatusStrip);
-            this.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Menu = this.MainMenu;

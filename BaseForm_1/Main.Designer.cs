@@ -28,13 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Body.SuspendLayout();
+            this.Head.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // Footer
+            // 
+            this.Footer.Location = new System.Drawing.Point(0, 344);
+            this.Footer.Size = new System.Drawing.Size(800, 106);
+            // 
+            // Body
+            // 
+            this.Body.Controls.Add(this.button1);
+            this.Body.Size = new System.Drawing.Size(800, 450);
+            // 
+            // Title
+            // 
+            this.Title.Size = new System.Drawing.Size(800, 51);
+            // 
+            // Head
+            // 
+            this.Head.Size = new System.Drawing.Size(800, 51);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(395, 119);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Main
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "Main";
             this.Text = "Form1";
+            this.Body.ResumeLayout(false);
+            this.Head.ResumeLayout(false);
+            this.Head.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button button1;
     }
 }
 
