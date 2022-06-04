@@ -58,6 +58,11 @@ namespace DLLClientLink
             this.tbGO = new System.Windows.Forms.TextBox();
             this.PanelExpander = new System.Windows.Forms.Panel();
             this.ExpanderPictureBox = new System.Windows.Forms.PictureBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsMenuNotifyShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsMenuNotifyExit = new System.Windows.Forms.ToolStripMenuItem();
             this.ClientStatusStrip.SuspendLayout();
             this.PanelLeftAll.SuspendLayout();
             this.PanelTreePanelSearch.SuspendLayout();
@@ -65,6 +70,7 @@ namespace DLLClientLink
             ((System.ComponentModel.ISupportInitialize)(this.pbGo)).BeginInit();
             this.PanelExpander.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExpanderPictureBox)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // SetUp
@@ -283,6 +289,44 @@ namespace DLLClientLink
             this.ExpanderPictureBox.TabStop = false;
             this.ExpanderPictureBox.Click += new System.EventHandler(this.Expander_Click);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip2;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Client";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsMenuNotifyShow,
+            this.toolStripMenuItem2,
+            this.tsMenuNotifyExit});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(125, 86);
+            // 
+            // tsMenuNotifyShow
+            // 
+            this.tsMenuNotifyShow.Image = ((System.Drawing.Image)(resources.GetObject("tsMenuNotifyShow.Image")));
+            this.tsMenuNotifyShow.Name = "tsMenuNotifyShow";
+            this.tsMenuNotifyShow.Size = new System.Drawing.Size(124, 38);
+            this.tsMenuNotifyShow.Text = "显示";
+            this.tsMenuNotifyShow.Click += new System.EventHandler(this.tsMenuNotifyShow_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(121, 6);
+            // 
+            // tsMenuNotifyExit
+            // 
+            this.tsMenuNotifyExit.Name = "tsMenuNotifyExit";
+            this.tsMenuNotifyExit.Size = new System.Drawing.Size(124, 38);
+            this.tsMenuNotifyExit.Text = "退出";
+            this.tsMenuNotifyExit.Click += new System.EventHandler(this.tsMenuNotifyExit_Click);
+            // 
             // ClientMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -302,6 +346,7 @@ namespace DLLClientLink
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientMain_FormClosed);
             this.Load += new System.EventHandler(this.ClientMain_Load);
             this.Shown += new System.EventHandler(this.ClientMain_Shown);
+            this.SizeChanged += new System.EventHandler(this.ClientMain_SizeChanged);
             this.ClientStatusStrip.ResumeLayout(false);
             this.ClientStatusStrip.PerformLayout();
             this.PanelLeftAll.ResumeLayout(false);
@@ -311,6 +356,7 @@ namespace DLLClientLink
             ((System.ComponentModel.ISupportInitialize)(this.pbGo)).EndInit();
             this.PanelExpander.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ExpanderPictureBox)).EndInit();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,6 +390,11 @@ namespace DLLClientLink
         private System.Windows.Forms.MenuItem TileVertical;
         private System.Windows.Forms.MenuItem Login;
         private System.Windows.Forms.ToolStripStatusLabel User;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem tsMenuNotifyShow;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem tsMenuNotifyExit;
     }
 }
 

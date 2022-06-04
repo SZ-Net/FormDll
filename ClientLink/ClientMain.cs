@@ -492,6 +492,36 @@ namespace DLLClientLink
             cur = Process.GetCurrentProcess();
             curpcp = new PerformanceCounter("Process", "Working Set - Private", cur.ProcessName);
         }
+        #region 托盘菜单
+        // 托盘菜单-双击托盘图标
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            this.tsMenuNotifyShow_Click(sender, e);
+        }
+        // 托盘菜单-显示窗口
+        private void tsMenuNotifyShow_Click(object sender, EventArgs e)
+        {
+            // 还原窗口
+            WindowState = FormWindowState.Maximized;
+            // 显示任务栏图标
+            this.ShowInTaskbar = true;
+        }
+        // 托盘菜单-退出
+        private void tsMenuNotifyExit_Click(object sender, EventArgs e)
+        {
+            Application.ExitThread();
+            Application.Exit();
+        }
+
+        private void ClientMain_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.ShowInTaskbar = false;
+            }
+        }
+        #endregion
+
 
     }
 }

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseForm_2", "BaseForm_2\Ba
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFtpWinform", "FtpWork\SFtpWinform.csproj", "{42C6AA11-3E80-4DA6-BE76-79D77383D863}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinRemoteDesktop", "WinRemoteDesktop\WinRemoteDesktop.csproj", "{B1F3FBAA-4A1D-4D07-B088-92137DE1C318}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{42C6AA11-3E80-4DA6-BE76-79D77383D863}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42C6AA11-3E80-4DA6-BE76-79D77383D863}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42C6AA11-3E80-4DA6-BE76-79D77383D863}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1F3FBAA-4A1D-4D07-B088-92137DE1C318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1F3FBAA-4A1D-4D07-B088-92137DE1C318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1F3FBAA-4A1D-4D07-B088-92137DE1C318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1F3FBAA-4A1D-4D07-B088-92137DE1C318}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{BB816FEF-F065-4B1D-A04F-5E4F86F886D3} = {F64BA62F-18A1-4A40-8F17-7939E3267525}
 		{542EF515-D1C3-49A6-9CBC-6FE655D87296} = {F64BA62F-18A1-4A40-8F17-7939E3267525}
 		{42C6AA11-3E80-4DA6-BE76-79D77383D863} = {F64BA62F-18A1-4A40-8F17-7939E3267525}
+		{B1F3FBAA-4A1D-4D07-B088-92137DE1C318} = {F64BA62F-18A1-4A40-8F17-7939E3267525}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48DE1534-2C0B-482E-AE83-38D8217C3886}
