@@ -141,12 +141,10 @@ namespace FtpWork
                     string[] items = new string[] { FileNameOnly, FileSize };
                     if (entry.Type == FtpFileSystemObjectType.Directory)
                     {
-                        Console.WriteLine("000000000" + entry.Type);
                         listRemoteFile.Items.Add(new ListViewItem(items, 1));
                     }
                     else 
                     {
-                        Console.WriteLine("111111111" + entry.Type);
                         listRemoteFile.Items.Add(new ListViewItem(items, 0));
                     }
                     
@@ -266,13 +264,13 @@ namespace FtpWork
                 {
                     string localPath = lblLocalDirPath.Text + "/" + item.Text;
                     string remotePath = lblRemoteDirPath.Text + "/" + item.Text;
-                    Stream fileStream = File.Create(localPath);
-                    //fTPService.Download(remotePath, localPath);
-                    FtpClient ftpClient = new FtpClient("47.103.68.175", 21, "test", "123456");
-                    ftpClient.Connect();
-                    ftpClient.Download(fileStream, remotePath, 0, FtpProgress);
+                    //Stream fileStream = File.Create(localPath);
+                    fTPService.Download(remotePath, localPath);
+                    //FtpClient ftpClient = new FtpClient("47.103.68.175", 21, "test", "123456");
+                    // ftpClient.Connect();
+                    // ftpClient.Download(fileStream, remotePath, 0, FtpProgress);
 
-                    fileStream.Close();
+                   // fileStream.Close();
                     current++;
                 }
             }
@@ -315,7 +313,7 @@ namespace FtpWork
                     string localPath = lblLocalDirPath.Text + "/" + item.Text;
                     string remotePath = lblRemoteDirPath.Text + "/" + item.Text;
 
-                    fTPService.UploadFile(localPath, remotePath);
+                    fTPService.Upload(localPath, remotePath);
                     current++;
                 }
             }

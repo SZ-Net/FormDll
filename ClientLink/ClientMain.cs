@@ -142,7 +142,7 @@ namespace DLLClientLink
         {
             int count = menuIDList.Count;
             this.dllCount.Text = "Dll Count: " + menuIDList.Count.ToString();
-            ImgList.Images.Add(Image.FromFile(@"E:\SourceCode\DLLClientLink\ClientLink\Image\tv1.png"));
+            ImgList.Images.Add(Image.FromFile(Environment.CurrentDirectory + "\\Image\\" + @"\tv1.png"));
             
             ImgList.ImageSize = new Size(22,22);
             tView.ImageList = ImgList;

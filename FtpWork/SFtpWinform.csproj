@@ -92,5 +92,8 @@
     <EmbeddedResource Include="Resources\file.png" />
     <EmbeddedResource Include="Resources\folder.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\FtpFile.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

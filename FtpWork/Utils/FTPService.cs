@@ -19,9 +19,13 @@ namespace FtpWork.Utils
         private string _user;
         private string _password;
         private FtpClient _ftpClient;
-
-
-
+        /// <summary>
+        /// https://github.com/robinrodricks/FluentFTP/wiki
+        /// </summary>
+        /// <param name="host"></param>
+        /// <param name="port"></param>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
         public FTPService(string host, int port, string user, string password)
         {
             this._host = host;
@@ -29,6 +33,7 @@ namespace FtpWork.Utils
             this._user = user;
             this._password = password;
             _ftpClient = new FtpClient(_host, _port, _user, _password);
+            
         }
 
         public Boolean Download(string remotePath, string destFullPath)
@@ -48,27 +53,12 @@ namespace FtpWork.Utils
             {
                 if (!_ftpClient.IsConnected)
                 {
-                    _ftpClient.Connect();
+                    _ftpClient.AutoConnect();
                 }
 
                 string workPath = Path.GetDirectoryName(remotePath);
                 _ftpClient.SetWorkingDirectory(workPath);
-                /*
-                if (!_ftpClient.FileExists(remotePath))
-                {
-                    string workPath = Path.GetDirectoryName(remotePath);
-                    string fileName = Path.GetFileName(remotePath);
-                    _ftpClient.SetWorkingDirectory(workPath);
-                    FtpListItem[] listItems = _ftpClient.GetListing();
-                    foreach (var item in listItems)
-                    {
-                        if (item.Name.Contains(fileName))
-                        {
-                            remotePath = item.FullName;
-                            break;
-                        }
-                    }
-                }*/
+
 
                 Boolean result = _ftpClient.Download(fileStream, remotePath);
                 fileStream.Close();
@@ -97,7 +87,7 @@ namespace FtpWork.Utils
             {
                 if (!this._ftpClient.IsConnected)
                 {
-                    this._ftpClient.Connect();
+                    this._ftpClient.AutoConnect();
                 }
 
                 if (!_ftpClient.DirectoryExists(Path.GetDirectoryName(remotePath)))
@@ -131,7 +121,7 @@ namespace FtpWork.Utils
             {
                 if (!this._ftpClient.IsConnected)
                 {
-                    this._ftpClient.Connect();
+                    this._ftpClient.AutoConnect();
                 }
 
                 if (!_ftpClient.DirectoryExists(Path.GetDirectoryName(remotePath)))
@@ -175,9 +165,8 @@ namespace FtpWork.Utils
             {
                 if (!this._ftpClient.IsConnected)
                 {
-                    this._ftpClient.Connect();
+                    this._ftpClient.AutoConnect();
                 }
-                FtpClient _ftpClient = new FtpClient(_host, _port, _user, _password);
                 _ftpClient.DeleteFile(fullPath);
             }
             catch (Exception e)
@@ -200,7 +189,7 @@ namespace FtpWork.Utils
             {
                 if (!this._ftpClient.IsConnected)
                 {
-                    this._ftpClient.Connect();
+                    this._ftpClient.AutoConnect();
                 }
                 _ftpClient.DeleteDirectory(path);
             }
@@ -224,7 +213,7 @@ namespace FtpWork.Utils
             {
                 if (!this._ftpClient.IsConnected)
                 {
-                    this._ftpClient.Connect();
+                    this._ftpClient.AutoConnect();
                 }
                 if (!_ftpClient.DirectoryExists(Path.GetDirectoryName(destFullPath)))
                 {
@@ -252,7 +241,7 @@ namespace FtpWork.Utils
             {
                 if (!this._ftpClient.IsConnected)
                 {
-                    this._ftpClient.Connect();
+                    this._ftpClient.AutoConnect();
                 }
                 if (!_ftpClient.DirectoryExists(Path.GetDirectoryName(destFullPath)))
                 {
@@ -280,7 +269,7 @@ namespace FtpWork.Utils
             {
                 if (!this._ftpClient.IsConnected)
                 {
-                    this._ftpClient.Connect();
+                    this._ftpClient.AutoConnect();
                 }
                 _ftpClient.Encoding = Encoding.GetEncoding("UTF-8");
                 if (!string.IsNullOrEmpty(workingDirectory))
@@ -292,15 +281,6 @@ namespace FtpWork.Utils
                     ContractResolver = new CamelCasePropertyNamesContractResolver()//,
                     //NullValueHandling = NullValueHandling.Ignore
                 };
-                /*
-                List<FTPItem> ftpItems = new List<FTPItem>();
-                FTPItem ftpItem;
-
-                for(int i=0; i< listItems.Count();i++)
-                {
-                    ftpItem = new FTPItem {Id=i+1, RawGroup = listItems[i].RawGroup,RawOwner=listItems[i].RawOwner,Type=listItems[i].Type,FullName=listItems[i].FullName,Name=listItems[i].Name,LinkTarget=listItems[i].LinkTarget,LinkCount=listItems[i].LinkCount,LinkObject=listItems[i].LinkObject,Modified=listItems[i].Modified,Created=listItems[i].Created,Size=listItems[i].Size,SpecialPermissions=listItems[i].SpecialPermissions,OwnerPermissions=listItems[i].OwnerPermissions,GroupPermissions=listItems[i].GroupPermissions,OthersPermissions=listItems[i].OthersPermissions,RawPermissions=listItems[i].RawPermissions,Chmod=listItems[i].Chmod,Input=listItems[i].Input};
-                    ftpItems.Add(ftpItem);
-                }*/
                 _ftpClient.Disconnect();
                 return JsonConvert.SerializeObject(listItems, serializerSettings);
             }

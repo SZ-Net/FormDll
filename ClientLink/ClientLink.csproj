@@ -107,7 +107,9 @@
     <Content Include="Image\bg1.jpg" />
     <Content Include="Image\bg2.jpg" />
     <Content Include="Image\dll.png" />
-    <Content Include="Image\tv1.png" />
+    <Content Include="Image\tv1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Authority.png" />
     <Content Include="Resources\change.png" />
     <None Include="Resources\query.png" />
