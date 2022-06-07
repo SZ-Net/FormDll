@@ -46,7 +46,6 @@ namespace FtpWork
 
         private void btnLocalToRemote_Click(object sender, EventArgs e)
         {
-
             if (listLocalFile.SelectedItems.Count == 0)
             {
                 return;
@@ -60,7 +59,7 @@ namespace FtpWork
             progresList.Clear();
             foreach (ListViewItem item in selectedItems)
             {
-                progresList.Add(addProgress(item.Text, lblLocalDirPath.Text, lblRemoteDirPath.Text));
+                progresList.Add(addProgress(item.Text, lblLocalDirPath.Text, lblRemoteDirPath.Text, "Upload"));
             }
 
             try
@@ -74,7 +73,6 @@ namespace FtpWork
             {
                 Console.WriteLine(ex.ToString());
             }
-            loadRemoteDirList();
         }
 
         private void btnRemoteToLocal_Click(object sender, EventArgs e)
@@ -93,7 +91,7 @@ namespace FtpWork
             progresList.Clear();
             foreach (ListViewItem item in selectedItems)
             {
-                progresList.Add(addProgress(item.Text, lblRemoteDirPath.Text, lblLocalDirPath.Text));
+                progresList.Add(addProgress(item.Text, lblRemoteDirPath.Text, lblLocalDirPath.Text, "DownLoad"));
             }
 
             try
@@ -264,13 +262,8 @@ namespace FtpWork
                 {
                     string localPath = lblLocalDirPath.Text + "/" + item.Text;
                     string remotePath = lblRemoteDirPath.Text + "/" + item.Text;
-                    //Stream fileStream = File.Create(localPath);
-                    fTPService.Download(remotePath, localPath);
-                    //FtpClient ftpClient = new FtpClient("47.103.68.175", 21, "test", "123456");
-                    // ftpClient.Connect();
-                    // ftpClient.Download(fileStream, remotePath, 0, FtpProgress);
+                    fTPService.Download(remotePath, localPath, FtpProgress);
 
-                   // fileStream.Close();
                     current++;
                 }
             }
@@ -287,19 +280,19 @@ namespace FtpWork
 
         private void FtpProgress(FtpProgress obj)
         {
+            //循环listview上的所有控件，按名字找到progressbar
+            foreach (Control item in listProgressStatus.Controls)
+            {
+                if (item.Name == obj.RemotePath)
+                {
 
-            double progress;
-            long bytesTransferred;
-            double transferspeed;
-            TimeSpan remainingtime;
-            string localPath;
-            string remotePath;
-            FtpProgress metaProgress;
-            Console.WriteLine((int)(Math.Round((obj.Progress), 0)));
-            int percent = (int)(obj.Progress);
-   
-            progressBar1.Invoke(
-                (MethodInvoker)delegate { progressBar1.Value = percent; });
+                    ProgressBar bar = (ProgressBar)item;
+                    bar.Invoke(
+                         (MethodInvoker)delegate { bar.Value = (int)(obj.Progress); });
+                    
+                }
+
+            }
 
         }
 
@@ -313,7 +306,7 @@ namespace FtpWork
                     string localPath = lblLocalDirPath.Text + "/" + item.Text;
                     string remotePath = lblRemoteDirPath.Text + "/" + item.Text;
 
-                    fTPService.Upload(localPath, remotePath);
+                    fTPService.Upload(localPath, remotePath, FtpProgress);
                     current++;
                 }
             }
@@ -326,7 +319,7 @@ namespace FtpWork
             this.Invoke(new Action(loadRemoteDirList));
         }
 
-        private ProgressBar addProgress(string fileName, string source, string dest)
+        private ProgressBar addProgress(string fileName, string source, string dest, string type)
         {
             ListViewItem lvi = new ListViewItem();
             ProgressBar pb = new ProgressBar();
@@ -341,11 +334,20 @@ namespace FtpWork
             pb.Minimum = 0;
             pb.Maximum = 100;
             pb.Value = 0;
+            if (type == "DownLoad")
+            {
+                string cname = source + "/" + fileName;
+                pb.Name = cname.Substring(1, cname.Length - 1);
+            }
+            else if (type == "Upload")
+            {
+                string cname = dest + "/" + fileName;
+                pb.Name = cname.Substring(1, cname.Length - 1);
+            }
+            
             pb.Parent = listProgressStatus;
             listProgressStatus.Controls.Add(pb);
             
-           
-
             return pb;
         }
 
@@ -419,5 +421,6 @@ namespace FtpWork
         {
 
         }
+
     }
 }

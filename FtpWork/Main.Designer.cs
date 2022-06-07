@@ -60,7 +60,6 @@
             this.btnStatusClear = new System.Windows.Forms.Button();
             this.btnRemoteFileDelete = new System.Windows.Forms.Button();
             this.btnLocalFileDelete = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -334,19 +333,11 @@
             this.btnLocalFileDelete.UseVisualStyleBackColor = true;
             this.btnLocalFileDelete.Click += new System.EventHandler(this.btnLocalFileDelete_Click);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(68, 408);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(258, 23);
-            this.progressBar1.TabIndex = 15;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 640);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnLocalFileDelete);
             this.Controls.Add(this.btnRemoteFileDelete);
             this.Controls.Add(this.btnStatusClear);
@@ -404,7 +395,6 @@
         private System.Windows.Forms.Button btnLocalFileDelete;
         private System.Windows.Forms.ColumnHeader SrcPath;
         private System.Windows.Forms.ColumnHeader DstPath;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

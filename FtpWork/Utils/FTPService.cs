@@ -36,7 +36,7 @@ namespace FtpWork.Utils
             
         }
 
-        public Boolean Download(string remotePath, string destFullPath)
+        public Boolean Download(string remotePath, string destFullPath, Action<FtpProgress> ftpProgress)
         {
             string destPath = Path.GetDirectoryName(destFullPath);
 
@@ -60,7 +60,7 @@ namespace FtpWork.Utils
                 _ftpClient.SetWorkingDirectory(workPath);
 
 
-                Boolean result = _ftpClient.Download(fileStream, remotePath);
+                Boolean result = _ftpClient.Download(fileStream, remotePath, 0L, ftpProgress);
                 fileStream.Close();
                 return result;
             }
@@ -80,7 +80,7 @@ namespace FtpWork.Utils
 
        
 
-        public Boolean Upload(string sourceFullPath, string remotePath)
+        public Boolean Upload(string sourceFullPath, string remotePath, Action<FtpProgress> ftpProgress)
         {
             FileStream fileStream = new FileStream(sourceFullPath, FileMode.OpenOrCreate);
             try
@@ -95,7 +95,7 @@ namespace FtpWork.Utils
                     _ftpClient.CreateDirectory(Path.GetDirectoryName(remotePath));
                 }
 
-                Boolean result = _ftpClient.Upload(fileStream, remotePath, FtpRemoteExists.Overwrite).IsSuccess();
+                Boolean result = _ftpClient.Upload(fileStream, remotePath, FtpRemoteExists.Overwrite, false , ftpProgress).IsSuccess();
                 fileStream.Close();
 
                 return result;
