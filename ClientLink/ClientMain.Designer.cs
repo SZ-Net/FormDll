@@ -309,7 +309,7 @@ namespace DLLClientLink
             // 
             // tsMenuNotifyShow
             // 
-            this.tsMenuNotifyShow.Image = ((System.Drawing.Image)(resources.GetObject("tsMenuNotifyShow.Image")));
+            this.tsMenuNotifyShow.Image = global::DLLClientLink.Properties.Resources.show;
             this.tsMenuNotifyShow.Name = "tsMenuNotifyShow";
             this.tsMenuNotifyShow.Size = new System.Drawing.Size(124, 38);
             this.tsMenuNotifyShow.Text = "显示";

@@ -113,6 +113,7 @@
     </Content>
     <Content Include="Resources\Authority.png" />
     <Content Include="Resources\change.png" />
+    <None Include="Resources\show.png" />
     <None Include="Resources\query.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\Expander.png" />
