@@ -44,7 +44,19 @@ namespace DLLClientLink
             dllLocation = Environment.CurrentDirectory + "\\DllLib\\";
 
         }
-
+        /// <summary>
+        ///  C# Winform 窗体打开时闪烁问题
+        ///  主要原因是对于Winform来说，一个窗体中绘制多个控件是很花时间的。特别是默认的按钮控件。Form先画出背景，然后留下控件需要的“洞”。如果控件的背景是透明的，那么这些“洞”就会先以白色或黑色出现，然后每个控件的“洞”再被填充，就是我们所看到的闪烁，在WinForm中没有现成的解决方案。设置控件双缓冲并不能解决它，因为它只适用于自己，而不是复合控件集。
+        /// </summary>
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams paras = base.CreateParams;
+                paras.ExStyle |= 0x02000000;
+                return paras;
+            }
+        }
         private void ClientMain_Load(object sender, EventArgs e)
         {
             string[] s = new string[] { "1","2" };

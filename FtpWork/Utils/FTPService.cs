@@ -47,7 +47,7 @@ namespace FtpWork.Utils
                 Directory.CreateDirectory(destPath);
             }
 
-            FileStream fileStream = new FileStream(destFullPath, FileMode.OpenOrCreate);
+            FileStream fileStream = new FileStream(destFullPath, FileMode.Create);
 
             try
             {
