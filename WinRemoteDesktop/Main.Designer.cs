@@ -54,6 +54,7 @@
             this.tsMenuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenuDel = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.betterListView1)).BeginInit();
@@ -72,7 +73,8 @@
             this.tsbDel,
             this.toolStripSeparator3,
             this.tsbAbout,
-            this.tsbFullScreen});
+            this.tsbFullScreen,
+            this.toolStripComboBox1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
@@ -197,7 +199,7 @@
             this.betterListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.betterListView1.ImageList = this.imageList1;
             this.betterListView1.Location = new System.Drawing.Point(0, 39);
-            this.betterListView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.betterListView1.Margin = new System.Windows.Forms.Padding(4);
             this.betterListView1.Name = "betterListView1";
             this.betterListView1.Size = new System.Drawing.Size(619, 299);
             this.betterListView1.TabIndex = 6;
@@ -275,6 +277,15 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "eye-shown.png");
             // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Items.AddRange(new object[] {
+            "MSTSC",
+            "VNC"});
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 39);
+            this.toolStripComboBox1.Text = "MSTSC";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -284,7 +295,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "简易远程桌面";
@@ -325,6 +336,7 @@
         private System.Windows.Forms.ToolStripButton tsbFullScreen;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ToolStripStatusLabel tsMsg;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }
 

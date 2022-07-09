@@ -104,12 +104,21 @@ namespace WinRemoteDesktop
 
             for (int i = 0; i < this.betterListView1.SelectedItems.Count; i++)
             {
+                if (this.toolStripComboBox1.SelectedItem.ToString() == "VNC") {
+                    FormVNC formVNC = new FormVNC();
+                    formVNC.ip = this.betterListView1.SelectedItems[i].SubItems[0].Text;
+                    formVNC.port = Convert.ToInt32(this.betterListView1.SelectedItems[i].SubItems[1].Text);
+                    formVNC.password = this.betterListView1.SelectedItems[i].SubItems[2].Text;
+                    formVNC.Show();
+                }
+                else { 
                 CreateAxMsRdpClient(new string[] {
                     this.betterListView1.SelectedItems[i].SubItems[0].Text,
                     this.betterListView1.SelectedItems[i].SubItems[1].Text,
                     this.betterListView1.SelectedItems[i].SubItems[2].Text,
                     this.betterListView1.SelectedItems[i].SubItems[3].Text
                 });
+                }
             }
         }
 
