@@ -507,7 +507,7 @@ namespace DLLClientLink
             {
                 WindowState = FormWindowState.Normal;
             }
-            Activate();
+            //Activate();
             ShowInTaskbar = true;
             mainMsgControl1.ScrollToCaret();
             SetVisibleCore(true);
@@ -515,7 +515,7 @@ namespace DLLClientLink
 
         private void HideForm()
         {
-            Hide();
+            //Hide(); // 隐藏当前窗体 mid 有bug
             ShowInTaskbar = false;
             SetVisibleCore(false);
 
