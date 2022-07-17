@@ -411,17 +411,6 @@ namespace DLLClientLink
         }
 
 
-        /// <summary>
-        /// 关闭Form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ClientMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //(MessageBox.Show("Are you sure you want to sign out?", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)== DialogResult.Yes)
-            //MdiFormClose();
-            //Hide();
-        }
 
         /// <summary>
         /// 关闭所有MdiChildren
@@ -489,17 +478,15 @@ namespace DLLClientLink
         // 托盘菜单-双击托盘图标
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
-            //this.tsMenuNotifyShow_Click(sender, e);
             ShowForm();
+            WindowState = FormWindowState.Maximized;
         }
         // 托盘菜单-显示窗口
         private void tsMenuNotifyShow_Click(object sender, EventArgs e)
         {
-            // 还原窗口
-            //WindowState = FormWindowState.Maximized;
-            // 显示任务栏图标
-            //this.ShowInTaskbar = true;
             ShowForm();
+            WindowState = FormWindowState.Maximized;
+            
         }
         // 托盘菜单-退出
         private void tsMenuNotifyExit_Click(object sender, EventArgs e)
@@ -510,13 +497,7 @@ namespace DLLClientLink
             Application.Exit();
         }
 
-        private void ClientMain_SizeChanged(object sender, EventArgs e)
-        {
-        //    if (this.WindowState == FormWindowState.Minimized)
-        //    {
-        //        this.ShowInTaskbar = false;
-        //    }
-        }
+
 
 
         private void ShowForm()
@@ -528,6 +509,7 @@ namespace DLLClientLink
             }
             Activate();
             ShowInTaskbar = true;
+            mainMsgControl1.ScrollToCaret();
             SetVisibleCore(true);
         }
 
@@ -551,9 +533,7 @@ namespace DLLClientLink
             switch (e.CloseReason)
             {
                 case CloseReason.UserClosing:
-                    e.Cancel = true;
-                    WindowState = FormWindowState.Normal;
-                    HideForm();
+                    
                     break;
                 case CloseReason.ApplicationExitCall:
                 case CloseReason.FormOwnerClosing:
@@ -561,6 +541,18 @@ namespace DLLClientLink
                     break;
                 case CloseReason.WindowsShutDown:
                     break;
+            }
+        }
+
+        private void ClientMain_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                HideForm();
+            }
+            else
+            {
+
             }
         }
     }

@@ -120,17 +120,20 @@
   <data name="SetUp.Text" xml:space="preserve">
     <value>SetUp</value>
   </data>
+  <data name="menuItem_System.Text" xml:space="preserve">
+    <value>System</value>
+  </data>
   <data name="Login.Text" xml:space="preserve">
     <value>Login</value>
   </data>
   <data name="Exit.Text" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="menuItem_System.Text" xml:space="preserve">
-    <value>System</value>
-  </data>
   <data name="About.Text" xml:space="preserve">
     <value>About Client</value>
+  </data>
+  <data name="menuItem_Help.Text" xml:space="preserve">
+    <value>Help</value>
   </data>
   <data name="menuItem1.Text" xml:space="preserve">
     <value>-</value>
@@ -147,12 +150,12 @@
   <data name="ShowLog.Text" xml:space="preserve">
     <value>ShowLog</value>
   </data>
-  <data name="menuItem_Help.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
   <metadata name="MainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>14, 17</value>
   </metadata>
+  <data name="menuItem_MDILayout.Text" xml:space="preserve">
+    <value>MDILayout</value>
+  </data>
   <data name="Cascade.Text" xml:space="preserve">
     <value>Cascade</value>
   </data>
@@ -161,9 +164,6 @@
   </data>
   <data name="TileVertical.Text" xml:space="preserve">
     <value>TileVertical</value>
-  </data>
-  <data name="menuItem_MDILayout.Text" xml:space="preserve">
-    <value>MDILayout</value>
   </data>
   <data name="menuItem_Refresh.Text" xml:space="preserve">
     <value>Refresh</value>
@@ -181,6 +181,32 @@
   <metadata name="ClientStatusStrip.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="ClientStatusStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 368</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ClientStatusStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 16, 0</value>
+  </data>
+  <data name="ClientStatusStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>874, 26</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ClientStatusStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;ClientStatusStrip.Name" xml:space="preserve">
+    <value>ClientStatusStrip</value>
+  </data>
+  <data name="&gt;&gt;ClientStatusStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ClientStatusStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ClientStatusStrip.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="dllCount.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 20</value>
   </data>
@@ -205,32 +231,6 @@
   <data name="User.Text" xml:space="preserve">
     <value>User:</value>
   </data>
-  <data name="ClientStatusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 303</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ClientStatusStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 16, 0</value>
-  </data>
-  <data name="ClientStatusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 26</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ClientStatusStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;ClientStatusStrip.Name" xml:space="preserve">
-    <value>ClientStatusStrip</value>
-  </data>
-  <data name="&gt;&gt;ClientStatusStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ClientStatusStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ClientStatusStrip.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <metadata name="splitter1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -241,7 +241,7 @@
     <value>200, 0</value>
   </data>
   <data name="splitter1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>3, 303</value>
+    <value>3, 368</value>
   </data>
   <data name="splitter1.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -261,14 +261,122 @@
   <metadata name="PanelLeftAll.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="PanelTreePanelSearch.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PanelExpander.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="PanelLeftAll.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;PanelTreePanelSearch.Name" xml:space="preserve">
+    <value>PanelTreePanelSearch</value>
+  </data>
+  <data name="&gt;&gt;PanelTreePanelSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelTreePanelSearch.Parent" xml:space="preserve">
+    <value>PanelLeftAll</value>
+  </data>
+  <data name="&gt;&gt;PanelTreePanelSearch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PanelExpander.Name" xml:space="preserve">
+    <value>PanelExpander</value>
+  </data>
+  <data name="&gt;&gt;PanelExpander.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelExpander.Parent" xml:space="preserve">
+    <value>PanelLeftAll</value>
+  </data>
+  <data name="&gt;&gt;PanelExpander.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PanelLeftAll.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="PanelLeftAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="PanelLeftAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 368</value>
+  </data>
+  <data name="PanelLeftAll.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;PanelLeftAll.Name" xml:space="preserve">
+    <value>PanelLeftAll</value>
+  </data>
+  <data name="&gt;&gt;PanelLeftAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelLeftAll.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PanelLeftAll.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <metadata name="PanelTreePanelSearch.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="tView.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PanelSearch.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="PanelTreePanelSearch.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;tView.Name" xml:space="preserve">
+    <value>tView</value>
+  </data>
+  <data name="&gt;&gt;tView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tView.Parent" xml:space="preserve">
+    <value>PanelTreePanelSearch</value>
+  </data>
+  <data name="&gt;&gt;tView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PanelSearch.Name" xml:space="preserve">
+    <value>PanelSearch</value>
+  </data>
+  <data name="&gt;&gt;PanelSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelSearch.Parent" xml:space="preserve">
+    <value>PanelTreePanelSearch</value>
+  </data>
+  <data name="&gt;&gt;PanelSearch.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PanelTreePanelSearch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PanelTreePanelSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="PanelTreePanelSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 368</value>
+  </data>
+  <data name="PanelTreePanelSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;PanelTreePanelSearch.Name" xml:space="preserve">
+    <value>PanelTreePanelSearch</value>
+  </data>
+  <data name="&gt;&gt;PanelTreePanelSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelTreePanelSearch.Parent" xml:space="preserve">
+    <value>PanelLeftAll</value>
+  </data>
+  <data name="&gt;&gt;PanelTreePanelSearch.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="tView.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -280,7 +388,7 @@
     <value>0, 29</value>
   </data>
   <data name="tView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 274</value>
+    <value>175, 339</value>
   </data>
   <data name="tView.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -300,6 +408,60 @@
   <metadata name="PanelSearch.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="pbGo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="tbGO.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="&gt;&gt;pbGo.Name" xml:space="preserve">
+    <value>pbGo</value>
+  </data>
+  <data name="&gt;&gt;pbGo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbGo.Parent" xml:space="preserve">
+    <value>PanelSearch</value>
+  </data>
+  <data name="&gt;&gt;pbGo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tbGO.Name" xml:space="preserve">
+    <value>tbGO</value>
+  </data>
+  <data name="&gt;&gt;tbGO.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbGO.Parent" xml:space="preserve">
+    <value>PanelSearch</value>
+  </data>
+  <data name="&gt;&gt;tbGO.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PanelSearch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="PanelSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="PanelSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 29</value>
+  </data>
+  <data name="PanelSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;PanelSearch.Name" xml:space="preserve">
+    <value>PanelSearch</value>
+  </data>
+  <data name="&gt;&gt;PanelSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelSearch.Parent" xml:space="preserve">
+    <value>PanelTreePanelSearch</value>
+  </data>
+  <data name="&gt;&gt;PanelSearch.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="pbGo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -357,57 +519,48 @@
   <data name="&gt;&gt;tbGO.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="PanelSearch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="PanelSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="PanelSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 29</value>
-  </data>
-  <data name="PanelSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;PanelSearch.Name" xml:space="preserve">
-    <value>PanelSearch</value>
-  </data>
-  <data name="&gt;&gt;PanelSearch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelSearch.Parent" xml:space="preserve">
-    <value>PanelTreePanelSearch</value>
-  </data>
-  <data name="&gt;&gt;PanelSearch.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="PanelTreePanelSearch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="PanelTreePanelSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="PanelTreePanelSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 303</value>
-  </data>
-  <data name="PanelTreePanelSearch.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;PanelTreePanelSearch.Name" xml:space="preserve">
-    <value>PanelTreePanelSearch</value>
-  </data>
-  <data name="&gt;&gt;PanelTreePanelSearch.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelTreePanelSearch.Parent" xml:space="preserve">
-    <value>PanelLeftAll</value>
-  </data>
-  <data name="&gt;&gt;PanelTreePanelSearch.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="PanelExpander.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="ExpanderPictureBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="&gt;&gt;ExpanderPictureBox.Name" xml:space="preserve">
+    <value>ExpanderPictureBox</value>
+  </data>
+  <data name="&gt;&gt;ExpanderPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ExpanderPictureBox.Parent" xml:space="preserve">
+    <value>PanelExpander</value>
+  </data>
+  <data name="&gt;&gt;ExpanderPictureBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelExpander.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="PanelExpander.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 0</value>
+  </data>
+  <data name="PanelExpander.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 368</value>
+  </data>
+  <data name="PanelExpander.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;PanelExpander.Name" xml:space="preserve">
+    <value>PanelExpander</value>
+  </data>
+  <data name="&gt;&gt;PanelExpander.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelExpander.Parent" xml:space="preserve">
+    <value>PanelLeftAll</value>
+  </data>
+  <data name="&gt;&gt;PanelExpander.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="ExpanderPictureBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -441,75 +594,12 @@
   <data name="&gt;&gt;ExpanderPictureBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="PanelExpander.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="PanelExpander.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 0</value>
-  </data>
-  <data name="PanelExpander.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 303</value>
-  </data>
-  <data name="PanelExpander.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;PanelExpander.Name" xml:space="preserve">
-    <value>PanelExpander</value>
-  </data>
-  <data name="&gt;&gt;PanelExpander.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelExpander.Parent" xml:space="preserve">
-    <value>PanelLeftAll</value>
-  </data>
-  <data name="&gt;&gt;PanelExpander.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="PanelLeftAll.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="PanelLeftAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="PanelLeftAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 303</value>
-  </data>
-  <data name="PanelLeftAll.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="&gt;&gt;PanelLeftAll.Name" xml:space="preserve">
-    <value>PanelLeftAll</value>
-  </data>
-  <data name="&gt;&gt;PanelLeftAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelLeftAll.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;PanelLeftAll.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>441, 19</value>
   </metadata>
   <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>573, 21</value>
   </metadata>
-  <data name="tsMenuNotifyShow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 38</value>
-  </data>
-  <data name="tsMenuNotifyShow.Text" xml:space="preserve">
-    <value>显示</value>
-  </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 6</value>
-  </data>
-  <data name="tsMenuNotifyExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 38</value>
-  </data>
-  <data name="tsMenuNotifyExit.Text" xml:space="preserve">
-    <value>退出</value>
-  </data>
   <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 86</value>
   </data>
@@ -1657,21 +1747,27 @@
   <data name="notifyIcon1.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="mainMsgControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="tsMenuNotifyShow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 38</value>
   </data>
-  <data name="mainMsgControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="tsMenuNotifyShow.Text" xml:space="preserve">
+    <value>显示</value>
   </data>
-  <data name="mainMsgControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 6</value>
   </data>
-  <data name="mainMsgControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>581, 174</value>
+  <data name="tsMenuNotifyExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 38</value>
   </data>
-  <data name="mainMsgControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="tsMenuNotifyExit.Text" xml:space="preserve">
+    <value>退出</value>
   </data>
+  <metadata name="MsgPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="mainMsgControl1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="&gt;&gt;mainMsgControl1.Name" xml:space="preserve">
     <value>mainMsgControl1</value>
   </data>
@@ -1688,10 +1784,10 @@
     <value>Bottom</value>
   </data>
   <data name="MsgPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>203, 129</value>
+    <value>203, 194</value>
   </data>
   <data name="MsgPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>581, 174</value>
+    <value>671, 174</value>
   </data>
   <data name="MsgPanel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1710,6 +1806,36 @@
   </data>
   <data name="&gt;&gt;MsgPanel.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <metadata name="mainMsgControl1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="mainMsgControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="mainMsgControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="mainMsgControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="mainMsgControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>671, 174</value>
+  </data>
+  <data name="mainMsgControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;mainMsgControl1.Name" xml:space="preserve">
+    <value>mainMsgControl1</value>
+  </data>
+  <data name="&gt;&gt;mainMsgControl1.Type" xml:space="preserve">
+    <value>DLLClientLink.Forms.MainMsgControl, DLLClientLink, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;mainMsgControl1.Parent" xml:space="preserve">
+    <value>MsgPanel</value>
+  </data>
+  <data name="&gt;&gt;mainMsgControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -3272,7 +3398,7 @@
     <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 329</value>
+    <value>874, 394</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei UI, 9pt</value>
@@ -4408,6 +4534,9 @@
         ////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////8=
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>

@@ -350,10 +350,9 @@ namespace DLLClientLink
             this.Menu = this.MainMenu;
             this.Name = "ClientMain";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientMain_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientMain_FormClosed);
             this.Load += new System.EventHandler(this.ClientMain_Load);
             this.Shown += new System.EventHandler(this.ClientMain_Shown);
-            this.SizeChanged += new System.EventHandler(this.ClientMain_SizeChanged);
+            this.Resize += new System.EventHandler(this.ClientMain_Resize);
             this.ClientStatusStrip.ResumeLayout(false);
             this.ClientStatusStrip.PerformLayout();
             this.PanelLeftAll.ResumeLayout(false);
