@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BaseLib.Tools;
+using DLLClientLink.Tool;
 
 namespace DLLClientLink
 {
@@ -17,99 +18,86 @@ namespace DLLClientLink
         [STAThread]
         static void Main()
         {
-            GlobalData.textLogger = new TextLogger($"logs/{DateTime.Now:yyMMdd}.log");
-            Exception e = null;
-            try
-            {  
-                //设置应用程序处理异常方式：ThreadException处理
-                 Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
-                //处理UI线程异常
-                Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
-                //处理非UI线程异常
-                AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+            if (Environment.OSVersion.Version.Major >= 6)
+            {
+                Utils.SetProcessDPIAware();
+            }
+            
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+            Application.ThreadException += Application_ThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;//处理非UI线程异常
 
 
-                #region 应用程序的主入口点
-                ReturnResults returnResults = new ReturnResults();
-                bool createdNew = false;
-                Mutex mutex = new Mutex(initiallyOwned: false, "ClientLink.exe", out createdNew);
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-
-                if (!createdNew)
+            if (IsDuplicateInstance())
+            {
+                try
                 {
-                    returnResults.Message = "ClientLink is running!";
-                    MessageBox.Show(returnResults.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                }
-                else
-                {
-                    
-                    BaseLib.fmLogin fmLogin = new BaseLib.fmLogin();
-                    fmLogin.ShowDialog();
-                    if (fmLogin.LoginACK)
+                    //read handle from reg and show the window
+                    long.TryParse(Utils.RegReadValue(GlobalData.MyRegPath, Utils.WindowHwndKey, ""), out long llong);
+                    if (llong > 0)
                     {
-                        Application.Run(new ClientMain());
-                        fmLogin.Close();
+                        var hwnd = (IntPtr)llong;
+                        if (Utils.IsWindow(hwnd))
+                        {
+                            Utils.ShowWindow(hwnd, 4);
+                            Utils.SwitchToThisWindow(hwnd, true);
+                            return;
+                        }
                     }
                 }
-                #endregion
+                catch { }
+                UI.ShowWarning($"ClientLink is already running(ClientLink已经运行)");
             }
-            catch (Exception ex)
+            else
             {
-                e = ex;
-                string str = GetExceptionMsg(e, string.Empty);
-                MessageBox.Show(str, "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally 
-            {
-                if (e != null) {
-                    string str = GetExceptionMsg(e, string.Empty);
-                    GlobalData.textLogger.WriteText(str);
-                }
-                 
-            }
-            		
-		}
+                GlobalData.textLogger = new TextLogger($"logs/{DateTime.Now:yyMMdd}.log");
+                //设置语言环境
+                string lang = Utils.RegReadValue(GlobalData.MyRegPath, GlobalData.MyRegKeyLanguage, "zh-Hans");
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);
+                
 
-        static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+                BaseLib.fmLogin fmLogin = new BaseLib.fmLogin();
+                fmLogin.ShowDialog();
+                if (fmLogin.LoginACK)
+                {
+
+                    fmLogin.Close();
+                    Utils.SaveLog($"ClientLink start up | {Utils.GetVersion()} | {Utils.GetExePath()}");
+                    Application.EnableVisualStyles();
+                    //Application.SetCompatibleTextRenderingDefault(false);
+                    Application.Run(new ClientMain());
+                    
+                }
+            }
+
+
+
+        }
+
+        static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
-            
-            string str = GetExceptionMsg(e.Exception, e.ToString());
-            MessageBox.Show(str, "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            GlobalData.textLogger.WriteText(str);
+            Utils.SaveLog("Application_ThreadException", e.Exception);
         }
 
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            string str = GetExceptionMsg(e.ExceptionObject as Exception, e.ToString());
-            MessageBox.Show(str, "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            GlobalData.textLogger.WriteText(str);
-
+            Utils.SaveLog("CurrentDomain_UnhandledException", (Exception)e.ExceptionObject);
         }
 
-        /// <summary>
-        /// 生成自定义异常消息
-        /// </summary>
-        /// <param name="ex">异常对象</param>
-        /// <param name="backStr">备用异常消息：当ex为null时有效</param>
-        /// <returns>异常字符串文本</returns>
-        static string GetExceptionMsg(Exception ex, string backStr)
+
+
+        /// <summary> 
+        /// 检查是否已在运行
+        /// </summary> 
+        public static bool IsDuplicateInstance()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("****************************异常文本****************************");
-            sb.AppendLine("【出现时间】：" + DateTime.Now.ToString());
-            if (ex != null)
-            {
-                sb.AppendLine("【异常类型】：" + ex.GetType().Name);
-                sb.AppendLine("【异常信息】：" + ex.Message);
-                sb.AppendLine("【堆栈调用】：" + ex.StackTrace);
-            }
-            else
-            {
-                sb.AppendLine("【未处理异常】：" + backStr);
-            }
-            sb.AppendLine("***************************************************************");
-            return sb.ToString();
+            //string name = "ClientLink";
+
+            string name = Utils.GetExePath(); // Allow different locations to run
+            name = name.Replace("\\", "/"); // https://stackoverflow.com/questions/20714120/could-not-find-a-part-of-the-path-error-while-creating-mutex
+
+            GlobalData.mutexObj = new Mutex(false, name, out bool bCreatedNew);
+            return !bCreatedNew;
         }
     }
 }

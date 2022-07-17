@@ -37,6 +37,11 @@ namespace DLLClientLink
             this.Exit = new System.Windows.Forms.MenuItem();
             this.About = new System.Windows.Forms.MenuItem();
             this.menuItem_Help = new System.Windows.Forms.MenuItem();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.LanguageDefault = new System.Windows.Forms.MenuItem();
+            this.LanguageZhHans = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.ShowLog = new System.Windows.Forms.MenuItem();
             this.MainMenu = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem_MDILayout = new System.Windows.Forms.MenuItem();
             this.Cascade = new System.Windows.Forms.MenuItem();
@@ -63,6 +68,8 @@ namespace DLLClientLink
             this.tsMenuNotifyShow = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsMenuNotifyExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MsgPanel = new System.Windows.Forms.Panel();
+            this.mainMsgControl1 = new DLLClientLink.Forms.MainMsgControl();
             this.ClientStatusStrip.SuspendLayout();
             this.PanelLeftAll.SuspendLayout();
             this.PanelTreePanelSearch.SuspendLayout();
@@ -71,12 +78,13 @@ namespace DLLClientLink
             this.PanelExpander.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ExpanderPictureBox)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
+            this.MsgPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // SetUp
             // 
             this.SetUp.Index = 1;
-            this.SetUp.Text = "SetUp";
+            resources.ApplyResources(this.SetUp, "SetUp");
             this.SetUp.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // menuItem_System
@@ -86,32 +94,65 @@ namespace DLLClientLink
             this.Login,
             this.SetUp,
             this.Exit});
-            this.menuItem_System.Text = "System";
+            resources.ApplyResources(this.menuItem_System, "menuItem_System");
             // 
             // Login
             // 
             this.Login.Index = 0;
-            this.Login.Text = "Login";
+            resources.ApplyResources(this.Login, "Login");
             this.Login.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // Exit
             // 
             this.Exit.Index = 2;
-            this.Exit.Text = "Exit";
+            resources.ApplyResources(this.Exit, "Exit");
             this.Exit.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // About
             // 
             this.About.Index = 0;
-            this.About.Text = "About Client";
+            resources.ApplyResources(this.About, "About");
             this.About.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // menuItem_Help
             // 
             this.menuItem_Help.Index = 3;
             this.menuItem_Help.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.About});
-            this.menuItem_Help.Text = "Help";
+            this.About,
+            this.menuItem1,
+            this.LanguageDefault,
+            this.LanguageZhHans,
+            this.menuItem3,
+            this.ShowLog});
+            resources.ApplyResources(this.menuItem_Help, "menuItem_Help");
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Index = 1;
+            resources.ApplyResources(this.menuItem1, "menuItem1");
+            // 
+            // LanguageDefault
+            // 
+            this.LanguageDefault.Index = 2;
+            resources.ApplyResources(this.LanguageDefault, "LanguageDefault");
+            this.LanguageDefault.Click += new System.EventHandler(this.menuItem_Click);
+            // 
+            // LanguageZhHans
+            // 
+            this.LanguageZhHans.Index = 3;
+            resources.ApplyResources(this.LanguageZhHans, "LanguageZhHans");
+            this.LanguageZhHans.Click += new System.EventHandler(this.menuItem_Click);
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Index = 4;
+            resources.ApplyResources(this.menuItem3, "menuItem3");
+            // 
+            // ShowLog
+            // 
+            this.ShowLog.Index = 5;
+            resources.ApplyResources(this.ShowLog, "ShowLog");
+            this.ShowLog.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // MainMenu
             // 
@@ -128,36 +169,36 @@ namespace DLLClientLink
             this.Cascade,
             this.TileHorizontal,
             this.TileVertical});
-            this.menuItem_MDILayout.Text = "MDILayout";
+            resources.ApplyResources(this.menuItem_MDILayout, "menuItem_MDILayout");
             // 
             // Cascade
             // 
             this.Cascade.Index = 0;
-            this.Cascade.Text = "Cascade";
+            resources.ApplyResources(this.Cascade, "Cascade");
             this.Cascade.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // TileHorizontal
             // 
             this.TileHorizontal.Index = 1;
-            this.TileHorizontal.Text = "TileHorizontal";
+            resources.ApplyResources(this.TileHorizontal, "TileHorizontal");
             this.TileHorizontal.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // TileVertical
             // 
             this.TileVertical.Index = 2;
-            this.TileVertical.Text = "TileVertical";
+            resources.ApplyResources(this.TileVertical, "TileVertical");
             this.TileVertical.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // menuItem_Refresh
             // 
             this.menuItem_Refresh.Index = 2;
-            this.menuItem_Refresh.Text = "Refresh";
+            resources.ApplyResources(this.menuItem_Refresh, "menuItem_Refresh");
             this.menuItem_Refresh.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // ImgList
             // 
             this.ImgList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.ImgList.ImageSize = new System.Drawing.Size(16, 16);
+            resources.ApplyResources(this.ImgList, "ImgList");
             this.ImgList.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // ClientStatusStrip
@@ -168,133 +209,95 @@ namespace DLLClientLink
             this.RamValue,
             this.LocalIP,
             this.User});
-            this.ClientStatusStrip.Location = new System.Drawing.Point(0, 459);
+            resources.ApplyResources(this.ClientStatusStrip, "ClientStatusStrip");
             this.ClientStatusStrip.Name = "ClientStatusStrip";
-            this.ClientStatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
-            this.ClientStatusStrip.Size = new System.Drawing.Size(784, 26);
-            this.ClientStatusStrip.TabIndex = 26;
             // 
             // dllCount
             // 
             this.dllCount.Name = "dllCount";
-            this.dllCount.Size = new System.Drawing.Size(102, 20);
-            this.dllCount.Text = "加载dll数量：";
+            resources.ApplyResources(this.dllCount, "dllCount");
             // 
             // RamValue
             // 
             this.RamValue.Name = "RamValue";
-            this.RamValue.Size = new System.Drawing.Size(45, 20);
-            this.RamValue.Text = "Ram:";
+            resources.ApplyResources(this.RamValue, "RamValue");
             // 
             // LocalIP
             // 
             this.LocalIP.Name = "LocalIP";
-            this.LocalIP.Size = new System.Drawing.Size(26, 20);
-            this.LocalIP.Text = "IP:";
+            resources.ApplyResources(this.LocalIP, "LocalIP");
             // 
             // User
             // 
             this.User.Name = "User";
-            this.User.Size = new System.Drawing.Size(46, 20);
-            this.User.Text = "User:";
+            resources.ApplyResources(this.User, "User");
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(200, 0);
+            resources.ApplyResources(this.splitter1, "splitter1");
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 459);
-            this.splitter1.TabIndex = 28;
             this.splitter1.TabStop = false;
             // 
             // PanelLeftAll
             // 
-            this.PanelLeftAll.AutoScroll = true;
+            resources.ApplyResources(this.PanelLeftAll, "PanelLeftAll");
             this.PanelLeftAll.Controls.Add(this.PanelTreePanelSearch);
             this.PanelLeftAll.Controls.Add(this.PanelExpander);
-            this.PanelLeftAll.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanelLeftAll.Location = new System.Drawing.Point(0, 0);
             this.PanelLeftAll.Name = "PanelLeftAll";
-            this.PanelLeftAll.Size = new System.Drawing.Size(200, 459);
-            this.PanelLeftAll.TabIndex = 27;
             // 
             // PanelTreePanelSearch
             // 
-            this.PanelTreePanelSearch.AutoScroll = true;
+            resources.ApplyResources(this.PanelTreePanelSearch, "PanelTreePanelSearch");
             this.PanelTreePanelSearch.Controls.Add(this.tView);
             this.PanelTreePanelSearch.Controls.Add(this.PanelSearch);
-            this.PanelTreePanelSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelTreePanelSearch.Location = new System.Drawing.Point(0, 0);
             this.PanelTreePanelSearch.Name = "PanelTreePanelSearch";
-            this.PanelTreePanelSearch.Size = new System.Drawing.Size(175, 459);
-            this.PanelTreePanelSearch.TabIndex = 29;
             // 
             // tView
             // 
             this.tView.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tView.Location = new System.Drawing.Point(0, 29);
+            resources.ApplyResources(this.tView, "tView");
             this.tView.Name = "tView";
-            this.tView.Size = new System.Drawing.Size(175, 430);
-            this.tView.TabIndex = 10;
             this.tView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tView_MouseDoubleClick);
             // 
             // PanelSearch
             // 
             this.PanelSearch.Controls.Add(this.pbGo);
             this.PanelSearch.Controls.Add(this.tbGO);
-            this.PanelSearch.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelSearch.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.PanelSearch, "PanelSearch");
             this.PanelSearch.Name = "PanelSearch";
-            this.PanelSearch.Size = new System.Drawing.Size(175, 29);
-            this.PanelSearch.TabIndex = 9;
             // 
             // pbGo
             // 
             this.pbGo.Image = global::DLLClientLink.Properties.Resources.query;
-            this.pbGo.Location = new System.Drawing.Point(135, 3);
+            resources.ApplyResources(this.pbGo, "pbGo");
             this.pbGo.Name = "pbGo";
-            this.pbGo.Size = new System.Drawing.Size(34, 25);
-            this.pbGo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbGo.TabIndex = 12;
             this.pbGo.TabStop = false;
             this.pbGo.Click += new System.EventHandler(this.pbGo_Click);
             // 
             // tbGO
             // 
-            this.tbGO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tbGO.Location = new System.Drawing.Point(7, 3);
+            resources.ApplyResources(this.tbGO, "tbGO");
             this.tbGO.Name = "tbGO";
-            this.tbGO.Size = new System.Drawing.Size(124, 24);
-            this.tbGO.TabIndex = 11;
             // 
             // PanelExpander
             // 
             this.PanelExpander.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PanelExpander.Controls.Add(this.ExpanderPictureBox);
-            this.PanelExpander.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PanelExpander.Location = new System.Drawing.Point(175, 0);
+            resources.ApplyResources(this.PanelExpander, "PanelExpander");
             this.PanelExpander.Name = "PanelExpander";
-            this.PanelExpander.Size = new System.Drawing.Size(25, 459);
-            this.PanelExpander.TabIndex = 16;
             // 
             // ExpanderPictureBox
             // 
-            this.ExpanderPictureBox.Dock = System.Windows.Forms.DockStyle.Top;
+            resources.ApplyResources(this.ExpanderPictureBox, "ExpanderPictureBox");
             this.ExpanderPictureBox.Image = global::DLLClientLink.Properties.Resources.Expander;
-            this.ExpanderPictureBox.Location = new System.Drawing.Point(0, 0);
             this.ExpanderPictureBox.Name = "ExpanderPictureBox";
-            this.ExpanderPictureBox.Size = new System.Drawing.Size(25, 29);
-            this.ExpanderPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ExpanderPictureBox.TabIndex = 0;
             this.ExpanderPictureBox.TabStop = false;
             this.ExpanderPictureBox.Click += new System.EventHandler(this.Expander_Click);
             // 
             // notifyIcon1
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip2;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Client";
-            this.notifyIcon1.Visible = true;
+            resources.ApplyResources(this.notifyIcon1, "notifyIcon1");
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
             // 
             // contextMenuStrip2
@@ -305,44 +308,48 @@ namespace DLLClientLink
             this.toolStripMenuItem2,
             this.tsMenuNotifyExit});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(125, 86);
+            resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
             // 
             // tsMenuNotifyShow
             // 
             this.tsMenuNotifyShow.Image = global::DLLClientLink.Properties.Resources.show;
             this.tsMenuNotifyShow.Name = "tsMenuNotifyShow";
-            this.tsMenuNotifyShow.Size = new System.Drawing.Size(124, 38);
-            this.tsMenuNotifyShow.Text = "显示";
+            resources.ApplyResources(this.tsMenuNotifyShow, "tsMenuNotifyShow");
             this.tsMenuNotifyShow.Click += new System.EventHandler(this.tsMenuNotifyShow_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(121, 6);
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             // 
             // tsMenuNotifyExit
             // 
             this.tsMenuNotifyExit.Name = "tsMenuNotifyExit";
-            this.tsMenuNotifyExit.Size = new System.Drawing.Size(124, 38);
-            this.tsMenuNotifyExit.Text = "退出";
+            resources.ApplyResources(this.tsMenuNotifyExit, "tsMenuNotifyExit");
             this.tsMenuNotifyExit.Click += new System.EventHandler(this.tsMenuNotifyExit_Click);
+            // 
+            // MsgPanel
+            // 
+            this.MsgPanel.Controls.Add(this.mainMsgControl1);
+            resources.ApplyResources(this.MsgPanel, "MsgPanel");
+            this.MsgPanel.Name = "MsgPanel";
+            // 
+            // mainMsgControl1
+            // 
+            resources.ApplyResources(this.mainMsgControl1, "mainMsgControl1");
+            this.mainMsgControl1.Name = "mainMsgControl1";
             // 
             // ClientMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(784, 485);
+            this.Controls.Add(this.MsgPanel);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.PanelLeftAll);
             this.Controls.Add(this.ClientStatusStrip);
-            this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Menu = this.MainMenu;
             this.Name = "ClientMain";
-            this.Text = "Client";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientMain_FormClosed);
             this.Load += new System.EventHandler(this.ClientMain_Load);
             this.Shown += new System.EventHandler(this.ClientMain_Shown);
@@ -357,6 +364,7 @@ namespace DLLClientLink
             this.PanelExpander.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ExpanderPictureBox)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
+            this.MsgPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,6 +403,13 @@ namespace DLLClientLink
         private System.Windows.Forms.ToolStripMenuItem tsMenuNotifyShow;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem tsMenuNotifyExit;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem LanguageDefault;
+        private System.Windows.Forms.MenuItem LanguageZhHans;
+        private System.Windows.Forms.Panel MsgPanel;
+        private Forms.MainMsgControl mainMsgControl1;
+        private System.Windows.Forms.MenuItem ShowLog;
+        private System.Windows.Forms.MenuItem menuItem3;
     }
 }
 

@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using BaseLib;
 using BaseLib.Tools;
 using DLLClientLink.Properties;
+using DLLClientLink.Tool;
 
 namespace DLLClientLink
 {
@@ -38,9 +39,10 @@ namespace DLLClientLink
 
         public ClientMain()
         {
+            InitializeComponent();
             IsMdiContainer = true;
             WindowState = FormWindowState.Maximized;
-            InitializeComponent();
+            Text = Utils.GetVersion();
             dllLocation = Environment.CurrentDirectory + "\\DllLib\\";
 
         }
@@ -59,47 +61,7 @@ namespace DLLClientLink
         }
         private void ClientMain_Load(object sender, EventArgs e)
         {
-            string[] s = new string[] { "1","2" };
-            Console.WriteLine(s[1]);
-
-            //byte[] bytes = new byte[] { 0x65, 0x31, 0x00 };
-
-            //string s;
-            //string f = string.Format("{0,:G}", "NS98W04-B6");
-            //s = string.Format("{0,-12:G}", "NS98W04-B6");
-            //byte[] str_byte = new byte[s.Length];
-            //char[] str1 = new char[s.Length];
-            //s.CopyTo(0, str1, 0, s.Length);
-            //for (int i = 0; i < str1.Length; i++) str_byte[i] = Convert.ToByte(str1[i]);
-
-            ////
-            //List<byte> list = str_byte.ToList();
-            //for (int i = str_byte.Length - 1; i >= 0; i--)
-            //{
-            //    if (str_byte[i] == 32)
-            //    {
-            //        list.RemoveAt(i);
-            //    }
-            //    else
-            //    {
-            //        break;
-            //    }
-            //}
-            //byte[] clearbytesnull = list.ToArray();
-
-            //s = System.Text.Encoding.Default.GetString(clearbytesnull);
-            //FileStream file1 = new FileStream(@"E:\tt.txt", FileMode.OpenOrCreate);
-            //file1.Write(Encoding.ASCII.GetBytes("qwertyuiopsdfghjklxcvbnm,"),0,0);
-
-
-
-
-
-
-
-
-
-            //this.LocalIP.Text = "IP: " + GetClientIP();
+            this.LocalIP.Text = "IP: " + GetClientIP();
             timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;
@@ -121,8 +83,10 @@ namespace DLLClientLink
             catch (Exception e)
             {
                 GlobalData.textLogger.WriteText(e);
+                mainMsgControl1.AppendText(e.ToString());
             }
         }
+
 
         private void DllToLoadMenu(string dllLocation)
         {
@@ -337,8 +301,24 @@ namespace DLLClientLink
                 case "TileVertical":
                     LayoutMdi(MdiLayout.TileVertical);
                     break;
+                case "Language-[English]":
+                    SetCurrentLanguage("en");
+                    break;
+                case "语言-[中文简体]":
+                    SetCurrentLanguage("zh-Hans");
+                    break;
+                 case "ShowLog":
+                    bool bShow = ShowLog.Checked; //Panel2Collapsed
+                    MsgPanel.Visible = !bShow;
+                    ShowLog.Checked = !bShow;
+                    break;
 
             }
+        }
+        private void SetCurrentLanguage(string value)
+        {
+            Utils.RegWriteValue(GlobalData.MyRegPath, GlobalData.MyRegKeyLanguage, value);
+            //Application.Restart();
         }
 
         private void tView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -439,7 +419,8 @@ namespace DLLClientLink
         private void ClientMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             //(MessageBox.Show("Are you sure you want to sign out?", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)== DialogResult.Yes)
-            MdiFormClose();
+            //MdiFormClose();
+            //Hide();
         }
 
         /// <summary>
@@ -508,32 +489,79 @@ namespace DLLClientLink
         // 托盘菜单-双击托盘图标
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
-            this.tsMenuNotifyShow_Click(sender, e);
+            //this.tsMenuNotifyShow_Click(sender, e);
+            ShowForm();
         }
         // 托盘菜单-显示窗口
         private void tsMenuNotifyShow_Click(object sender, EventArgs e)
         {
             // 还原窗口
-            WindowState = FormWindowState.Maximized;
+            //WindowState = FormWindowState.Maximized;
             // 显示任务栏图标
-            this.ShowInTaskbar = true;
+            //this.ShowInTaskbar = true;
+            ShowForm();
         }
         // 托盘菜单-退出
         private void tsMenuNotifyExit_Click(object sender, EventArgs e)
         {
+            MdiFormClose();
+
             Application.ExitThread();
             Application.Exit();
         }
 
         private void ClientMain_SizeChanged(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Minimized)
+        //    if (this.WindowState == FormWindowState.Minimized)
+        //    {
+        //        this.ShowInTaskbar = false;
+        //    }
+        }
+
+
+        private void ShowForm()
+        {
+            Show();
+            if (WindowState == FormWindowState.Minimized)
             {
-                this.ShowInTaskbar = false;
+                WindowState = FormWindowState.Normal;
+            }
+            Activate();
+            ShowInTaskbar = true;
+            SetVisibleCore(true);
+        }
+
+        private void HideForm()
+        {
+            Hide();
+            ShowInTaskbar = false;
+            SetVisibleCore(false);
+
+            //write Handle to reg
+            if (IsHandleCreated)
+            {
+                Utils.RegWriteValue(GlobalData.MyRegPath, Utils.WindowHwndKey, Convert.ToString((long)Handle));
             }
         }
+
         #endregion
 
-
+        private void ClientMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    WindowState = FormWindowState.Normal;
+                    HideForm();
+                    break;
+                case CloseReason.ApplicationExitCall:
+                case CloseReason.FormOwnerClosing:
+                case CloseReason.TaskManagerClosing:
+                    break;
+                case CloseReason.WindowsShutDown:
+                    break;
+            }
+        }
     }
 }

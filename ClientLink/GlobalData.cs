@@ -7,8 +7,23 @@ using BaseLib.Tools;
 
 namespace DLLClientLink
 {
-    public  class GlobalData
+    class GlobalData
     {
         public static TextLogger textLogger;
+        /// <summary>
+        /// MyRegPath
+        /// </summary>
+        public const string MyRegPath = "Software\\ClientLinkUI";
+
+        /// <summary>
+        /// Language
+        /// </summary>
+        public const string MyRegKeyLanguage = "CurrentLanguage";
+
+
+        public static System.Threading.Mutex mutexObj
+        {
+            get; set;
+        }
     }
 }
