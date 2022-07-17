@@ -62,6 +62,9 @@
     <Compile Include="BaseForm1.Designer.cs">
       <DependentUpon>BaseForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Base\ListViewFlickerFree.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Tools\CheckDll.cs" />
     <Compile Include="fmLogin.cs">
       <SubType>Form</SubType>
@@ -146,18 +149,29 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\sub.png" />
+    <None Include="Resources\share.png" />
+    <None Include="Resources\server.png" />
+    <None Include="Resources\restart.png" />
+    <None Include="Resources\promotion.png" />
+    <None Include="Resources\option.png" />
+    <None Include="Resources\notify.png" />
+    <None Include="Resources\minimize.png" />
     <None Include="Resources\PopEdit_32x32.png" />
     <None Include="Resources\menubar_16x16.png" />
     <None Include="Resources\Action_Edit_12x12.png" />
     <None Include="Resources\Authority.png" />
+    <None Include="Resources\about.png" />
     <Content Include="Resources\background.jpg" />
     <None Include="Resources\close_black.png" />
     <None Include="Resources\close_red.png" />
     <None Include="Resources\close_white.png" />
     <None Include="Resources\CommonCode.png" />
+    <None Include="Resources\checkupdate.png" />
     <Content Include="Resources\dll.bmp" />
     <Content Include="Resources\dll.png" />
     <Content Include="Resources\help.png" />
+    <None Include="Resources\help1.png" />
     <Content Include="Resources\helplink.png" />
   </ItemGroup>
   <ItemGroup>

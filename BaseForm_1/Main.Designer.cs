@@ -29,17 +29,19 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.lvServers = new BaseLib.Base.ListViewFlickerFree();
             this.Body.SuspendLayout();
             this.Head.SuspendLayout();
             this.SuspendLayout();
             // 
             // Footer
             // 
-            this.Footer.Location = new System.Drawing.Point(0, 344);
-            this.Footer.Size = new System.Drawing.Size(800, 106);
+            this.Footer.Location = new System.Drawing.Point(0, 336);
+            this.Footer.Size = new System.Drawing.Size(800, 114);
             // 
             // Body
             // 
+            this.Body.Controls.Add(this.lvServers);
             this.Body.Controls.Add(this.button1);
             this.Body.Size = new System.Drawing.Size(800, 450);
             // 
@@ -53,13 +55,22 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(395, 119);
+            this.button1.Location = new System.Drawing.Point(12, 84);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lvServers
+            // 
+            this.lvServers.HideSelection = false;
+            this.lvServers.Location = new System.Drawing.Point(142, 70);
+            this.lvServers.Name = "lvServers";
+            this.lvServers.Size = new System.Drawing.Size(654, 263);
+            this.lvServers.TabIndex = 1;
+            this.lvServers.UseCompatibleStateImageBehavior = false;
             // 
             // Main
             // 
@@ -68,6 +79,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Main";
             this.Text = "Form1";
+            this.Shown += new System.EventHandler(this.Main_Shown);
             this.Body.ResumeLayout(false);
             this.Head.ResumeLayout(false);
             this.Head.PerformLayout();
@@ -78,6 +90,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private BaseLib.Base.ListViewFlickerFree lvServers;
     }
 }
 
