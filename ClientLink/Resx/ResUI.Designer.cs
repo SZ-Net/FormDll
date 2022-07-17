@@ -61,11 +61,20 @@ namespace DLLClientLink.Resx {
         }
         
         /// <summary>
-        ///   查找类似 System 的本地化字符串。
+        ///   查找类似 Are you sure you want to exit the system? 的本地化字符串。
         /// </summary>
-        internal static string System {
+        internal static string ExitSystem {
             get {
-                return ResourceManager.GetString("System", resourceCulture);
+                return ResourceManager.GetString("ExitSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Tips 的本地化字符串。
+        /// </summary>
+        internal static string Tips {
+            get {
+                return ResourceManager.GetString("Tips", resourceCulture);
             }
         }
     }

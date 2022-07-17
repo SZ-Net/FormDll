@@ -108,11 +108,7 @@ namespace DLLClientLink.Forms
         {
             txtMsgBox.Clear();
         }
-        private void menuMsgBoxAddRoutingRule_Click(object sender, EventArgs e)
-        {
 
-
-        }
 
         private void txtMsgBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -126,16 +122,9 @@ namespace DLLClientLink.Forms
                     case Keys.C:
                         menuMsgBoxCopy_Click(null, null);
                         break;
-                    case Keys.V:
-                        menuMsgBoxAddRoutingRule_Click(null, null);
-                        break;
 
                 }
             }
-
-        }
-        private void menuMsgBoxFilter_Click(object sender, EventArgs e)
-        {
 
         }
 

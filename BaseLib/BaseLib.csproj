@@ -107,6 +107,9 @@
     <EmbeddedResource Include="fmLogin.resx">
       <DependentUpon>fmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fmLogin.zh-Hans.resx">
+      <DependentUpon>fmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

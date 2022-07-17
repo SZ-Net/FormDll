@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using BaseLib;
 using BaseLib.Tools;
 using DLLClientLink.Properties;
+using DLLClientLink.Resx;
 using DLLClientLink.Tool;
 
 namespace DLLClientLink
@@ -491,10 +492,14 @@ namespace DLLClientLink
         // 托盘菜单-退出
         private void tsMenuNotifyExit_Click(object sender, EventArgs e)
         {
-            MdiFormClose();
-
-            Application.ExitThread();
-            Application.Exit();
+           // DialogResult result = MessageBox.Show("确定要退出系统嘛？", "温馨提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (UI.ShowYesNo(ResUI.ExitSystem, ResUI.Tips) == DialogResult.OK)
+            {
+                MdiFormClose();
+                Application.ExitThread();
+                Application.Exit();
+            }
+            
         }
 
 

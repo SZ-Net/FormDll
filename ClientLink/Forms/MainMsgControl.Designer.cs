@@ -35,19 +35,9 @@
             this.menuMsgBoxCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMsgBoxCopyAll = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMsgBoxClear = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMsgBoxAddRoutingRule = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMsgBoxFilter = new System.Windows.Forms.ToolStripMenuItem();
             this.gbMsgTitle = new System.Windows.Forms.GroupBox();
-            this.ssMain = new System.Windows.Forms.StatusStrip();
-            this.toolSslInboundInfo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolSslBlank1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolSslRoutingRule = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolSslBlank2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolSslServerSpeed = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolSslBlank4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.cmsMsgBox.SuspendLayout();
             this.gbMsgTitle.SuspendLayout();
-            this.ssMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtMsgBox
@@ -64,8 +54,9 @@
             this.txtMsgBox.Name = "txtMsgBox";
             this.txtMsgBox.ReadOnly = true;
             this.txtMsgBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMsgBox.Size = new System.Drawing.Size(900, 275);
+            this.txtMsgBox.Size = new System.Drawing.Size(900, 301);
             this.txtMsgBox.TabIndex = 4;
+            this.txtMsgBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMsgBox_KeyDown);
             // 
             // cmsMsgBox
             // 
@@ -74,52 +65,41 @@
             this.menuMsgBoxSelectAll,
             this.menuMsgBoxCopy,
             this.menuMsgBoxCopyAll,
-            this.menuMsgBoxClear,
-            this.menuMsgBoxAddRoutingRule,
-            this.menuMsgBoxFilter});
+            this.menuMsgBoxClear});
             this.cmsMsgBox.Name = "cmsMsgBox";
-            this.cmsMsgBox.Size = new System.Drawing.Size(269, 148);
+            this.cmsMsgBox.Size = new System.Drawing.Size(209, 100);
             // 
             // menuMsgBoxSelectAll
             // 
             this.menuMsgBoxSelectAll.Name = "menuMsgBoxSelectAll";
             this.menuMsgBoxSelectAll.Size = new System.Drawing.Size(268, 24);
             this.menuMsgBoxSelectAll.Text = "Select All (Ctrl+A)";
+            this.menuMsgBoxSelectAll.Click += new System.EventHandler(this.menuMsgBoxSelectAll_Click);
             // 
             // menuMsgBoxCopy
             // 
             this.menuMsgBoxCopy.Name = "menuMsgBoxCopy";
             this.menuMsgBoxCopy.Size = new System.Drawing.Size(268, 24);
             this.menuMsgBoxCopy.Text = "Copy (Ctrl+C)";
+            this.menuMsgBoxCopy.Click += new System.EventHandler(this.menuMsgBoxCopy_Click);
             // 
             // menuMsgBoxCopyAll
             // 
             this.menuMsgBoxCopyAll.Name = "menuMsgBoxCopyAll";
             this.menuMsgBoxCopyAll.Size = new System.Drawing.Size(268, 24);
             this.menuMsgBoxCopyAll.Text = "Copy All";
+            this.menuMsgBoxCopyAll.Click += new System.EventHandler(this.menuMsgBoxCopyAll_Click);
             // 
             // menuMsgBoxClear
             // 
             this.menuMsgBoxClear.Name = "menuMsgBoxClear";
             this.menuMsgBoxClear.Size = new System.Drawing.Size(268, 24);
             this.menuMsgBoxClear.Text = "Clear All";
-            // 
-            // menuMsgBoxAddRoutingRule
-            // 
-            this.menuMsgBoxAddRoutingRule.Name = "menuMsgBoxAddRoutingRule";
-            this.menuMsgBoxAddRoutingRule.Size = new System.Drawing.Size(268, 24);
-            this.menuMsgBoxAddRoutingRule.Text = "Add Routing Rule (Ctrl+V)";
-            // 
-            // menuMsgBoxFilter
-            // 
-            this.menuMsgBoxFilter.Name = "menuMsgBoxFilter";
-            this.menuMsgBoxFilter.Size = new System.Drawing.Size(268, 24);
-            this.menuMsgBoxFilter.Text = "Set message filters";
+            this.menuMsgBoxClear.Click += new System.EventHandler(this.menuMsgBoxClear_Click);
             // 
             // gbMsgTitle
             // 
             this.gbMsgTitle.Controls.Add(this.txtMsgBox);
-            this.gbMsgTitle.Controls.Add(this.ssMain);
             this.gbMsgTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbMsgTitle.Location = new System.Drawing.Point(0, 0);
             this.gbMsgTitle.Margin = new System.Windows.Forms.Padding(4);
@@ -129,63 +109,6 @@
             this.gbMsgTitle.TabIndex = 6;
             this.gbMsgTitle.TabStop = false;
             this.gbMsgTitle.Text = "Informations";
-            // 
-            // ssMain
-            // 
-            this.ssMain.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.ssMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolSslInboundInfo,
-            this.toolSslBlank1,
-            this.toolSslRoutingRule,
-            this.toolSslBlank2,
-            this.toolSslServerSpeed,
-            this.toolSslBlank4});
-            this.ssMain.Location = new System.Drawing.Point(4, 297);
-            this.ssMain.Name = "ssMain";
-            this.ssMain.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.ssMain.Size = new System.Drawing.Size(900, 26);
-            this.ssMain.TabIndex = 0;
-            this.ssMain.Text = "statusStrip1";
-            // 
-            // toolSslInboundInfo
-            // 
-            this.toolSslInboundInfo.Name = "toolSslInboundInfo";
-            this.toolSslInboundInfo.Size = new System.Drawing.Size(98, 20);
-            this.toolSslInboundInfo.Text = "InboundInfo";
-            // 
-            // toolSslBlank1
-            // 
-            this.toolSslBlank1.Font = new System.Drawing.Font("微软雅黑", 8F);
-            this.toolSslBlank1.Name = "toolSslBlank1";
-            this.toolSslBlank1.Size = new System.Drawing.Size(12, 20);
-            this.toolSslBlank1.Spring = true;
-            // 
-            // toolSslRoutingRule
-            // 
-            this.toolSslRoutingRule.Name = "toolSslRoutingRule";
-            this.toolSslRoutingRule.Size = new System.Drawing.Size(0, 20);
-            // 
-            // toolSslBlank2
-            // 
-            this.toolSslBlank2.Name = "toolSslBlank2";
-            this.toolSslBlank2.Size = new System.Drawing.Size(12, 20);
-            this.toolSslBlank2.Spring = true;
-            // 
-            // toolSslServerSpeed
-            // 
-            this.toolSslServerSpeed.AutoSize = false;
-            this.toolSslServerSpeed.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolSslServerSpeed.Font = new System.Drawing.Font("微软雅黑", 8F);
-            this.toolSslServerSpeed.Name = "toolSslServerSpeed";
-            this.toolSslServerSpeed.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolSslServerSpeed.Size = new System.Drawing.Size(250, 20);
-            this.toolSslServerSpeed.Text = "SPEED Disabled";
-            this.toolSslServerSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolSslBlank4
-            // 
-            this.toolSslBlank4.Name = "toolSslBlank4";
-            this.toolSslBlank4.Size = new System.Drawing.Size(0, 0);
             // 
             // MainMsgControl
             // 
@@ -197,8 +120,6 @@
             this.cmsMsgBox.ResumeLayout(false);
             this.gbMsgTitle.ResumeLayout(false);
             this.gbMsgTitle.PerformLayout();
-            this.ssMain.ResumeLayout(false);
-            this.ssMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -211,15 +132,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuMsgBoxCopy;
         private System.Windows.Forms.ToolStripMenuItem menuMsgBoxCopyAll;
         private System.Windows.Forms.ToolStripMenuItem menuMsgBoxClear;
-        private System.Windows.Forms.ToolStripMenuItem menuMsgBoxAddRoutingRule;
-        private System.Windows.Forms.ToolStripMenuItem menuMsgBoxFilter;
         private System.Windows.Forms.GroupBox gbMsgTitle;
-        private System.Windows.Forms.StatusStrip ssMain;
-        private System.Windows.Forms.ToolStripStatusLabel toolSslInboundInfo;
-        private System.Windows.Forms.ToolStripStatusLabel toolSslBlank1;
-        private System.Windows.Forms.ToolStripStatusLabel toolSslRoutingRule;
-        private System.Windows.Forms.ToolStripStatusLabel toolSslBlank2;
-        private System.Windows.Forms.ToolStripStatusLabel toolSslServerSpeed;
-        private System.Windows.Forms.ToolStripStatusLabel toolSslBlank4;
     }
 }

@@ -17,9 +17,9 @@ namespace DLLClientLink
             MessageBox.Show(msg, "ClientLink", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public static DialogResult ShowYesNo(string msg)
+        public static DialogResult ShowYesNo(string msg,string tip)
         {
-            return MessageBox.Show(msg, "ClientLink", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return MessageBox.Show(msg, tip, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
     }
 
