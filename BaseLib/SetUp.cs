@@ -471,7 +471,7 @@ namespace BaseLib
 		}
 
 		private void DispAP(bool update, string Loca, int index)
-		{
+		{ 
 		}
 
 		private void tbLine_TextChanged(object sender, EventArgs e)

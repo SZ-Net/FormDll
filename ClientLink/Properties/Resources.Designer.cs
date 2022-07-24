@@ -103,6 +103,16 @@ namespace DLLClientLink.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap close_black {
+            get {
+                object obj = ResourceManager.GetObject("close_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Expander {
             get {
                 object obj = ResourceManager.GetObject("Expander", resourceCulture);
@@ -146,6 +156,16 @@ namespace DLLClientLink.Properties {
         internal static System.Drawing.Bitmap show {
             get {
                 object obj = ResourceManager.GetObject("show", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap treeIcon {
+            get {
+                object obj = ResourceManager.GetObject("treeIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

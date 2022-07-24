@@ -71,10 +71,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\StringExtension.cs" />
-    <Compile Include="ClientMain.cs">
+    <Compile Include="Forms\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientMain.Designer.cs">
+    <Compile Include="Forms\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClientMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClientMain.Designer.cs">
       <DependentUpon>ClientMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainMsgControl.cs">
@@ -83,7 +89,18 @@
     <Compile Include="Forms\MainMsgControl.Designer.cs">
       <DependentUpon>MainMsgControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SetUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SetUp.Designer.cs">
+      <DependentUpon>SetUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalData.cs" />
+    <Compile Include="Handler\ConfigHandler.cs" />
+    <Compile Include="Mode\Config.cs" />
+    <Compile Include="Mode\ConnectionType.cs" />
+    <Compile Include="Mode\LanguageType.cs" />
+    <Compile Include="Mode\LoginType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resx\ResUI.Designer.cs">
@@ -91,17 +108,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ResUI.resx</DependentUpon>
     </Compile>
+    <Compile Include="Tool\CheckDll.cs" />
     <Compile Include="Tool\UI.cs" />
     <Compile Include="Tool\Utils.cs" />
-    <EmbeddedResource Include="ClientMain.resx">
+    <EmbeddedResource Include="Forms\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClientMain.resx">
       <DependentUpon>ClientMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClientMain.zh-Hans.resx">
+    <EmbeddedResource Include="Forms\ClientMain.zh-Hans.resx">
       <DependentUpon>ClientMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMsgControl.resx">
       <DependentUpon>MainMsgControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SetUp.resx">
+      <DependentUpon>SetUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,11 +162,10 @@
     <Content Include="Image\bg1.jpg" />
     <Content Include="Image\bg2.jpg" />
     <Content Include="Image\dll.png" />
-    <Content Include="Image\tv1.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Image\tv1.png" />
     <Content Include="Resources\Authority.png" />
     <Content Include="Resources\change.png" />
+    <None Include="Resources\close_black.png" />
     <None Include="Resources\show.png" />
     <None Include="Resources\query.png" />
     <None Include="Resources\search.png" />

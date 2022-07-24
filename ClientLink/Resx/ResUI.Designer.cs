@@ -70,6 +70,24 @@ namespace DLLClientLink.Resx {
         }
         
         /// <summary>
+        ///   查找类似 operation failed, please check and retry 的本地化字符串。
+        /// </summary>
+        internal static string OperationFailed {
+            get {
+                return ResourceManager.GetString("OperationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Operation success 的本地化字符串。
+        /// </summary>
+        internal static string OperationSuccess {
+            get {
+                return ResourceManager.GetString("OperationSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Tips 的本地化字符串。
         /// </summary>
         internal static string Tips {

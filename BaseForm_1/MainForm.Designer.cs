@@ -1,6 +1,6 @@
 ﻿namespace BaseForm_1
 {
-    partial class Main
+    partial class MainForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -36,8 +36,8 @@
             // 
             // Footer
             // 
-            this.Footer.Location = new System.Drawing.Point(0, 336);
-            this.Footer.Size = new System.Drawing.Size(800, 114);
+            this.Footer.Location = new System.Drawing.Point(0, 307);
+            this.Footer.Size = new System.Drawing.Size(800, 143);
             // 
             // Body
             // 
@@ -68,16 +68,16 @@
             this.lvServers.HideSelection = false;
             this.lvServers.Location = new System.Drawing.Point(142, 70);
             this.lvServers.Name = "lvServers";
-            this.lvServers.Size = new System.Drawing.Size(654, 263);
+            this.lvServers.Size = new System.Drawing.Size(654, 234);
             this.lvServers.TabIndex = 1;
             this.lvServers.UseCompatibleStateImageBehavior = false;
             // 
-            // Main
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Main";
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.Shown += new System.EventHandler(this.Main_Shown);
             this.Body.ResumeLayout(false);

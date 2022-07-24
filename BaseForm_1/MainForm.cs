@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace BaseForm_1
 {
-    public partial class Main : BaseForm
+    public partial class MainForm : BaseForm
     {
-        public Main()
+        public MainForm()
         {
             InitializeComponent();
         }

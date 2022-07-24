@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 
 namespace FtpWork
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
         FTPService fTPService;
         Thread uploadThread;
@@ -26,7 +26,7 @@ namespace FtpWork
         ProgressBar currentProgress;
 
 
-        public Main()
+        public MainForm()
         {
             InitializeComponent();
 

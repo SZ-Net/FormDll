@@ -8,13 +8,13 @@ using System.Windows.Forms;
 
 namespace WinRemoteDesktop
 {
-    public partial class Main : Form
+    public partial class MainForm : Form
     {
         private AxMsRdpClient7NotSafeForScripting axMsRdpc = null;
         private bool isFullScreen = false;
         private List<string> axMsRdpcArray = null;
 
-        public Main()
+        public MainForm()
         {
             InitializeComponent();
             axMsRdpcArray = new List<string>();

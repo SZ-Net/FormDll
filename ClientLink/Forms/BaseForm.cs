@@ -1,4 +1,4 @@
-﻿using BaseLib;
+﻿using DLLClientLink.Mode;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,13 +9,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BaseForm_2
+namespace DLLClientLink.Forms
 {
-    public partial class Main : BaseForm1
+    public partial class BaseForm : Form
     {
-        public Main()
+        protected static Config config;
+        public BaseForm()
         {
             InitializeComponent();
+            LoadCustom();
+        }
+
+        private void LoadCustom()
+        {
+            
         }
     }
 }

@@ -65,7 +65,6 @@
     <Compile Include="Base\ListViewFlickerFree.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Tools\CheckDll.cs" />
     <Compile Include="fmLogin.cs">
       <SubType>Form</SubType>
     </Compile>

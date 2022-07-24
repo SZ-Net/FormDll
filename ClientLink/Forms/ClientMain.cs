@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BaseLib;
+﻿using BaseLib;
 using BaseLib.Tools;
+using DLLClientLink.Handler;
 using DLLClientLink.Properties;
 using DLLClientLink.Resx;
 using DLLClientLink.Tool;
+using System;
+using System.Collections;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Net;
+using System.Net.Sockets;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace DLLClientLink
 {
-    public partial class ClientMain : Form
+    public partial class ClientMain : DLLClientLink.Forms.BaseForm
     {
-        private string dllLocation; //dll path
+       
         private int lx;
         private int sx;
         private bool flag = false;
@@ -44,12 +39,14 @@ namespace DLLClientLink
             IsMdiContainer = true;
             WindowState = FormWindowState.Maximized;
             Text = Utils.GetVersion();
-            dllLocation = Environment.CurrentDirectory + "\\DllLib\\";
+           
 
         }
         /// <summary>
         ///  C# Winform 窗体打开时闪烁问题
         ///  主要原因是对于Winform来说，一个窗体中绘制多个控件是很花时间的。特别是默认的按钮控件。Form先画出背景，然后留下控件需要的“洞”。如果控件的背景是透明的，那么这些“洞”就会先以白色或黑色出现，然后每个控件的“洞”再被填充，就是我们所看到的闪烁，在WinForm中没有现成的解决方案。设置控件双缓冲并不能解决它，因为它只适用于自己，而不是复合控件集。
+        ///  protected 受保护的，只有本类及继承的子类可以访问。
+        ///  override 复写, 对父类中的相同名称的方法重新其修改内容。
         /// </summary>
         protected override CreateParams CreateParams
         {
@@ -62,14 +59,22 @@ namespace DLLClientLink
         }
         private void ClientMain_Load(object sender, EventArgs e)
         {
+            if (ConfigHandler.LoadConfig(ref config) != 0)
+            {
+                UI.ShowWarning($"Loading GUI configuration file is abnormal,please restart the application{Environment.NewLine}加载GUI配置文件异常,请重启应用");
+                Environment.Exit(0);
+                return;
+            }
+
+
             this.LocalIP.Text = "IP: " + GetClientIP();
             timer = new Timer();
             timer.Interval = 1000;
-            timer.Tick += Timer_Tick;
+            //timer.Tick += Timer_Tick;
             timer.Start();
 
             division(25, 0);
-            DllToLoadMenu(dllLocation);
+            DllToLoadMenu(GlobalData.dllPath);
            // ShowForm("HslCommunicationDemo", "FormSelect");
         }
 
@@ -119,7 +124,7 @@ namespace DLLClientLink
         {
             int count = menuIDList.Count;
             this.dllCount.Text = "Dll Count: " + menuIDList.Count.ToString();
-            ImgList.Images.Add(Image.FromFile(Environment.CurrentDirectory + "\\Image\\" + @"\tv1.png"));
+            ImgList.Images.Add(Resources.treeIcon);
             
             ImgList.ImageSize = new Size(22,22);
             tView.ImageList = ImgList;
@@ -337,15 +342,14 @@ namespace DLLClientLink
             Assembly assembly = null;
             bool flag = false;
             string treeSelectText = tView.SelectedNode.Text;
-            string  ClasseName = "Main";
-            string PackagePath = ((dllLocation.LastIndexOf("\\") <= 2) ? (dllLocation + "\\" + treeSelectText + ".dll") : (dllLocation + treeSelectText + ".dll"));
+            string PackagePath = ((GlobalData.dllPath.LastIndexOf("\\") <= 2) ? (GlobalData.dllPath + "\\" + treeSelectText + ".dll") : (GlobalData.dllPath + treeSelectText + ".dll"));
             
             Form[] mdiChildren = MdiChildren;
             Type type = null;
             foreach (Form form in mdiChildren)
             {
                 type = form.GetType();
-                if (type.Namespace == treeSelectText && type.Name == "Main")
+                if (type.Namespace == treeSelectText && type.Name == GlobalData.TypeName)
                 {
                     if (form.WindowState == FormWindowState.Minimized)
                     {
@@ -374,7 +378,7 @@ namespace DLLClientLink
                 // Log.WriteLog(Log.WriteExceptionMsg(e, string.Empty));
                 GlobalData.textLogger.WriteText(e.ToString());
             }
-            Type type2 = assembly.GetType(treeSelectText + "." + ClasseName);
+            Type type2 = assembly.GetType(treeSelectText + "." + GlobalData.TypeName);
             if (type2 != null)
             {
                 try
@@ -492,8 +496,7 @@ namespace DLLClientLink
         // 托盘菜单-退出
         private void tsMenuNotifyExit_Click(object sender, EventArgs e)
         {
-           // DialogResult result = MessageBox.Show("确定要退出系统嘛？", "温馨提示：", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if (UI.ShowYesNo(ResUI.ExitSystem, ResUI.Tips) == DialogResult.OK)
+            if (UI.ShowYesNo(ResUI.ExitSystem, ResUI.Tips) == DialogResult.Yes)
             {
                 MdiFormClose();
                 Application.ExitThread();

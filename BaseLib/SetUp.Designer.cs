@@ -47,6 +47,9 @@ namespace BaseLib
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.tabPage_Admin = new System.Windows.Forms.TabPage();
             this.tabPage_BaseConfig = new System.Windows.Forms.TabPage();
+            this.btBSave = new System.Windows.Forms.Button();
+            this.btBCancel = new System.Windows.Forms.Button();
+            this.btBModify = new System.Windows.Forms.Button();
             this.gbAdvance = new System.Windows.Forms.GroupBox();
             this.cbLoadInMemory = new System.Windows.Forms.ComboBox();
             this.cbCheckDomain = new System.Windows.Forms.ComboBox();
@@ -71,9 +74,12 @@ namespace BaseLib
             this.lbLine = new System.Windows.Forms.Label();
             this.lbStation = new System.Windows.Forms.Label();
             this.tabPage_DBConfig = new System.Windows.Forms.TabPage();
-            this.btBModify = new System.Windows.Forms.Button();
-            this.btBCancel = new System.Windows.Forms.Button();
-            this.btBSave = new System.Windows.Forms.Button();
+            this.lbPassword = new System.Windows.Forms.Label();
+            this.btDSave = new System.Windows.Forms.Button();
+            this.btDCancel = new System.Windows.Forms.Button();
+            this.btDDele = new System.Windows.Forms.Button();
+            this.btDAdd = new System.Windows.Forms.Button();
+            this.btDMod = new System.Windows.Forms.Button();
             this.lbDBList = new System.Windows.Forms.Label();
             this.lbxDB = new System.Windows.Forms.ListBox();
             this.tbPWD = new System.Windows.Forms.TextBox();
@@ -87,12 +93,6 @@ namespace BaseLib
             this.lbPort = new System.Windows.Forms.Label();
             this.lbHost = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
-            this.btDDele = new System.Windows.Forms.Button();
-            this.btDAdd = new System.Windows.Forms.Button();
-            this.btDMod = new System.Windows.Forms.Button();
-            this.btDSave = new System.Windows.Forms.Button();
-            this.btDCancel = new System.Windows.Forms.Button();
-            this.lbPassword = new System.Windows.Forms.Label();
             this.pnlTop.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPage_Admin.SuspendLayout();
@@ -112,7 +112,7 @@ namespace BaseLib
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(682, 80);
+            this.pnlTop.Size = new System.Drawing.Size(682, 58);
             this.pnlTop.TabIndex = 67;
             this.pnlTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseDown);
             this.pnlTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTop_MouseMove);
@@ -121,14 +121,15 @@ namespace BaseLib
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Transparent;
             this.button1.Image = global::BaseLib.Properties.Resources.close_black;
-            this.button1.Location = new System.Drawing.Point(609, 21);
+            this.button1.Location = new System.Drawing.Point(620, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(46, 42);
+            this.button1.Size = new System.Drawing.Size(62, 58);
             this.button1.TabIndex = 103;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -138,17 +139,17 @@ namespace BaseLib
             this.SetUpTitle.AutoSize = true;
             this.SetUpTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.SetUpTitle.ForeColor = System.Drawing.Color.White;
-            this.SetUpTitle.Location = new System.Drawing.Point(3, 24);
+            this.SetUpTitle.Location = new System.Drawing.Point(12, 11);
             this.SetUpTitle.Name = "SetUpTitle";
-            this.SetUpTitle.Size = new System.Drawing.Size(83, 29);
+            this.SetUpTitle.Size = new System.Drawing.Size(97, 29);
             this.SetUpTitle.TabIndex = 0;
-            this.SetUpTitle.Text = "SetUp";
+            this.SetUpTitle.Text = "SetUp1";
             // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox1.Location = new System.Drawing.Point(141, 168);
+            this.textBox1.Location = new System.Drawing.Point(141, 190);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -160,7 +161,7 @@ namespace BaseLib
             this.comboBox17.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.comboBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBox17.FormattingEnabled = true;
-            this.comboBox17.Location = new System.Drawing.Point(141, 43);
+            this.comboBox17.Location = new System.Drawing.Point(141, 65);
             this.comboBox17.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.comboBox17.Name = "comboBox17";
             this.comboBox17.Size = new System.Drawing.Size(143, 28);
@@ -172,11 +173,11 @@ namespace BaseLib
             this.label47.AutoSize = true;
             this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label47.Location = new System.Drawing.Point(66, 43);
+            this.label47.Location = new System.Drawing.Point(66, 65);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(57, 20);
+            this.label47.Size = new System.Drawing.Size(45, 20);
             this.label47.TabIndex = 180;
-            this.label47.Text = "권한그룹";
+            this.label47.Text = "User";
             // 
             // label51
             // 
@@ -184,11 +185,11 @@ namespace BaseLib
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label51.ForeColor = System.Drawing.Color.Black;
-            this.label51.Location = new System.Drawing.Point(317, 99);
+            this.label51.Location = new System.Drawing.Point(319, 121);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(45, 20);
             this.label51.TabIndex = 179;
-            this.label51.Text = "수정일";
+            this.label51.Text = "Data";
             // 
             // label2
             // 
@@ -196,17 +197,17 @@ namespace BaseLib
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(317, 47);
+            this.label2.Location = new System.Drawing.Point(317, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 20);
+            this.label2.Size = new System.Drawing.Size(55, 20);
             this.label2.TabIndex = 184;
-            this.label2.Text = "그룹명";
+            this.label2.Text = "e-Mail";
             // 
             // textBox4
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox4.Location = new System.Drawing.Point(394, 43);
+            this.textBox4.Location = new System.Drawing.Point(394, 65);
             this.textBox4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(143, 26);
@@ -218,17 +219,17 @@ namespace BaseLib
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(66, 100);
+            this.label3.Location = new System.Drawing.Point(34, 122);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 20);
+            this.label3.Size = new System.Drawing.Size(100, 20);
             this.label3.TabIndex = 186;
-            this.label3.Text = "사용유무";
+            this.label3.Text = "Auto Submit";
             // 
             // textBox2
             // 
             this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textBox2.Location = new System.Drawing.Point(394, 99);
+            this.textBox2.Location = new System.Drawing.Point(394, 121);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
@@ -240,7 +241,7 @@ namespace BaseLib
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(141, 100);
+            this.comboBox1.Location = new System.Drawing.Point(141, 122);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(143, 28);
@@ -252,11 +253,11 @@ namespace BaseLib
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(66, 168);
+            this.label4.Location = new System.Drawing.Point(62, 190);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 20);
+            this.label4.Size = new System.Drawing.Size(67, 20);
             this.label4.TabIndex = 190;
-            this.label4.Text = "설명";
+            this.label4.Text = "Content";
             // 
             // btnCancel
             // 
@@ -266,7 +267,7 @@ namespace BaseLib
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(456, 316);
+            this.btnCancel.Location = new System.Drawing.Point(456, 338);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 40);
@@ -282,7 +283,7 @@ namespace BaseLib
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.Location = new System.Drawing.Point(359, 316);
+            this.btnSubmit.Location = new System.Drawing.Point(359, 338);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(90, 40);
@@ -297,10 +298,10 @@ namespace BaseLib
             this.tabControlMain.Controls.Add(this.tabPage_DBConfig);
             this.tabControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.tabControlMain.Location = new System.Drawing.Point(0, 80);
+            this.tabControlMain.Location = new System.Drawing.Point(0, 58);
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
-            this.tabControlMain.Size = new System.Drawing.Size(682, 478);
+            this.tabControlMain.Size = new System.Drawing.Size(682, 500);
             this.tabControlMain.TabIndex = 193;
             // 
             // tabPage_Admin
@@ -321,7 +322,7 @@ namespace BaseLib
             this.tabPage_Admin.Location = new System.Drawing.Point(4, 27);
             this.tabPage_Admin.Name = "tabPage_Admin";
             this.tabPage_Admin.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Admin.Size = new System.Drawing.Size(674, 447);
+            this.tabPage_Admin.Size = new System.Drawing.Size(674, 469);
             this.tabPage_Admin.TabIndex = 0;
             this.tabPage_Admin.Text = "Admin";
             // 
@@ -337,9 +338,60 @@ namespace BaseLib
             this.tabPage_BaseConfig.Location = new System.Drawing.Point(4, 27);
             this.tabPage_BaseConfig.Name = "tabPage_BaseConfig";
             this.tabPage_BaseConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_BaseConfig.Size = new System.Drawing.Size(674, 447);
+            this.tabPage_BaseConfig.Size = new System.Drawing.Size(674, 469);
             this.tabPage_BaseConfig.TabIndex = 1;
             this.tabPage_BaseConfig.Text = "BaseConfig";
+            // 
+            // btBSave
+            // 
+            this.btBSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btBSave.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btBSave.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btBSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btBSave.ForeColor = System.Drawing.Color.White;
+            this.btBSave.Location = new System.Drawing.Point(445, 407);
+            this.btBSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btBSave.Name = "btBSave";
+            this.btBSave.Size = new System.Drawing.Size(90, 40);
+            this.btBSave.TabIndex = 194;
+            this.btBSave.Text = "Save";
+            this.btBSave.UseVisualStyleBackColor = false;
+            this.btBSave.Click += new System.EventHandler(this.btBSave_Click);
+            // 
+            // btBCancel
+            // 
+            this.btBCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btBCancel.BackColor = System.Drawing.SystemColors.GrayText;
+            this.btBCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.GrayText;
+            this.btBCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btBCancel.ForeColor = System.Drawing.Color.White;
+            this.btBCancel.Location = new System.Drawing.Point(541, 407);
+            this.btBCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btBCancel.Name = "btBCancel";
+            this.btBCancel.Size = new System.Drawing.Size(90, 40);
+            this.btBCancel.TabIndex = 193;
+            this.btBCancel.Text = "Cancel";
+            this.btBCancel.UseVisualStyleBackColor = false;
+            this.btBCancel.Click += new System.EventHandler(this.btBCancel_Click);
+            // 
+            // btBModify
+            // 
+            this.btBModify.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btBModify.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btBModify.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btBModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btBModify.ForeColor = System.Drawing.Color.White;
+            this.btBModify.Location = new System.Drawing.Point(349, 406);
+            this.btBModify.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btBModify.Name = "btBModify";
+            this.btBModify.Size = new System.Drawing.Size(90, 40);
+            this.btBModify.TabIndex = 192;
+            this.btBModify.Text = "Modify";
+            this.btBModify.UseVisualStyleBackColor = false;
+            this.btBModify.Click += new System.EventHandler(this.btBModify_Click);
             // 
             // gbAdvance
             // 
@@ -636,256 +688,19 @@ namespace BaseLib
             this.tabPage_DBConfig.Location = new System.Drawing.Point(4, 27);
             this.tabPage_DBConfig.Name = "tabPage_DBConfig";
             this.tabPage_DBConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_DBConfig.Size = new System.Drawing.Size(674, 447);
+            this.tabPage_DBConfig.Size = new System.Drawing.Size(674, 469);
             this.tabPage_DBConfig.TabIndex = 2;
             this.tabPage_DBConfig.Text = "DBConfig";
             // 
-            // btBModify
+            // lbPassword
             // 
-            this.btBModify.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btBModify.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btBModify.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.btBModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btBModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btBModify.ForeColor = System.Drawing.Color.White;
-            this.btBModify.Location = new System.Drawing.Point(349, 384);
-            this.btBModify.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btBModify.Name = "btBModify";
-            this.btBModify.Size = new System.Drawing.Size(90, 40);
-            this.btBModify.TabIndex = 192;
-            this.btBModify.Text = "Modify";
-            this.btBModify.UseVisualStyleBackColor = false;
-            this.btBModify.Click += new System.EventHandler(this.btBModify_Click);
-            // 
-            // btBCancel
-            // 
-            this.btBCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btBCancel.BackColor = System.Drawing.SystemColors.GrayText;
-            this.btBCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.GrayText;
-            this.btBCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btBCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btBCancel.ForeColor = System.Drawing.Color.White;
-            this.btBCancel.Location = new System.Drawing.Point(541, 385);
-            this.btBCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btBCancel.Name = "btBCancel";
-            this.btBCancel.Size = new System.Drawing.Size(90, 40);
-            this.btBCancel.TabIndex = 193;
-            this.btBCancel.Text = "Cancel";
-            this.btBCancel.UseVisualStyleBackColor = false;
-            this.btBCancel.Click += new System.EventHandler(this.btBCancel_Click);
-            // 
-            // btBSave
-            // 
-            this.btBSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btBSave.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btBSave.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.btBSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btBSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btBSave.ForeColor = System.Drawing.Color.White;
-            this.btBSave.Location = new System.Drawing.Point(445, 385);
-            this.btBSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btBSave.Name = "btBSave";
-            this.btBSave.Size = new System.Drawing.Size(90, 40);
-            this.btBSave.TabIndex = 194;
-            this.btBSave.Text = "Save";
-            this.btBSave.UseVisualStyleBackColor = false;
-            this.btBSave.Click += new System.EventHandler(this.btBSave_Click);
-            // 
-            // lbDBList
-            // 
-            this.lbDBList.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbDBList.AutoSize = true;
-            this.lbDBList.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Underline);
-            this.lbDBList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lbDBList.Location = new System.Drawing.Point(58, 28);
-            this.lbDBList.Name = "lbDBList";
-            this.lbDBList.Size = new System.Drawing.Size(88, 23);
-            this.lbDBList.TabIndex = 54;
-            this.lbDBList.Text = "DB List:";
-            // 
-            // lbxDB
-            // 
-            this.lbxDB.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbxDB.FormattingEnabled = true;
-            this.lbxDB.ItemHeight = 18;
-            this.lbxDB.Location = new System.Drawing.Point(61, 60);
-            this.lbxDB.Name = "lbxDB";
-            this.lbxDB.Size = new System.Drawing.Size(242, 256);
-            this.lbxDB.TabIndex = 53;
-            this.lbxDB.SelectedIndexChanged += new System.EventHandler(this.lbDB_SelectedIndexChanged);
-            // 
-            // tbPWD
-            // 
-            this.tbPWD.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbPWD.BackColor = System.Drawing.SystemColors.Window;
-            this.tbPWD.Font = new System.Drawing.Font("Verdana", 10F);
-            this.tbPWD.Location = new System.Drawing.Point(419, 268);
-            this.tbPWD.Name = "tbPWD";
-            this.tbPWD.ReadOnly = true;
-            this.tbPWD.Size = new System.Drawing.Size(172, 28);
-            this.tbPWD.TabIndex = 47;
-            this.tbPWD.UseSystemPasswordChar = true;
-            // 
-            // tbUserName
-            // 
-            this.tbUserName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbUserName.BackColor = System.Drawing.SystemColors.Window;
-            this.tbUserName.Font = new System.Drawing.Font("Verdana", 10F);
-            this.tbUserName.Location = new System.Drawing.Point(419, 227);
-            this.tbUserName.Name = "tbUserName";
-            this.tbUserName.ReadOnly = true;
-            this.tbUserName.Size = new System.Drawing.Size(172, 28);
-            this.tbUserName.TabIndex = 45;
-            // 
-            // tbSID
-            // 
-            this.tbSID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbSID.BackColor = System.Drawing.SystemColors.Window;
-            this.tbSID.Font = new System.Drawing.Font("Verdana", 10F);
-            this.tbSID.Location = new System.Drawing.Point(419, 186);
-            this.tbSID.Name = "tbSID";
-            this.tbSID.ReadOnly = true;
-            this.tbSID.Size = new System.Drawing.Size(172, 28);
-            this.tbSID.TabIndex = 43;
-            // 
-            // tbPort
-            // 
-            this.tbPort.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbPort.BackColor = System.Drawing.SystemColors.Window;
-            this.tbPort.Font = new System.Drawing.Font("Verdana", 10F);
-            this.tbPort.Location = new System.Drawing.Point(419, 145);
-            this.tbPort.Name = "tbPort";
-            this.tbPort.ReadOnly = true;
-            this.tbPort.Size = new System.Drawing.Size(172, 28);
-            this.tbPort.TabIndex = 41;
-            // 
-            // tbHost
-            // 
-            this.tbHost.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbHost.BackColor = System.Drawing.SystemColors.Window;
-            this.tbHost.Font = new System.Drawing.Font("Verdana", 10F);
-            this.tbHost.Location = new System.Drawing.Point(419, 104);
-            this.tbHost.Name = "tbHost";
-            this.tbHost.ReadOnly = true;
-            this.tbHost.Size = new System.Drawing.Size(172, 28);
-            this.tbHost.TabIndex = 39;
-            // 
-            // tbName
-            // 
-            this.tbName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbName.BackColor = System.Drawing.SystemColors.Window;
-            this.tbName.Font = new System.Drawing.Font("Verdana", 10F);
-            this.tbName.Location = new System.Drawing.Point(419, 63);
-            this.tbName.Name = "tbName";
-            this.tbName.ReadOnly = true;
-            this.tbName.Size = new System.Drawing.Size(172, 28);
-            this.tbName.TabIndex = 37;
-            // 
-            // lbUserName
-            // 
-            this.lbUserName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbUserName.AutoSize = true;
-            this.lbUserName.Font = new System.Drawing.Font("Verdana", 10F);
-            this.lbUserName.Location = new System.Drawing.Point(351, 231);
-            this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(55, 20);
-            this.lbUserName.TabIndex = 44;
-            this.lbUserName.Text = "User:";
-            // 
-            // lbSID
-            // 
-            this.lbSID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbSID.AutoSize = true;
-            this.lbSID.Font = new System.Drawing.Font("Verdana", 10F);
-            this.lbSID.Location = new System.Drawing.Point(357, 189);
-            this.lbSID.Name = "lbSID";
-            this.lbSID.Size = new System.Drawing.Size(50, 20);
-            this.lbSID.TabIndex = 42;
-            this.lbSID.Text = "SID:";
-            // 
-            // lbPort
-            // 
-            this.lbPort.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbPort.AutoSize = true;
-            this.lbPort.Font = new System.Drawing.Font("Verdana", 10F);
-            this.lbPort.Location = new System.Drawing.Point(355, 148);
-            this.lbPort.Name = "lbPort";
-            this.lbPort.Size = new System.Drawing.Size(51, 20);
-            this.lbPort.TabIndex = 40;
-            this.lbPort.Text = "Port:";
-            // 
-            // lbHost
-            // 
-            this.lbHost.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbHost.AutoSize = true;
-            this.lbHost.Font = new System.Drawing.Font("Verdana", 10F);
-            this.lbHost.Location = new System.Drawing.Point(352, 106);
-            this.lbHost.Name = "lbHost";
-            this.lbHost.Size = new System.Drawing.Size(56, 20);
-            this.lbHost.TabIndex = 38;
-            this.lbHost.Text = "Host:";
-            // 
-            // lbName
-            // 
-            this.lbName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lbName.AutoSize = true;
-            this.lbName.Font = new System.Drawing.Font("Verdana", 10F);
-            this.lbName.Location = new System.Drawing.Point(345, 66);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(67, 20);
-            this.lbName.TabIndex = 36;
-            this.lbName.Text = "Name:";
-            // 
-            // btDDele
-            // 
-            this.btDDele.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btDDele.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btDDele.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.btDDele.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btDDele.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btDDele.ForeColor = System.Drawing.Color.White;
-            this.btDDele.Location = new System.Drawing.Point(155, 343);
-            this.btDDele.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btDDele.Name = "btDDele";
-            this.btDDele.Size = new System.Drawing.Size(90, 40);
-            this.btDDele.TabIndex = 197;
-            this.btDDele.Text = "Delete";
-            this.btDDele.UseVisualStyleBackColor = false;
-            this.btDDele.Click += new System.EventHandler(this.btDDele_Click);
-            // 
-            // btDAdd
-            // 
-            this.btDAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btDAdd.BackColor = System.Drawing.SystemColors.GrayText;
-            this.btDAdd.FlatAppearance.BorderColor = System.Drawing.SystemColors.GrayText;
-            this.btDAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btDAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btDAdd.ForeColor = System.Drawing.Color.White;
-            this.btDAdd.Location = new System.Drawing.Point(251, 343);
-            this.btDAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btDAdd.Name = "btDAdd";
-            this.btDAdd.Size = new System.Drawing.Size(90, 40);
-            this.btDAdd.TabIndex = 196;
-            this.btDAdd.Text = "Add";
-            this.btDAdd.UseVisualStyleBackColor = false;
-            this.btDAdd.Click += new System.EventHandler(this.btDAdd_Click);
-            // 
-            // btDMod
-            // 
-            this.btDMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btDMod.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btDMod.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.btDMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btDMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btDMod.ForeColor = System.Drawing.Color.White;
-            this.btDMod.Location = new System.Drawing.Point(59, 342);
-            this.btDMod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btDMod.Name = "btDMod";
-            this.btDMod.Size = new System.Drawing.Size(90, 40);
-            this.btDMod.TabIndex = 195;
-            this.btDMod.Text = "Modify";
-            this.btDMod.UseVisualStyleBackColor = false;
-            this.btDMod.Click += new System.EventHandler(this.btDMod_Click);
+            this.lbPassword.AutoSize = true;
+            this.lbPassword.Font = new System.Drawing.Font("Verdana", 10F);
+            this.lbPassword.Location = new System.Drawing.Point(309, 294);
+            this.lbPassword.Name = "lbPassword";
+            this.lbPassword.Size = new System.Drawing.Size(97, 20);
+            this.lbPassword.TabIndex = 200;
+            this.lbPassword.Text = "Password:";
             // 
             // btDSave
             // 
@@ -895,7 +710,7 @@ namespace BaseLib
             this.btDSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btDSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btDSave.ForeColor = System.Drawing.Color.White;
-            this.btDSave.Location = new System.Drawing.Point(430, 343);
+            this.btDSave.Location = new System.Drawing.Point(430, 365);
             this.btDSave.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btDSave.Name = "btDSave";
             this.btDSave.Size = new System.Drawing.Size(75, 40);
@@ -912,7 +727,7 @@ namespace BaseLib
             this.btDCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btDCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.btDCancel.ForeColor = System.Drawing.Color.White;
-            this.btDCancel.Location = new System.Drawing.Point(511, 343);
+            this.btDCancel.Location = new System.Drawing.Point(511, 365);
             this.btDCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btDCancel.Name = "btDCancel";
             this.btDCancel.Size = new System.Drawing.Size(75, 40);
@@ -921,15 +736,201 @@ namespace BaseLib
             this.btDCancel.UseVisualStyleBackColor = false;
             this.btDCancel.Click += new System.EventHandler(this.btDCancel_Click);
             // 
-            // lbPassword
+            // btDDele
             // 
-            this.lbPassword.AutoSize = true;
-            this.lbPassword.Font = new System.Drawing.Font("Verdana", 10F);
-            this.lbPassword.Location = new System.Drawing.Point(309, 273);
-            this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(97, 20);
-            this.lbPassword.TabIndex = 200;
-            this.lbPassword.Text = "Password:";
+            this.btDDele.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btDDele.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btDDele.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btDDele.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDDele.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btDDele.ForeColor = System.Drawing.Color.White;
+            this.btDDele.Location = new System.Drawing.Point(155, 365);
+            this.btDDele.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btDDele.Name = "btDDele";
+            this.btDDele.Size = new System.Drawing.Size(90, 40);
+            this.btDDele.TabIndex = 197;
+            this.btDDele.Text = "Delete";
+            this.btDDele.UseVisualStyleBackColor = false;
+            this.btDDele.Click += new System.EventHandler(this.btDDele_Click);
+            // 
+            // btDAdd
+            // 
+            this.btDAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btDAdd.BackColor = System.Drawing.SystemColors.GrayText;
+            this.btDAdd.FlatAppearance.BorderColor = System.Drawing.SystemColors.GrayText;
+            this.btDAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btDAdd.ForeColor = System.Drawing.Color.White;
+            this.btDAdd.Location = new System.Drawing.Point(251, 365);
+            this.btDAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btDAdd.Name = "btDAdd";
+            this.btDAdd.Size = new System.Drawing.Size(90, 40);
+            this.btDAdd.TabIndex = 196;
+            this.btDAdd.Text = "Add";
+            this.btDAdd.UseVisualStyleBackColor = false;
+            this.btDAdd.Click += new System.EventHandler(this.btDAdd_Click);
+            // 
+            // btDMod
+            // 
+            this.btDMod.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btDMod.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btDMod.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btDMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btDMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btDMod.ForeColor = System.Drawing.Color.White;
+            this.btDMod.Location = new System.Drawing.Point(59, 364);
+            this.btDMod.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btDMod.Name = "btDMod";
+            this.btDMod.Size = new System.Drawing.Size(90, 40);
+            this.btDMod.TabIndex = 195;
+            this.btDMod.Text = "Modify";
+            this.btDMod.UseVisualStyleBackColor = false;
+            this.btDMod.Click += new System.EventHandler(this.btDMod_Click);
+            // 
+            // lbDBList
+            // 
+            this.lbDBList.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbDBList.AutoSize = true;
+            this.lbDBList.Font = new System.Drawing.Font("Verdana", 11F, System.Drawing.FontStyle.Underline);
+            this.lbDBList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lbDBList.Location = new System.Drawing.Point(58, 50);
+            this.lbDBList.Name = "lbDBList";
+            this.lbDBList.Size = new System.Drawing.Size(88, 23);
+            this.lbDBList.TabIndex = 54;
+            this.lbDBList.Text = "DB List:";
+            // 
+            // lbxDB
+            // 
+            this.lbxDB.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbxDB.FormattingEnabled = true;
+            this.lbxDB.ItemHeight = 18;
+            this.lbxDB.Location = new System.Drawing.Point(61, 82);
+            this.lbxDB.Name = "lbxDB";
+            this.lbxDB.Size = new System.Drawing.Size(242, 256);
+            this.lbxDB.TabIndex = 53;
+            this.lbxDB.SelectedIndexChanged += new System.EventHandler(this.lbDB_SelectedIndexChanged);
+            // 
+            // tbPWD
+            // 
+            this.tbPWD.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tbPWD.BackColor = System.Drawing.SystemColors.Window;
+            this.tbPWD.Font = new System.Drawing.Font("Verdana", 10F);
+            this.tbPWD.Location = new System.Drawing.Point(419, 290);
+            this.tbPWD.Name = "tbPWD";
+            this.tbPWD.ReadOnly = true;
+            this.tbPWD.Size = new System.Drawing.Size(172, 28);
+            this.tbPWD.TabIndex = 47;
+            this.tbPWD.UseSystemPasswordChar = true;
+            // 
+            // tbUserName
+            // 
+            this.tbUserName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tbUserName.BackColor = System.Drawing.SystemColors.Window;
+            this.tbUserName.Font = new System.Drawing.Font("Verdana", 10F);
+            this.tbUserName.Location = new System.Drawing.Point(419, 249);
+            this.tbUserName.Name = "tbUserName";
+            this.tbUserName.ReadOnly = true;
+            this.tbUserName.Size = new System.Drawing.Size(172, 28);
+            this.tbUserName.TabIndex = 45;
+            // 
+            // tbSID
+            // 
+            this.tbSID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tbSID.BackColor = System.Drawing.SystemColors.Window;
+            this.tbSID.Font = new System.Drawing.Font("Verdana", 10F);
+            this.tbSID.Location = new System.Drawing.Point(419, 208);
+            this.tbSID.Name = "tbSID";
+            this.tbSID.ReadOnly = true;
+            this.tbSID.Size = new System.Drawing.Size(172, 28);
+            this.tbSID.TabIndex = 43;
+            // 
+            // tbPort
+            // 
+            this.tbPort.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tbPort.BackColor = System.Drawing.SystemColors.Window;
+            this.tbPort.Font = new System.Drawing.Font("Verdana", 10F);
+            this.tbPort.Location = new System.Drawing.Point(419, 167);
+            this.tbPort.Name = "tbPort";
+            this.tbPort.ReadOnly = true;
+            this.tbPort.Size = new System.Drawing.Size(172, 28);
+            this.tbPort.TabIndex = 41;
+            // 
+            // tbHost
+            // 
+            this.tbHost.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tbHost.BackColor = System.Drawing.SystemColors.Window;
+            this.tbHost.Font = new System.Drawing.Font("Verdana", 10F);
+            this.tbHost.Location = new System.Drawing.Point(419, 126);
+            this.tbHost.Name = "tbHost";
+            this.tbHost.ReadOnly = true;
+            this.tbHost.Size = new System.Drawing.Size(172, 28);
+            this.tbHost.TabIndex = 39;
+            // 
+            // tbName
+            // 
+            this.tbName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tbName.BackColor = System.Drawing.SystemColors.Window;
+            this.tbName.Font = new System.Drawing.Font("Verdana", 10F);
+            this.tbName.Location = new System.Drawing.Point(419, 85);
+            this.tbName.Name = "tbName";
+            this.tbName.ReadOnly = true;
+            this.tbName.Size = new System.Drawing.Size(172, 28);
+            this.tbName.TabIndex = 37;
+            // 
+            // lbUserName
+            // 
+            this.lbUserName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbUserName.AutoSize = true;
+            this.lbUserName.Font = new System.Drawing.Font("Verdana", 10F);
+            this.lbUserName.Location = new System.Drawing.Point(351, 253);
+            this.lbUserName.Name = "lbUserName";
+            this.lbUserName.Size = new System.Drawing.Size(55, 20);
+            this.lbUserName.TabIndex = 44;
+            this.lbUserName.Text = "User:";
+            // 
+            // lbSID
+            // 
+            this.lbSID.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbSID.AutoSize = true;
+            this.lbSID.Font = new System.Drawing.Font("Verdana", 10F);
+            this.lbSID.Location = new System.Drawing.Point(357, 211);
+            this.lbSID.Name = "lbSID";
+            this.lbSID.Size = new System.Drawing.Size(50, 20);
+            this.lbSID.TabIndex = 42;
+            this.lbSID.Text = "SID:";
+            // 
+            // lbPort
+            // 
+            this.lbPort.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbPort.AutoSize = true;
+            this.lbPort.Font = new System.Drawing.Font("Verdana", 10F);
+            this.lbPort.Location = new System.Drawing.Point(355, 170);
+            this.lbPort.Name = "lbPort";
+            this.lbPort.Size = new System.Drawing.Size(51, 20);
+            this.lbPort.TabIndex = 40;
+            this.lbPort.Text = "Port:";
+            // 
+            // lbHost
+            // 
+            this.lbHost.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbHost.AutoSize = true;
+            this.lbHost.Font = new System.Drawing.Font("Verdana", 10F);
+            this.lbHost.Location = new System.Drawing.Point(352, 128);
+            this.lbHost.Name = "lbHost";
+            this.lbHost.Size = new System.Drawing.Size(56, 20);
+            this.lbHost.TabIndex = 38;
+            this.lbHost.Text = "Host:";
+            // 
+            // lbName
+            // 
+            this.lbName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Verdana", 10F);
+            this.lbName.Location = new System.Drawing.Point(345, 88);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(67, 20);
+            this.lbName.TabIndex = 36;
+            this.lbName.Text = "Name:";
             // 
             // SetUp
             // 

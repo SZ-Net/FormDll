@@ -1,13 +1,9 @@
-﻿using BaseLib;
+﻿using BaseLib.Tools;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BaseLib.Tools
+namespace DLLClientLink.Tool
 {
     public class CheckDll 
     {
@@ -35,7 +31,7 @@ namespace BaseLib.Tools
 			if (array.AsQueryable().Last().ToUpper() == "DLL")
 			{
 			    Assembly assembly = Assembly.LoadFile(dllFilePath); // Assembly.LoadFile只载入相应的dll文件;Assembly.LoadFrom 会载入dll文件及其引用的其他dll 
-				string text2 = array[0] + ".Main";
+				string text2 = array[0] + $".{GlobalData.TypeName}";
 				Type type = assembly.GetType(text2);
 				if (type != null)
 				{

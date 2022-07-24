@@ -27,6 +27,8 @@ namespace DLLClientLink
             Application.ThreadException += Application_ThreadException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;//处理非UI线程异常
 
+            GlobalData.textLogger = new TextLogger($"logs/{DateTime.Now:yyMMdd}.log");  //Log
+            Utils.SaveLog(GlobalData.LogoTxt.ToString());
 
             if (IsDuplicateInstance())
             {
@@ -41,6 +43,7 @@ namespace DLLClientLink
                         {
                             Utils.ShowWindow(hwnd, 4);
                             Utils.SwitchToThisWindow(hwnd, true);
+                           
                             return;
                         }
                     }
@@ -50,7 +53,7 @@ namespace DLLClientLink
             }
             else
             {
-                GlobalData.textLogger = new TextLogger($"logs/{DateTime.Now:yyMMdd}.log");
+                
                 //设置语言环境
                 string lang = Utils.RegReadValue(GlobalData.MyRegPath, GlobalData.MyRegKeyLanguage, "zh-Hans");
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);

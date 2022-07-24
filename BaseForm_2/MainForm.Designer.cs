@@ -1,6 +1,6 @@
 ﻿namespace BaseForm_2
 {
-    partial class Main
+    partial class MainForm
     {
         /// <summary>
         /// 必需的设计器变量。
