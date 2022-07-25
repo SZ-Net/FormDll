@@ -37,6 +37,15 @@ namespace DLLClientLink
             this.btnOK = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Panel_ShortcutKey = new System.Windows.Forms.Panel();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtGlobalHotkey0 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtGlobalHotkey1 = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkAutoRun = new System.Windows.Forms.CheckBox();
@@ -53,6 +62,9 @@ namespace DLLClientLink
             this.tabControlMain = new System.Windows.Forms.TabControl();
             this.panelTop.SuspendLayout();
             this.panelBottom.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.Panel_ShortcutKey.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
@@ -155,12 +167,113 @@ namespace DLLClientLink
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(674, 418);
             this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "设置  ";
+            this.tabPage2.Text = "ShortcutKey";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.Panel_ShortcutKey);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(668, 412);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            // 
+            // Panel_ShortcutKey
+            // 
+            this.Panel_ShortcutKey.Controls.Add(this.btnReset);
+            this.Panel_ShortcutKey.Controls.Add(this.label2);
+            this.Panel_ShortcutKey.Controls.Add(this.label4);
+            this.Panel_ShortcutKey.Controls.Add(this.txtGlobalHotkey0);
+            this.Panel_ShortcutKey.Controls.Add(this.label3);
+            this.Panel_ShortcutKey.Controls.Add(this.label1);
+            this.Panel_ShortcutKey.Controls.Add(this.txtGlobalHotkey1);
+            this.Panel_ShortcutKey.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_ShortcutKey.Location = new System.Drawing.Point(3, 21);
+            this.Panel_ShortcutKey.Name = "Panel_ShortcutKey";
+            this.Panel_ShortcutKey.Size = new System.Drawing.Size(662, 388);
+            this.Panel_ShortcutKey.TabIndex = 51;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnReset.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnReset.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(232, 329);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(82, 31);
+            this.btnReset.TabIndex = 196;
+            this.btnReset.Text = "&Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label2.Location = new System.Drawing.Point(16, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 15);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "Display GUI";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(335, 349);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(207, 15);
+            this.label4.TabIndex = 50;
+            this.label4.Text = "Take effect after restart";
+            // 
+            // txtGlobalHotkey0
+            // 
+            this.txtGlobalHotkey0.Location = new System.Drawing.Point(166, 28);
+            this.txtGlobalHotkey0.Name = "txtGlobalHotkey0";
+            this.txtGlobalHotkey0.ReadOnly = true;
+            this.txtGlobalHotkey0.Size = new System.Drawing.Size(278, 25);
+            this.txtGlobalHotkey0.TabIndex = 42;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label3.Location = new System.Drawing.Point(335, 324);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(303, 15);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "Set directly by pressing the keyboard";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(16, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 15);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Jump Browser";
+            // 
+            // txtGlobalHotkey1
+            // 
+            this.txtGlobalHotkey1.Location = new System.Drawing.Point(166, 75);
+            this.txtGlobalHotkey1.Name = "txtGlobalHotkey1";
+            this.txtGlobalHotkey1.ReadOnly = true;
+            this.txtGlobalHotkey1.Size = new System.Drawing.Size(278, 25);
+            this.txtGlobalHotkey1.TabIndex = 44;
             // 
             // tabPage1
             // 
@@ -337,6 +450,10 @@ namespace DLLClientLink
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.panelBottom.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.Panel_ShortcutKey.ResumeLayout(false);
+            this.Panel_ShortcutKey.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -369,5 +486,14 @@ namespace DLLClientLink
         private System.Windows.Forms.ComboBox cmbLoginType;
         private System.Windows.Forms.ComboBox cmbConnectionType;
         private System.Windows.Forms.CheckBox chkAutoRun;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtGlobalHotkey1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtGlobalHotkey0;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel Panel_ShortcutKey;
+        protected System.Windows.Forms.Button btnReset;
     }
 }

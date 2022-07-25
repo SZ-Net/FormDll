@@ -1,9 +1,11 @@
 ﻿using BaseLib;
 using BaseLib.Tools;
 using DLLClientLink.Handler;
+using DLLClientLink.Mode;
 using DLLClientLink.Properties;
 using DLLClientLink.Resx;
 using DLLClientLink.Tool;
+using NHotkey;
 using System;
 using System.Collections;
 using System.Diagnostics;
@@ -472,6 +474,8 @@ namespace DLLClientLink
         private void ClientMain_Shown(object sender, EventArgs e)
         {
             System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(ThreadPoolCheckVersion), null);
+
+            MainFormHandler.Instance.RegisterGlobalHotkey(config, OnHotkeyHandler, UpdateTaskHandler);
         }
 
         private void ThreadPoolCheckVersion(object state)
@@ -519,6 +523,7 @@ namespace DLLClientLink
             ShowInTaskbar = true;
             mainMsgControl1.ScrollToCaret();
             SetVisibleCore(true);
+            this.MainMenu.GetForm().Show();
         }
 
         private void HideForm()
@@ -535,6 +540,27 @@ namespace DLLClientLink
         }
 
         #endregion
+
+
+        private async void UpdateTaskHandler(bool success, string msg)
+        {
+ 
+        }
+        private void OnHotkeyHandler(object sender, HotkeyEventArgs e)
+        {
+            switch (Utils.ToInt(e.Name))
+            {
+                case (int)GlobalHotkey.ShowForm:
+                    if (ShowInTaskbar) HideForm(); else ShowForm();
+                    break;
+                case (int)GlobalHotkey.JumpBrowser:
+                    Process.Start($"{GlobalData.PromotionUrl}?t={DateTime.Now.Ticks}");
+                    break;
+               
+            }
+            e.Handled = true;
+        }
+
 
         private void ClientMain_FormClosing(object sender, FormClosingEventArgs e)
         {

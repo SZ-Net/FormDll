@@ -161,6 +161,7 @@ namespace DLLClientLink
             this.menuItem_MDILayout,
             this.menuItem_Refresh,
             this.menuItem_Help});
+            this.MainMenu.Tag = "1";
             // 
             // menuItem_MDILayout
             // 

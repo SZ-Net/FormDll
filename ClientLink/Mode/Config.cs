@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DLLClientLink.Mode
 {
@@ -52,6 +53,14 @@ namespace DLLClientLink.Mode
             get; set;
         }
 
+        public List<KeyEventItem> globalHotkeys
+        {
+            get; set;
+        }
+        public List<GroupItem> groupItem
+        {
+            get; set;
+        }
     }
 
 
@@ -147,5 +156,42 @@ namespace DLLClientLink.Mode
         }
     }
 
+    [Serializable]
+    public class KeyEventItem
+    {
+        public GlobalHotkey GlobalHotkey { get; set; }
 
+        public bool Alt { get; set; }
+
+        public bool Control { get; set; }
+
+        public bool Shift { get; set; }
+
+        public Keys? KeyCode { get; set; }
+
+    }
+
+    [Serializable]
+    public class GroupItem
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public string id
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string remarks
+        {
+            get; set;
+        }
+        public int sort
+        {
+            get; set;
+        }
+    }
 }

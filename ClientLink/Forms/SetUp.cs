@@ -1,4 +1,5 @@
 ﻿using DLLClientLink.Handler;
+using DLLClientLink.Mode;
 using DLLClientLink.Resx;
 using DLLClientLink.Tool;
 using System;
@@ -18,7 +19,7 @@ namespace DLLClientLink
 {
     public partial class SetUp : DLLClientLink.Forms.BaseForm
 	{
-
+        List<KeyEventItem> lstKey;
         public SetUp()
         {
             InitializeComponent();
@@ -86,7 +87,86 @@ namespace DLLClientLink
 
         private void SetUp_Load(object sender, EventArgs e)
         {
+            InitShortcutKey();
             InitGUI();
+        }
+
+        private void InitShortcutKey()
+        {
+            if (config.globalHotkeys == null)
+            {
+                config.globalHotkeys = new List<KeyEventItem>();
+            }
+
+            foreach (GlobalHotkey it in Enum.GetValues(typeof(GlobalHotkey)))
+            {
+                if (config.globalHotkeys.FindIndex(t => t.GlobalHotkey == it) >= 0)
+                {
+                    continue;
+                }
+
+                config.globalHotkeys.Add(new KeyEventItem()
+                {
+                    GlobalHotkey = it,
+                    Alt = false,
+                    Control = false,
+                    Shift = false,
+                    KeyCode = null
+                });
+            }
+
+            lstKey = Utils.DeepCopy(config.globalHotkeys);
+
+            txtGlobalHotkey0.KeyDown += TxtGlobalHotkey_KeyDown;
+            txtGlobalHotkey1.KeyDown += TxtGlobalHotkey_KeyDown;
+
+
+            BindingData(-1);
+        }
+
+        private void BindingData(int v)
+        {
+            for (int k = 0; k < lstKey.Count; k++)
+            {
+                if (v >= 0 && v != k)
+                {
+                    continue;
+                }
+                var item = lstKey[k];
+                var keys = string.Empty;
+
+                if (item.Control)
+                {
+                    keys += $"{Keys.Control.ToString()} + ";
+                }
+                if (item.Alt)
+                {
+                    keys += $"{Keys.Alt.ToString()} + ";
+                }
+                if (item.Shift)
+                {
+                    keys += $"{Keys.Shift.ToString()} + ";
+                }
+                if (item.KeyCode != null)
+                {
+                    keys += $"{item.KeyCode.ToString()}";
+                }
+
+                Panel_ShortcutKey.Controls[$"txtGlobalHotkey{k}"].Text = keys;
+            }
+        }
+
+        private void TxtGlobalHotkey_KeyDown(object sender, KeyEventArgs e)
+        {
+            var txt = ((TextBox)sender);
+            var index = Utils.ToInt(txt.Name.Substring(txt.Name.Length - 1, 1));
+
+            lstKey[index].KeyCode = e.KeyCode;
+            lstKey[index].Alt = e.Alt;
+            lstKey[index].Control = e.Control;
+            lstKey[index].Shift = e.Shift;
+
+            BindingData(index);
         }
 
         private void InitGUI()
@@ -116,9 +196,31 @@ namespace DLLClientLink
             config.logEnabled = chklogEnabled.Checked;
             config.loglevel = config.loglevel;
 
+            config.globalHotkeys = lstKey;
 
             return 0;
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            lstKey.Clear();
+            foreach (GlobalHotkey it in Enum.GetValues(typeof(GlobalHotkey)))
+            {
+                if (lstKey.FindIndex(t => t.GlobalHotkey == it) >= 0)
+                {
+                    continue;
+                }
+
+                lstKey.Add(new KeyEventItem()
+                {
+                    GlobalHotkey = it,
+                    Alt = false,
+                    Control = false,
+                    Shift = false,
+                    KeyCode = null
+                });
+            }
+            BindingData(-1);
+        }
     }
 }

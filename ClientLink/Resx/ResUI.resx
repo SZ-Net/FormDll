@@ -126,6 +126,12 @@
   <data name="OperationSuccess" xml:space="preserve">
     <value>Operation success</value>
   </data>
+  <data name="RegisterGlobalHotkeyFailed" xml:space="preserve">
+    <value>Global hotkey {0} registered failed, reason {1}</value>
+  </data>
+  <data name="RegisterGlobalHotkeySuccessfully" xml:space="preserve">
+    <value>Global hotkey {0} registered successfully</value>
+  </data>
   <data name="Tips" xml:space="preserve">
     <value>Tips</value>
   </data>

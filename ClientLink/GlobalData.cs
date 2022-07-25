@@ -52,6 +52,11 @@ namespace DLLClientLink
         public const string ConfigFileName = "GuiConfig.json";
 
         /// <summary>
+        /// webpath
+        /// </summary>
+        public const string PromotionUrl = @"http://47.103.68.175/";
+
+        /// <summary>
         /// dll Path
         /// </summary>
         public static string dllPath = Utils.StartupPath()+"\\";
