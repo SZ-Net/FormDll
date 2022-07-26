@@ -10,8 +10,7 @@ namespace DLLClientLink
 {
     class GlobalData
     {
-        public const string LogoTxt =
-        @"
+        public const string LogoTxt =@"
    ___      _       _                      _       _        _              _     
   / __|    | |     (_)     ___    _ _     | |_    | |      (_)    _ _     | |__  
  | (__     | |     | |    / -_)  | ' \    |  _|   | |__    | |   | ' \    | / /  
@@ -74,6 +73,16 @@ namespace DLLClientLink
         /// 是否需要上传配置
         /// </summary>
         public static bool upload
+        {
+            get; set;
+        }
+
+        public static Job processJob
+        {
+            get; set;
+        }
+
+        public static System.Windows.Forms.Timer timer
         {
             get; set;
         }

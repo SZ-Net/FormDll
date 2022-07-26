@@ -21,7 +21,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 
-namespace DLLClientLink.Tool
+namespace DLLClientLink
 {
     class Utils
     {
@@ -959,6 +959,29 @@ namespace DLLClientLink.Tool
         public static bool IsGuidByParse(string strSrc)
         {
             return Guid.TryParse(strSrc, out Guid g);
+        }
+
+
+        public static string GetClientIP()
+        {
+            string text = "";
+            string text2 = "";
+            IPHostEntry iPHostEntry = null;
+            if (string.IsNullOrEmpty(text))
+            {
+                text2 = Dns.GetHostName();
+                iPHostEntry = Dns.GetHostEntry(text2);
+                IPAddress[] addressList = iPHostEntry.AddressList;
+                foreach (IPAddress iPAddress in addressList)
+                {
+                    if (iPAddress.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        text = iPAddress.ToString();
+                        break;
+                    }
+                }
+            }
+            return text;
         }
         #endregion
 

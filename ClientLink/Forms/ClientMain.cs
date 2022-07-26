@@ -35,30 +35,16 @@ namespace DLLClientLink
         private ArrayList ListOwnerParentID = new ArrayList();
         private ArrayList ListChildrenCaption = new ArrayList();
 
+        #region Window 事件
         public ClientMain()
         {
             InitializeComponent();
             IsMdiContainer = true;
-            WindowState = FormWindowState.Maximized;
-            Text = Utils.GetVersion();
-           
+            
+            GlobalData.processJob = new Job();
+            Application.ApplicationExit += (sender, args) => { MyAppExit(); };
+        }
 
-        }
-        /// <summary>
-        ///  C# Winform 窗体打开时闪烁问题
-        ///  主要原因是对于Winform来说，一个窗体中绘制多个控件是很花时间的。特别是默认的按钮控件。Form先画出背景，然后留下控件需要的“洞”。如果控件的背景是透明的，那么这些“洞”就会先以白色或黑色出现，然后每个控件的“洞”再被填充，就是我们所看到的闪烁，在WinForm中没有现成的解决方案。设置控件双缓冲并不能解决它，因为它只适用于自己，而不是复合控件集。
-        ///  protected 受保护的，只有本类及继承的子类可以访问。
-        ///  override 复写, 对父类中的相同名称的方法重新其修改内容。
-        /// </summary>
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams paras = base.CreateParams;
-                paras.ExStyle |= 0x02000000;
-                return paras;
-            }
-        }
         private void ClientMain_Load(object sender, EventArgs e)
         {
             if (ConfigHandler.LoadConfig(ref config) != 0)
@@ -67,34 +53,80 @@ namespace DLLClientLink
                 Environment.Exit(0);
                 return;
             }
-
-
-            this.LocalIP.Text = "IP: " + GetClientIP();
-            timer = new Timer();
-            timer.Interval = 1000;
-            //timer.Tick += Timer_Tick;
-            timer.Start();
-
-            division(25, 0);
-            DllToLoadMenu(GlobalData.dllPath);
-           // ShowForm("HslCommunicationDemo", "FormSelect");
         }
 
-
-        //异常测试
-        public void division(int num1, int num2)
+        private void ClientMain_Shown(object sender, EventArgs e)
         {
-            try 
-            { 
-                int result = num1 / num2; 
-            }
-            catch (Exception e)
+            InitUI();
+            MainFormHandler.Instance.RegisterGlobalHotkey(config, OnHotkeyHandler, UpdateTaskHandler);
+        }
+
+        private void InitUI()
+        {
+            this.Text = Utils.GetVersion();
+            this.LocalIP.Text = $"IP: {Utils.GetClientIP()}";
+
+            GlobalData.timer = new Timer();
+            GlobalData.timer.Interval = 1000;
+            GlobalData.timer.Tick += Timer_Tick;
+            GlobalData.timer.Start();
+
+            DllToLoadMenu(GlobalData.dllPath);
+            // ShowForm("HslCommunicationDemo", "FormSelect");
+        }
+
+        private void MyAppExit()
+        {
+            try
             {
-                GlobalData.textLogger.WriteText(e);
-                mainMsgControl1.AppendText(e.ToString());
+                Utils.SaveLog("MyAppExit Begin");
+                ConfigHandler.SaveConfig(ref config);
+                Utils.SaveLog("MyAppExit End");
+            }
+            catch { }
+        }
+
+
+        private void OnHotkeyHandler(object sender, HotkeyEventArgs e)
+        {
+            switch (Utils.ToInt(e.Name))
+            {
+                case (int)GlobalHotkey.ShowForm:
+                    if (ShowInTaskbar) HideForm(); else ShowForm();
+                    break;
+                case (int)GlobalHotkey.JumpBrowser:
+                    Process.Start($"{GlobalData.PromotionUrl}?t={DateTime.Now.Ticks}");
+                    break;
+
+            }
+            e.Handled = true;
+        }
+
+        private void ClientMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.UserClosing:
+
+                    break;
+                case CloseReason.ApplicationExitCall:
+                case CloseReason.FormOwnerClosing:
+                case CloseReason.TaskManagerClosing:
+                    break;
+                case CloseReason.WindowsShutDown:
+                    break;
             }
         }
 
+        private void ClientMain_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                HideForm();
+            }
+        }
+
+        #endregion
 
         private void DllToLoadMenu(string dllLocation)
         {
@@ -247,13 +279,85 @@ namespace DLLClientLink
                 MessageBox.Show($"Form: {frmName} doesn't exist");
             }
         }
+        private void showForm(string ControlText)
+        {
+            object obj = null;
+            Assembly assembly = null;
+            bool flag = false;
+            string treeSelectText = tView.SelectedNode.Text;
+            string PackagePath = ((GlobalData.dllPath.LastIndexOf("\\") <= 2) ? (GlobalData.dllPath + "\\" + treeSelectText + ".dll") : (GlobalData.dllPath + treeSelectText + ".dll"));
 
+            Form[] mdiChildren = MdiChildren;
+            Type type = null;
+            foreach (Form form in mdiChildren)
+            {
+                type = form.GetType();
+                if (type.Namespace == treeSelectText && type.Name == GlobalData.TypeName)
+                {
+                    if (form.WindowState == FormWindowState.Minimized)
+                    {
+                        form.WindowState = FormWindowState.Normal;
+                    }
+                    // form.WindowState = FormWindowState.Maximized; //最大化
+                    form.Activate(); //激活该窗口
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag)
+                return;
+            try
+            {
+                // Assembly.LoadFile只载入相应的dll文件;Assembly.LoadFrom 会载入dll文件及其引用的其他dll 
+                assembly = Assembly.LoadFrom(PackagePath);
+                /*byte[] array = File.ReadAllBytes(PackagePath);
+                assembly = Assembly.Load(array);
+                Console.WriteLine("1" + assembly.DefinedTypes.ToString());
+                Console.WriteLine("2" + assembly.ExportedTypes.ToString());*/
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                // Log.WriteLog(Log.WriteExceptionMsg(e, string.Empty));
+                GlobalData.textLogger.WriteText(e.ToString());
+            }
+            Type type2 = assembly.GetType(treeSelectText + "." + GlobalData.TypeName);
+            if (type2 != null)
+            {
+                try
+                {
+                    obj = Activator.CreateInstance(type2);
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+                finally
+                {
+                }
+                PropertyInfo property = type2.GetProperty("MdiParent");
+                property.SetValue(obj, this, null);
 
-        /// <summary>
-        /// Expander TieeView menu
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+                ((Control)obj).Show();
+                if (((Form)obj).WindowState == FormWindowState.Maximized)
+                {
+                    ((Form)obj).Hide();
+                    ((Form)obj).WindowState = FormWindowState.Normal;
+                    ((Form)obj).WindowState = FormWindowState.Maximized;
+                    ((Form)obj).Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show($"Form: doesn't exist");
+            }
+        }
+
+        #region 功能按钮
+        private void pbGo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"doesn't exist");
+        }
         private void Expander_Click(object sender, EventArgs e)
         {
             if (!flag)
@@ -274,7 +378,6 @@ namespace DLLClientLink
             }
             Refresh();
         }
-
         private void menuItem_Click(object sender, EventArgs e)
         {
             MenuItem menuItem = (MenuItem)sender;
@@ -328,7 +431,6 @@ namespace DLLClientLink
             Utils.RegWriteValue(GlobalData.MyRegPath, GlobalData.MyRegKeyLanguage, value);
             //Application.Restart();
         }
-
         private void tView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (tView.SelectedNode != null && tView.SelectedNode.GetNodeCount(includeSubTrees: true) == 0)
@@ -338,90 +440,8 @@ namespace DLLClientLink
             }
         }
 
-        private void showForm(string ControlText)
-        {         
-            object obj = null;
-            Assembly assembly = null;
-            bool flag = false;
-            string treeSelectText = tView.SelectedNode.Text;
-            string PackagePath = ((GlobalData.dllPath.LastIndexOf("\\") <= 2) ? (GlobalData.dllPath + "\\" + treeSelectText + ".dll") : (GlobalData.dllPath + treeSelectText + ".dll"));
-            
-            Form[] mdiChildren = MdiChildren;
-            Type type = null;
-            foreach (Form form in mdiChildren)
-            {
-                type = form.GetType();
-                if (type.Namespace == treeSelectText && type.Name == GlobalData.TypeName)
-                {
-                    if (form.WindowState == FormWindowState.Minimized)
-                    {
-                        form.WindowState = FormWindowState.Normal;
-                    }
-                    // form.WindowState = FormWindowState.Maximized; //最大化
-                    form.Activate(); //激活该窗口
-                    flag = true;
-                    break;
-                }
-            }
-            if (flag)
-                return;    
-            try
-            {
-                // Assembly.LoadFile只载入相应的dll文件;Assembly.LoadFrom 会载入dll文件及其引用的其他dll 
-                assembly = Assembly.LoadFrom(PackagePath);
-                /*byte[] array = File.ReadAllBytes(PackagePath);
-                assembly = Assembly.Load(array);
-                Console.WriteLine("1" + assembly.DefinedTypes.ToString());
-                Console.WriteLine("2" + assembly.ExportedTypes.ToString());*/
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-                // Log.WriteLog(Log.WriteExceptionMsg(e, string.Empty));
-                GlobalData.textLogger.WriteText(e.ToString());
-            }
-            Type type2 = assembly.GetType(treeSelectText + "." + GlobalData.TypeName);
-            if (type2 != null)
-            {
-                try
-                {
-                    obj = Activator.CreateInstance(type2);
-                }
-                catch (Exception)
-                {
-                    return;
-                }
-                finally
-                {
-                }
-                PropertyInfo property = type2.GetProperty("MdiParent");
-                property.SetValue(obj, this, null);
+        #endregion
 
-                ((Control)obj).Show();
-                if (((Form)obj).WindowState == FormWindowState.Maximized)
-                {
-                    ((Form)obj).Hide();
-                    ((Form)obj).WindowState = FormWindowState.Normal;
-                    ((Form)obj).WindowState = FormWindowState.Maximized;
-                    ((Form)obj).Show();
-                }
-            }
-            else
-            {
-                MessageBox.Show($"Form: doesn't exist");
-            }
-        }
-
-        private void pbGo_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show($"doesn't exist");
-        }
-
-
-
-        /// <summary>
-        /// 关闭所有MdiChildren
-        /// </summary>
         private void MdiFormClose()
         {
             foreach (Form frm in this.MdiChildren)
@@ -430,59 +450,26 @@ namespace DLLClientLink
             }
         }
 
-        private System.Windows.Forms.Timer timer;
         private Process cur = null;
         private PerformanceCounter curpcp = null;
-        private const int MB_DIV = 1024 * 1024;
-
         private void Timer_Tick(object sender, EventArgs e)
         {
+            System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(ThreadPoolCheckVersion), null);
+            
             if (curpcp != null)
             {
-                string RamInfo = (curpcp.NextValue() / MB_DIV).ToString("F1") + "MB";
+                string RamInfo = (curpcp.NextValue() / (1024 * 1024) ).ToString("F1") + "MB";
                 this.RamValue.Text = "Ram: " + RamInfo;
-                Console.Write(RamInfo);
+
             }
-
         }
-        private static string GetClientIP()
-        {
-            string text = "";
-            string text2 = "";
-            IPHostEntry iPHostEntry = null;
-            if (string.IsNullOrEmpty(text))
-            {
-                text2 = Dns.GetHostName();
-                iPHostEntry = Dns.GetHostEntry(text2);
-                IPAddress[] addressList = iPHostEntry.AddressList;
-                foreach (IPAddress iPAddress in addressList)
-                {
-                    if (iPAddress.AddressFamily == AddressFamily.InterNetwork)
-                    {
-                        text = iPAddress.ToString();
-                        break;
-                    }
-                }
-            }
-            return text;
-        }
-        /// <summary>
-        /// 窗体第一次显示时发生
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ClientMain_Shown(object sender, EventArgs e)
-        {
-            System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(ThreadPoolCheckVersion), null);
-
-            MainFormHandler.Instance.RegisterGlobalHotkey(config, OnHotkeyHandler, UpdateTaskHandler);
-        }
-
         private void ThreadPoolCheckVersion(object state)
         {
             cur = Process.GetCurrentProcess();
+            this.mainMsgControl1.AppendText(cur.ProcessName);
             curpcp = new PerformanceCounter("Process", "Working Set - Private", cur.ProcessName);
         }
+
         #region 托盘菜单
         // 托盘菜单-双击托盘图标
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
@@ -506,11 +493,7 @@ namespace DLLClientLink
                 Application.ExitThread();
                 Application.Exit();
             }
-            
         }
-
-
-
 
         private void ShowForm()
         {
@@ -541,53 +524,10 @@ namespace DLLClientLink
 
         #endregion
 
-
         private async void UpdateTaskHandler(bool success, string msg)
         {
- 
         }
-        private void OnHotkeyHandler(object sender, HotkeyEventArgs e)
-        {
-            switch (Utils.ToInt(e.Name))
-            {
-                case (int)GlobalHotkey.ShowForm:
-                    if (ShowInTaskbar) HideForm(); else ShowForm();
-                    break;
-                case (int)GlobalHotkey.JumpBrowser:
-                    Process.Start($"{GlobalData.PromotionUrl}?t={DateTime.Now.Ticks}");
-                    break;
-               
-            }
-            e.Handled = true;
-        }
+        
 
-
-        private void ClientMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            switch (e.CloseReason)
-            {
-                case CloseReason.UserClosing:
-                    
-                    break;
-                case CloseReason.ApplicationExitCall:
-                case CloseReason.FormOwnerClosing:
-                case CloseReason.TaskManagerClosing:
-                    break;
-                case CloseReason.WindowsShutDown:
-                    break;
-            }
-        }
-
-        private void ClientMain_Resize(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Minimized)
-            {
-                HideForm();
-            }
-            else
-            {
-
-            }
-        }
     }
 }

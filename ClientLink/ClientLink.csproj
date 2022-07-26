@@ -117,6 +117,7 @@
       <DependentUpon>ResUI.resx</DependentUpon>
     </Compile>
     <Compile Include="Tool\CheckDll.cs" />
+    <Compile Include="Tool\Job.cs" />
     <Compile Include="Tool\UI.cs" />
     <Compile Include="Tool\Utils.cs" />
     <EmbeddedResource Include="Forms\BaseForm.resx">
