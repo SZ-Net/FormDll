@@ -14,6 +14,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 
 namespace DLLClientLink
@@ -36,6 +37,22 @@ namespace DLLClientLink
         private ArrayList ListChildrenCaption = new ArrayList();
 
         #region Window 事件
+
+        /// <summary>
+        ///  C# Winform 窗体打开时闪烁问题
+        ///  主要原因是对于Winform来说，一个窗体中绘制多个控件是很花时间的。特别是默认的按钮控件。Form先画出背景，然后留下控件需要的“洞”。如果控件的背景是透明的，那么这些“洞”就会先以白色或黑色出现，然后每个控件的“洞”再被填充，就是我们所看到的闪烁，在WinForm中没有现成的解决方案。设置控件双缓冲并不能解决它，因为它只适用于自己，而不是复合控件集。
+        ///  protected 受保护的，只有本类及继承的子类可以访问。
+        ///  override 复写, 对父类中的相同名称的方法重新其修改内容。
+        /// </summary>
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams paras = base.CreateParams;
+                paras.ExStyle |= 0x02000000;
+                return paras;
+            }
+        }
         public ClientMain()
         {
             InitializeComponent();
@@ -70,7 +87,7 @@ namespace DLLClientLink
             GlobalData.timer.Interval = 1000;
             GlobalData.timer.Tick += Timer_Tick;
             GlobalData.timer.Start();
-
+            Start();
             DllToLoadMenu(GlobalData.dllPath);
             // ShowForm("HslCommunicationDemo", "FormSelect");
         }
@@ -527,7 +544,56 @@ namespace DLLClientLink
         private async void UpdateTaskHandler(bool success, string msg)
         {
         }
-        
+
+
+        private void Start()
+        {
+
+            try
+            {
+                string fileName = Utils.GetPath("xray.exe");
+                if (fileName == "") return;
+
+                Process p = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = fileName,
+                        Arguments = "",
+                        WorkingDirectory = Utils.StartupPath(),
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true,
+                        StandardOutputEncoding = Encoding.UTF8
+                    }
+                };
+                p.OutputDataReceived += (sender, e) =>
+                {
+                    if (!String.IsNullOrEmpty(e.Data))
+                    {
+                        string msg = e.Data + Environment.NewLine;
+                    }
+                };
+                p.Start();
+                p.PriorityClass = ProcessPriorityClass.High;
+                p.BeginOutputReadLine();
+                //processId = p.Id;
+                 Process _process = p;
+
+                if (p.WaitForExit(1000))
+                {
+                    throw new Exception(p.StandardError.ReadToEnd());
+                }
+
+                GlobalData.processJob.AddProcess(p.Handle);
+            }
+            catch (Exception ex)
+            {
+                Utils.SaveLog(ex.Message, ex);
+                string msg = ex.Message;
+            }
+        }
 
     }
 }
