@@ -551,7 +551,7 @@ namespace DLLClientLink
 
             try
             {
-                string fileName = Utils.GetPath("xray.exe");
+                string fileName = Utils.GetPath("mail.exe");
                 if (fileName == "") return;
 
                 Process p = new Process

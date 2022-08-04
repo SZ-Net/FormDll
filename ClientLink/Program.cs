@@ -26,7 +26,8 @@ namespace DLLClientLink
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.ThreadException += Application_ThreadException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;//处理非UI线程异常
-
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             GlobalData.textLogger = new TextLogger($"logs/{DateTime.Now:yyMMdd}.log");  //Log
             Utils.SaveLog(GlobalData.LogoTxt.ToString());
 
@@ -66,8 +67,7 @@ namespace DLLClientLink
 
                     fmLogin.Close();
                     Utils.SaveLog($"ClientLink start up | {Utils.GetVersion()} | {Utils.GetExePath()}");
-                    Application.EnableVisualStyles();
-                    //Application.SetCompatibleTextRenderingDefault(false);
+
                     Application.Run(new ClientMain());
                     
                 }
