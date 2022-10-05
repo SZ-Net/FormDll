@@ -6,6 +6,7 @@ using DLLClientLink.Properties;
 using DLLClientLink.Resx;
 using DLLClientLink.Tool;
 using NHotkey;
+using Shawn.Utils;
 using System;
 using System.Collections;
 using System.Diagnostics;
@@ -16,6 +17,7 @@ using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace DLLClientLink
 {
@@ -64,6 +66,7 @@ namespace DLLClientLink
 
         private void ClientMain_Load(object sender, EventArgs e)
         {
+            Console.WriteLine("MianLoad");
             if (ConfigHandler.LoadConfig(ref config) != 0)
             {
                 UI.ShowWarning($"Loading GUI configuration file is abnormal,please restart the application{Environment.NewLine}加载GUI配置文件异常,请重启应用");
@@ -83,11 +86,24 @@ namespace DLLClientLink
             this.Text = Utils.GetVersion();
             this.LocalIP.Text = $"IP: {Utils.GetClientIP()}";
 
-            GlobalData.timer = new Timer();
-            GlobalData.timer.Interval = 1000;
-            GlobalData.timer.Tick += Timer_Tick;
-            GlobalData.timer.Start();
             Start();
+
+
+            GlobalData.timer = new System.Timers.Timer()
+            {
+                Interval = 1000 * 10,
+                AutoReset = true,
+            };
+            GlobalData.timer.Elapsed += (sender, args) =>
+            {
+                SimpleLogHelper.Debug("System.Timers.Timer().");
+                GlobalData.timer.Interval = 1000 * 10; // next time check,  eta *..
+                Timer_Tick();
+            };
+            GlobalData.timer.Start();
+
+
+
             DllToLoadMenu(GlobalData.dllPath);
             // ShowForm("HslCommunicationDemo", "FormSelect");
         }
@@ -469,7 +485,7 @@ namespace DLLClientLink
 
         private Process cur = null;
         private PerformanceCounter curpcp = null;
-        private void Timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick()
         {
             System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(ThreadPoolCheckVersion), null);
             

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -7,22 +8,30 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BaseLib.Tools;
 using DLLClientLink.Tool;
+using Shawn.Utils;
 
 namespace DLLClientLink
 {
     static class Program
     {
+        public static bool CanPortable { get; private set; } = true;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
         [STAThread]
         static void Main()
         {
+#if DEV
+            InitLog();
             if (Environment.OSVersion.Version.Major >= 6)
             {
                 Utils.SetProcessDPIAware();
             }
-            
+            ConsoleManager.Show();
+
+            SimpleLogHelper.Debug("Program Start.");
+#endif
+
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.ThreadException += Application_ThreadException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;//处理非UI线程异常
@@ -101,6 +110,37 @@ namespace DLLClientLink
 
             GlobalData.mutexObj = new Mutex(false, name, out bool bCreatedNew);
             return !bCreatedNew;
+        }
+
+        public static void InitLog()
+        {
+            var baseDir = CanPortable ? Environment.CurrentDirectory : Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GlobalData.AppName);
+
+            SimpleLogHelper.WriteLogEnumLogLevel = SimpleLogHelper.EnumLogLevel.Warning;
+            SimpleLogHelper.PrintLogEnumLogLevel = SimpleLogHelper.EnumLogLevel.Debug;
+            // init log file placement
+            var logFilePath = Path.Combine(baseDir, "Logs", $"{GlobalData.AppName}.log.md");
+            var fi = new FileInfo(logFilePath);
+            if (!fi.Directory.Exists)
+                fi.Directory.Create();
+            SimpleLogHelper.LogFileName = logFilePath;
+
+            // old version log files cleanup
+            if (CanPortable)
+            {
+                var diLogs = new DirectoryInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GlobalData.AppName, "Logs"));
+                if (diLogs.Exists)
+                    diLogs.Delete(true);
+                var diApp = new DirectoryInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), GlobalData.AppName));
+                if (diApp.Exists)
+                {
+                    var fis = diApp.GetFiles("*.md");
+                    foreach (var info in fis)
+                    {
+                        info.Delete();
+                    }
+                }
+            }
         }
     }
 }

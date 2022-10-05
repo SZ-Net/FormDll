@@ -35,7 +35,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;DEV;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -198,6 +198,10 @@
     <ProjectReference Include="..\BaseLib\BaseLib.csproj">
       <Project>{11FB7705-5D7E-4E61-B535-41F30E36DEEE}</Project>
       <Name>BaseLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib.Core\Lib.Core.csproj">
+      <Project>{3338c8dd-dd4d-4853-a823-553ba37de0fc}</Project>
+      <Name>Lib.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

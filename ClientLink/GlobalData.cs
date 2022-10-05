@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BaseLib.Tools;
 using DLLClientLink.Tool;
+using System.Timers;
 
 namespace DLLClientLink
 {
@@ -33,6 +34,7 @@ namespace DLLClientLink
 └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
         ";
 
+        public const string AppName = "ClientLink_Debug";
 
         public static TextLogger textLogger;
         /// <summary>
@@ -82,7 +84,7 @@ namespace DLLClientLink
             get; set;
         }
 
-        public static System.Windows.Forms.Timer timer
+        public  static Timer timer
         {
             get; set;
         }

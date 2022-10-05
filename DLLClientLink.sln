@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VncSharp", "VncSharp\VncSha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_Fleck", "WS_Fleck\WS_Fleck.csproj", "{43EE2EA6-9574-4CC9-B432-E6AA346964C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib.Core", "Lib.Core\Lib.Core.csproj", "{3338C8DD-DD4D-4853-A823-553BA37DE0FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{43EE2EA6-9574-4CC9-B432-E6AA346964C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43EE2EA6-9574-4CC9-B432-E6AA346964C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43EE2EA6-9574-4CC9-B432-E6AA346964C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3338C8DD-DD4D-4853-A823-553BA37DE0FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3338C8DD-DD4D-4853-A823-553BA37DE0FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3338C8DD-DD4D-4853-A823-553BA37DE0FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3338C8DD-DD4D-4853-A823-553BA37DE0FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
