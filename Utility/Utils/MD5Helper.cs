@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Utiliyt
+namespace Utility
 {
     public class MD5Helper
     {

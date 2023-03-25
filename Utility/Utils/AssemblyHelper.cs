@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Utiliyt
+namespace Utility
 {
     public static class AssemblyHelper
     {

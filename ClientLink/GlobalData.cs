@@ -3,7 +3,7 @@ using ClientLink.Mode;
 using EasyNetQ;
 using System.Collections.Generic;
 using System.Timers;
-using Utiliyt;
+using Utility;
 
 namespace ClientLink
 {

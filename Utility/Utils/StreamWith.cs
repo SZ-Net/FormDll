@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace Utiliyt
+namespace Utility
 {
     internal class StreamWith : FileStream
     {

@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace Utiliyt
+namespace Utility
 {
     public static class HttpHelper
     {

@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 
-namespace Utiliyt
+namespace Utility
 {
     public class SimpleLogger
     {
@@ -127,7 +127,7 @@ namespace Utiliyt
             _logfilePrefix = logfilePrefix;
             _currentLogDateTime = DateTime.Now.ToString("yyyyMMdd");
             _maxFileLength = maxFileLength;
-            streamWriter = new StreamWriter(new StreamWith(logPath + "\\" + logfilePrefix + "-" + equipmentName + "-" + _currentLogDateTime + ".log", maxFileLength, 1000, FileMode.Append));
+            streamWriter = new StreamWriter(new StreamWith(logPath + "\\" + logfilePrefix + "_" + equipmentName + "_" + _currentLogDateTime + ".log", maxFileLength, 1000, FileMode.Append));
             streamWriter.AutoFlush = true;
             switch (logLevel)
             {

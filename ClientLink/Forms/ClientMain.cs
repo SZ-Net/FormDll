@@ -401,8 +401,7 @@ namespace ClientLink
                 if (activate)
                     return;
 
-                //assembly = Assembly.LoadFrom(PackagePath);
-                assembly = Assembly.Load(File.ReadAllBytes(PackagePath));
+                assembly = Assembly.LoadFrom(PackagePath);
 
                 Type type2 = assembly.GetType(treeSelectText + "." + GlobalData.TypeName);
                 if (type2 != null)

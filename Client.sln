@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Form", "Form", "{F64BA62F-18A1-4A40-8F17-7939E3267525}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utiliyt", "Utiliyt\Utiliyt.csproj", "{3338C8DD-DD4D-4853-A823-553BA37DE0FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{3338C8DD-DD4D-4853-A823-553BA37DE0FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseForm_1", "Form\BaseForm_1\BaseForm_1.csproj", "{BB816FEF-F065-4B1D-A04F-5E4F86F886D3}"
 EndProject

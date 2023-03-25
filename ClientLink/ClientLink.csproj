@@ -225,9 +225,9 @@
       <Project>{11fb7705-5d7e-4e61-b535-41f30e36deee}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Utiliyt\Utiliyt.csproj">
+    <ProjectReference Include="..\Utility\Utility.csproj">
       <Project>{3338c8dd-dd4d-4853-a823-553ba37de0fc}</Project>
-      <Name>Utiliyt</Name>
+      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace Utiliyt
+namespace Utility
 {
     public static class ConsoleManager
     {

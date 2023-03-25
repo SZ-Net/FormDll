@@ -47,10 +47,10 @@
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.splitter1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.splitter1.Location = new System.Drawing.Point(0, 272);
+            this.splitter1.Location = new System.Drawing.Point(0, 186);
             this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(800, 10);
+            this.splitter1.Size = new System.Drawing.Size(619, 10);
             this.splitter1.TabIndex = 61;
             this.splitter1.TabStop = false;
             // 
@@ -61,10 +61,10 @@
             this.lvWebManager.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lvWebManager.FullRowSelect = true;
             this.lvWebManager.HideSelection = false;
-            this.lvWebManager.Location = new System.Drawing.Point(0, 282);
+            this.lvWebManager.Location = new System.Drawing.Point(0, 196);
             this.lvWebManager.Margin = new System.Windows.Forms.Padding(4);
             this.lvWebManager.Name = "lvWebManager";
-            this.lvWebManager.Size = new System.Drawing.Size(800, 168);
+            this.lvWebManager.Size = new System.Drawing.Size(619, 168);
             this.lvWebManager.TabIndex = 60;
             this.lvWebManager.UseCompatibleStateImageBehavior = false;
             this.lvWebManager.View = System.Windows.Forms.View.Details;
@@ -86,7 +86,7 @@
             this.lvClient.Location = new System.Drawing.Point(0, 0);
             this.lvClient.Margin = new System.Windows.Forms.Padding(4);
             this.lvClient.Name = "lvClient";
-            this.lvClient.Size = new System.Drawing.Size(800, 450);
+            this.lvClient.Size = new System.Drawing.Size(619, 364);
             this.lvClient.TabIndex = 59;
             this.lvClient.UseCompatibleStateImageBehavior = false;
             this.lvClient.View = System.Windows.Forms.View.Details;
@@ -123,7 +123,7 @@
             this.lvUIClient.Location = new System.Drawing.Point(0, 0);
             this.lvUIClient.Margin = new System.Windows.Forms.Padding(4);
             this.lvUIClient.Name = "lvUIClient";
-            this.lvUIClient.Size = new System.Drawing.Size(800, 272);
+            this.lvUIClient.Size = new System.Drawing.Size(619, 186);
             this.lvUIClient.TabIndex = 62;
             this.lvUIClient.UseCompatibleStateImageBehavior = false;
             this.lvUIClient.View = System.Windows.Forms.View.Details;
@@ -131,7 +131,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Id";
-            this.columnHeader1.Width = 200;
+            this.columnHeader1.Width = 280;
             // 
             // columnHeader2
             // 
@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(619, 364);
             this.Controls.Add(this.lvUIClient);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.lvWebManager);

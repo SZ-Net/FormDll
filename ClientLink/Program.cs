@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-using Utiliyt;
+using Utility;
 
 namespace DLLClientLink
 {
@@ -105,7 +105,7 @@ namespace DLLClientLink
         public static void InitLog()
         {
             GlobalData.textLogger = new Common.Tools.TextLogger($"LogFiles//{GlobalData.AppName}_{DateTime.Now:yyMMdd}.log");
-            GlobalData.logger = new SimpleLogger(System.Environment.CurrentDirectory + "\\LogFiles", "SECsLogger", GlobalData.AppName, 10000000, "Info");
+            GlobalData.logger = new SimpleLogger(System.Environment.CurrentDirectory + "\\LogFiles", "Logger", GlobalData.AppName, 10000000, "Info");
             GlobalData.logger.Active = true;
             GlobalData.logger.Info("Hello World !");
             GlobalData.dicLogger.Add(GlobalData.AppName, GlobalData.logger);
