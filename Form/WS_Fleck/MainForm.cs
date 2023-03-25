@@ -1,6 +1,8 @@
 ﻿using Fleck;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.WebSockets;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -8,6 +10,9 @@ namespace WS_Fleck
 {
     public partial class MainForm : Form
     {
+        public delegate void FormOnLogEventHandler(string log);
+        public static event FormOnLogEventHandler FormOnLog;
+
         private Common.Tools.IniFile setting;
         private Dictionary<string, IWebSocketConnection> _wsClients = null;
         private WebSocketServer _wsServer = null;
@@ -96,12 +101,14 @@ namespace WS_Fleck
             }
             else
             {
+                FormOnLog?.Invoke("InitWebSocket error! " + "WebSocket ini value:" + setting.ReadContentValue("ProgramSetting", "WebSocket"));
             }
 
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            GC.Collect();
             this.Dispose();
         }
     }

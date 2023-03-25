@@ -50,8 +50,8 @@ namespace ClientLink
             this.menuItem_Refresh = new System.Windows.Forms.MenuItem();
             this.ImgList = new System.Windows.Forms.ImageList(this.components);
             this.ClientStatusStrip = new System.Windows.Forms.StatusStrip();
-            this.dllCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.RamValue = new System.Windows.Forms.ToolStripStatusLabel();
+            this.PragramCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Ram = new System.Windows.Forms.ToolStripStatusLabel();
             this.LocalIP = new System.Windows.Forms.ToolStripStatusLabel();
             this.User = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitter1 = new System.Windows.Forms.Splitter();
@@ -69,7 +69,7 @@ namespace ClientLink
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsMenuNotifyExit = new System.Windows.Forms.ToolStripMenuItem();
             this.MsgPanel = new System.Windows.Forms.Panel();
-            this.mainMsgControl1 = new ClientLink.Forms.Message();
+            this.txMessage = new ClientLink.Forms.Message();
             this.ClientStatusStrip.SuspendLayout();
             this.PanelLeftAll.SuspendLayout();
             this.PanelTreePanelSearch.SuspendLayout();
@@ -206,22 +206,22 @@ namespace ClientLink
             // 
             this.ClientStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.ClientStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dllCount,
-            this.RamValue,
+            this.PragramCount,
+            this.Ram,
             this.LocalIP,
             this.User});
             resources.ApplyResources(this.ClientStatusStrip, "ClientStatusStrip");
             this.ClientStatusStrip.Name = "ClientStatusStrip";
             // 
-            // dllCount
+            // PragramCount
             // 
-            this.dllCount.Name = "dllCount";
-            resources.ApplyResources(this.dllCount, "dllCount");
+            this.PragramCount.Name = "PragramCount";
+            resources.ApplyResources(this.PragramCount, "PragramCount");
             // 
-            // RamValue
+            // Ram
             // 
-            this.RamValue.Name = "RamValue";
-            resources.ApplyResources(this.RamValue, "RamValue");
+            this.Ram.Name = "Ram";
+            resources.ApplyResources(this.Ram, "Ram");
             // 
             // LocalIP
             // 
@@ -331,14 +331,14 @@ namespace ClientLink
             // 
             // MsgPanel
             // 
-            this.MsgPanel.Controls.Add(this.mainMsgControl1);
+            this.MsgPanel.Controls.Add(this.txMessage);
             resources.ApplyResources(this.MsgPanel, "MsgPanel");
             this.MsgPanel.Name = "MsgPanel";
             // 
-            // mainMsgControl1
+            // txMessage
             // 
-            resources.ApplyResources(this.mainMsgControl1, "mainMsgControl1");
-            this.mainMsgControl1.Name = "mainMsgControl1";
+            resources.ApplyResources(this.txMessage, "txMessage");
+            this.txMessage.Name = "txMessage";
             // 
             // ClientMain
             // 
@@ -377,7 +377,7 @@ namespace ClientLink
         private System.Windows.Forms.MainMenu MainMenu;
         private System.Windows.Forms.ImageList ImgList;
         private System.Windows.Forms.StatusStrip ClientStatusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel dllCount;
+        private System.Windows.Forms.ToolStripStatusLabel PragramCount;
         private System.Windows.Forms.MenuItem menuItem_Refresh;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel PanelLeftAll;
@@ -388,7 +388,7 @@ namespace ClientLink
         private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Panel PanelExpander;
         private System.Windows.Forms.PictureBox ExpanderPictureBox;
-        private System.Windows.Forms.ToolStripStatusLabel RamValue;
+        private System.Windows.Forms.ToolStripStatusLabel Ram;
         private System.Windows.Forms.ToolStripStatusLabel LocalIP;
         private System.Windows.Forms.MenuItem Exit;
         private System.Windows.Forms.MenuItem menuItem_MDILayout;
@@ -406,7 +406,7 @@ namespace ClientLink
         private System.Windows.Forms.MenuItem LanguageDefault;
         private System.Windows.Forms.MenuItem LanguageZhHans;
         private System.Windows.Forms.Panel MsgPanel;
-        private Forms.Message mainMsgControl1;
+        private Forms.Message txMessage;
         private System.Windows.Forms.MenuItem ShowLog;
         private System.Windows.Forms.MenuItem menuItem3;
     }

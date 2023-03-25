@@ -60,7 +60,7 @@ namespace Common
             this.txtX.FlatAppearance.BorderSize = 0;
             this.txtX.ForeColor = System.Drawing.Color.Transparent;
             this.txtX.Image = global::Common.Properties.Resources.close_black;
-            this.txtX.Name = "txtX";    
+            this.txtX.Name = "txtX";
             this.txtX.UseVisualStyleBackColor = false;
             this.txtX.Click += new System.EventHandler(this.XorCancle_Click);
             // 

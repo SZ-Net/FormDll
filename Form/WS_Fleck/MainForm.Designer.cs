@@ -94,12 +94,12 @@
             // colId
             // 
             this.colId.Text = "Id";
-            this.colId.Width = 200;
+            this.colId.Width = 280;
             // 
             // colIP
             // 
             this.colIP.Text = "Client IP";
-            this.colIP.Width = 200;
+            this.colIP.Width = 250;
             // 
             // colPort
             // 

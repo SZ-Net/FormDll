@@ -121,7 +121,6 @@ namespace Utiliyt
             }
             catch (Exception e)
             {
-                SimpleLogHelper.Debug(e);
                 return @default;
             }
         }

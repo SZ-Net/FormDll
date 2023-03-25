@@ -8,7 +8,9 @@ namespace ClientLink.Mode
 {
     public class UserInfo
     {
-         
-
+        public string UserName;
+        public string Password;
+        public bool IsState;
+        public string Description;
     }
 }

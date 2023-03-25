@@ -15,23 +15,16 @@ namespace Common
     /// </summary>
     public partial class fmLogin : Form
     {
-        private string userId;
-        private string password;
-        private bool loginACK = false;
-
-        public string UserId { get => userId; set => userId = value; }
-        public string Password { get => password; set => password = value; }
-        public bool LoginACK { get => loginACK; set => loginACK = value; }
+        public UserInfo userInfo =new UserInfo();
 
         public fmLogin()
         {
             InitializeComponent();
         }
 
-        //注册
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-
+            //TODO 注册
         }
 
         //单击取消按钮时发生的事件
@@ -48,22 +41,14 @@ namespace Common
                 MessageBox.Show("Please enter your identity and password.");
                 return;
             }
-
-            this.UserId = txtID.Text;
-            this.Password = txtPwd.Text;
-
-            if (true)
-            {
-               //DB check user
-               this.loginACK = true;
-                this.Close();
-            }
-            else
-            {           
-                MessageBox.Show("No matching member information.");
-            }
-
-
+            //TODO user validate
+            this.userInfo= new UserInfo() { 
+                UserName= txtID.Text,
+                Password= txtPwd.Text,
+                IsState= true,
+                Description= txtID.Text,
+            };
+            this.Close();
         }
 
         private void txtPwd_KeyDown(object sender, KeyEventArgs e)
@@ -73,5 +58,13 @@ namespace Common
                 btnLogin_Click(null,null);
             }
         }
+    }
+
+    public class UserInfo
+    {
+        public string UserName;
+        public string Password;
+        public bool IsState = false;
+        public string Description;
     }
 }

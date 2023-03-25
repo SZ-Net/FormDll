@@ -120,20 +120,17 @@
   <data name="SetUp.Text" xml:space="preserve">
     <value>SetUp</value>
   </data>
-  <data name="menuItem_System.Text" xml:space="preserve">
-    <value>System</value>
-  </data>
   <data name="Login.Text" xml:space="preserve">
     <value>Login</value>
   </data>
   <data name="Exit.Text" xml:space="preserve">
     <value>Exit</value>
   </data>
+  <data name="menuItem_System.Text" xml:space="preserve">
+    <value>System</value>
+  </data>
   <data name="About.Text" xml:space="preserve">
     <value>About Client</value>
-  </data>
-  <data name="menuItem_Help.Text" xml:space="preserve">
-    <value>Help</value>
   </data>
   <data name="menuItem1.Text" xml:space="preserve">
     <value>-</value>
@@ -150,12 +147,12 @@
   <data name="ShowLog.Text" xml:space="preserve">
     <value>ShowLog</value>
   </data>
+  <data name="menuItem_Help.Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
   <metadata name="MainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>14, 17</value>
   </metadata>
-  <data name="menuItem_MDILayout.Text" xml:space="preserve">
-    <value>MDILayout</value>
-  </data>
   <data name="Cascade.Text" xml:space="preserve">
     <value>Cascade</value>
   </data>
@@ -164,6 +161,9 @@
   </data>
   <data name="TileVertical.Text" xml:space="preserve">
     <value>TileVertical</value>
+  </data>
+  <data name="menuItem_MDILayout.Text" xml:space="preserve">
+    <value>MDILayout</value>
   </data>
   <data name="menuItem_Refresh.Text" xml:space="preserve">
     <value>Refresh</value>
@@ -181,16 +181,16 @@
   <metadata name="ClientStatusStrip.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="dllCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 31</value>
+  <data name="PragramCount.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 31</value>
   </data>
-  <data name="dllCount.Text" xml:space="preserve">
-    <value>加载dll数量：</value>
+  <data name="PragramCount.Text" xml:space="preserve">
+    <value>PragramCount:</value>
   </data>
-  <data name="RamValue.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Ram.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 31</value>
   </data>
-  <data name="RamValue.Text" xml:space="preserve">
+  <data name="Ram.Text" xml:space="preserve">
     <value>Ram:</value>
   </data>
   <data name="LocalIP.Size" type="System.Drawing.Size, System.Drawing">
@@ -528,6 +528,21 @@
   <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>573, 21</value>
   </metadata>
+  <data name="tsMenuNotifyShow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 40</value>
+  </data>
+  <data name="tsMenuNotifyShow.Text" xml:space="preserve">
+    <value>显示</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="tsMenuNotifyExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 40</value>
+  </data>
+  <data name="tsMenuNotifyExit.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
   <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 90</value>
   </data>
@@ -1675,52 +1690,37 @@
   <data name="notifyIcon1.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="tsMenuNotifyShow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 40</value>
-  </data>
-  <data name="tsMenuNotifyShow.Text" xml:space="preserve">
-    <value>显示</value>
-  </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
-  </data>
-  <data name="tsMenuNotifyExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 40</value>
-  </data>
-  <data name="tsMenuNotifyExit.Text" xml:space="preserve">
-    <value>退出</value>
-  </data>
   <metadata name="MsgPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="mainMsgControl1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="txMessage.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="mainMsgControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="txMessage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="mainMsgControl1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="txMessage.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="mainMsgControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="txMessage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="mainMsgControl1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txMessage.Size" type="System.Drawing.Size, System.Drawing">
     <value>605, 156</value>
   </data>
-  <data name="mainMsgControl1.TabIndex" type="System.Int32, mscorlib">
+  <data name="txMessage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;mainMsgControl1.Name" xml:space="preserve">
-    <value>mainMsgControl1</value>
+  <data name="&gt;&gt;txMessage.Name" xml:space="preserve">
+    <value>txMessage</value>
   </data>
-  <data name="&gt;&gt;mainMsgControl1.Type" xml:space="preserve">
+  <data name="&gt;&gt;txMessage.Type" xml:space="preserve">
     <value>ClientLink.Forms.Message, ClientLink, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;mainMsgControl1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txMessage.Parent" xml:space="preserve">
     <value>MsgPanel</value>
   </data>
-  <data name="&gt;&gt;mainMsgControl1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;txMessage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="MsgPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -4568,16 +4568,16 @@
   <data name="&gt;&gt;ImgList.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dllCount.Name" xml:space="preserve">
-    <value>dllCount</value>
+  <data name="&gt;&gt;PragramCount.Name" xml:space="preserve">
+    <value>PragramCount</value>
   </data>
-  <data name="&gt;&gt;dllCount.Type" xml:space="preserve">
+  <data name="&gt;&gt;PragramCount.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RamValue.Name" xml:space="preserve">
-    <value>RamValue</value>
+  <data name="&gt;&gt;Ram.Name" xml:space="preserve">
+    <value>Ram</value>
   </data>
-  <data name="&gt;&gt;RamValue.Type" xml:space="preserve">
+  <data name="&gt;&gt;Ram.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LocalIP.Name" xml:space="preserve">

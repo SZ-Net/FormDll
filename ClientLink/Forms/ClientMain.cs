@@ -4,6 +4,7 @@ using ClientLink.Mode;
 using ClientLink.Model;
 using ClientLink.Properties;
 using ClientLink.Resx;
+using Common;
 using NHotkey;
 using System;
 using System.Collections.Generic;
@@ -50,14 +51,16 @@ namespace ClientLink
             {
                 TEST();
                 InitMenuTreeViewData();
-                InitStatusBar();
+                InitInterface();
                 MainFormHandler.Instance.RegisterGlobalHotkey(config, OnHotkeyHandler, UpdateTaskHandler); //快捷键
+
             }
             catch (Exception ex)
             {
-                this.mainMsgControl1.AppendText(ex.ToString());
+                this.txMessage.AppendText(ex.ToString());
             }
         }
+
         private void OnHotkeyHandler(object sender, HotkeyEventArgs e)
         {
             switch (Utils.ToInt(e.Name))
@@ -139,7 +142,6 @@ namespace ClientLink
                 Application.Exit();
             }
         }
-
         private void ShowForm()
         {
             Show();
@@ -149,11 +151,10 @@ namespace ClientLink
             }
             //Activate();
             ShowInTaskbar = true;
-            mainMsgControl1.ScrollToCaret();
+            txMessage.ScrollToCaret();
             SetVisibleCore(true);
             this.MainMenu.GetForm().Show();
         }
-
         private void HideForm()
         {
             //Hide(); // 隐藏当前窗体 mid 有bug
@@ -221,9 +222,15 @@ namespace ClientLink
                 case "Login":
                     Common.fmLogin fmLogin = new Common.fmLogin();
                     fmLogin.ShowDialog();
-                    if (fmLogin.LoginACK)
+                    if (fmLogin.userInfo.IsState)
                     {
-                        this.User.Text = fmLogin.UserId;
+                        GlobalData.userInfo = new ClientLink.Mode.UserInfo()
+                        {
+                            UserName = fmLogin.userInfo.UserName,
+                            Password = fmLogin.userInfo.Password,
+                            IsState = fmLogin.userInfo.IsState,
+                            Description = fmLogin.userInfo.Description,
+                        };
                         fmLogin.Close();
                     }
                     break;
@@ -278,35 +285,6 @@ namespace ClientLink
 
         #endregion
 
-        private void TEST()
-        {
-
-            GlobalData.processJob = new Job();
-
-            if (ConfigHandler.LoadConfig(ref config) != 0)
-            {
-                MessageBoxUI.ShowWarning($"Loading GUI configuration file is abnormal,please restart the application{Environment.NewLine}加载GUI配置文件异常,请重启应用");
-                Environment.Exit(0);
-                return;
-            }
-
-            Start();
-
-
-            GlobalData.timer = new System.Timers.Timer()
-            {
-                Interval = 1000 * 10,
-                AutoReset = true,
-            };
-            GlobalData.timer.Elapsed += (sender, args) =>
-            {
-                Utiliyt.SimpleLogHelper.Debug("System.Timers.Timer().");
-                GlobalData.timer.Interval = 1000 * 10; // next time check,  eta *..
-                Timer_Tick();
-            };
-            GlobalData.timer.Start();
-
-        }
         private void InitMenuTreeViewData()
         {
             try
@@ -348,7 +326,7 @@ namespace ClientLink
                         }
                         else
                         {
-                            this.mainMsgControl1.AppendText("Assembly content is not acceptable. It must be named " + array[i]);
+                            this.txMessage.AppendText("Assembly content is not acceptable. It must be named " + array[i]);
                         }
                     }
                 }
@@ -356,7 +334,7 @@ namespace ClientLink
             }
             catch (Exception ex)
             {
-                this.mainMsgControl1.AppendText(ex.ToString());
+                this.txMessage.AppendText(ex.ToString());
             }
             finally
             {
@@ -381,12 +359,18 @@ namespace ClientLink
                 tView.Nodes.Add(treeNode);
             }
         }
-        private void InitStatusBar()
+        private void InitInterface()
         {
             this.Text = Utils.GetVersion();
             this.ClientStatusStrip.Items["LocalIP"].Text = $"IP: {Utils.GetClientIP()}";
-            this.ClientStatusStrip.Items["dllCount"].Text = $"Count: " + MenuTree.Count.ToString();
+            this.ClientStatusStrip.Items["PragramCount"].Text = $"PragramCount: " + MenuTree.Count.ToString();
+            this.ClientStatusStrip.Items["Ram"].Text = $"Ram: 10M";
+            this.ClientStatusStrip.Items["User"].Text = $"User: " + GlobalData.userInfo.UserName;
         }
+        /// <summary>
+        /// 加载dll Form到UI
+        /// </summary>
+        /// <param name="ControlText"></param>
         private void showForm(string ControlText)
         {
             Assembly assembly = null;
@@ -417,7 +401,8 @@ namespace ClientLink
                 if (activate)
                     return;
 
-                assembly = Assembly.LoadFrom(PackagePath);
+                //assembly = Assembly.LoadFrom(PackagePath);
+                assembly = Assembly.Load(File.ReadAllBytes(PackagePath));
 
                 Type type2 = assembly.GetType(treeSelectText + "." + GlobalData.TypeName);
                 if (type2 != null)
@@ -427,7 +412,7 @@ namespace ClientLink
 
                     PropertyInfo property = type2.GetProperty("MdiParent");
                     property.SetValue(obj, this, null);
-                    ((Form)obj).FormClosed += InternalFormClosed; // bug 释放资源
+                    ((Form)obj).FormClosed += InternalFormClosed;
 
                     ((Control)obj).Show();
                     if (((Form)obj).WindowState == FormWindowState.Maximized)
@@ -445,7 +430,7 @@ namespace ClientLink
             }
             catch (Exception ex)
             {
-                this.mainMsgControl1.AppendText(ex.ToString());
+                this.txMessage.AppendText(ex.ToString());
             }
 
         }
@@ -453,26 +438,62 @@ namespace ClientLink
         {
             try
             {
-
                 Form infoForm = (Form)sender;
                 infoForm.Dispose();
+                GC.Collect();
+                foreach (Form frm in this.MdiChildren)
+                {
+                    frm.Close();
+                    frm.Dispose();
+                }
             }
             catch (Exception ex)
             {
-                this.mainMsgControl1.AppendText(ex.ToString());
+                this.txMessage.AppendText(ex.ToString());
             }
         }
-
         private void MdiFormClose()
         {
             foreach (Form frm in this.MdiChildren)
             {
+                frm.Close();
                 frm.Dispose();
             }
         }
 
+
+
+        //TODO TEST________________________
         private Process cur = null;
         private PerformanceCounter curpcp = null;
+        private void TEST()
+        {
+
+            GlobalData.processJob = new Job();
+
+            if (ConfigHandler.LoadConfig(ref config) != 0)
+            {
+                MessageBoxUI.ShowWarning($"Loading GUI configuration file is abnormal,please restart the application{Environment.NewLine}加载GUI配置文件异常,请重启应用");
+                Environment.Exit(0);
+                return;
+            }
+
+            Start();
+
+
+            GlobalData.timer = new System.Timers.Timer()
+            {
+                Interval = 1000 * 10,
+                AutoReset = true,
+            };
+            GlobalData.timer.Elapsed += (sender, args) =>
+            {
+                GlobalData.timer.Interval = 1000 * 10; // next time check,  eta *..
+                Timer_Tick();
+            };
+            GlobalData.timer.Start();
+
+        }
         private void Timer_Tick()
         {
             System.Threading.ThreadPool.QueueUserWorkItem(new System.Threading.WaitCallback(ThreadPoolCheckVersion), null);
@@ -480,14 +501,14 @@ namespace ClientLink
             if (curpcp != null)
             {
                 string RamInfo = (curpcp.NextValue() / (1024 * 1024)).ToString("F1") + "MB";
-                this.RamValue.Text = "Ram: " + RamInfo;
+                this.Ram.Text = "Ram: " + RamInfo;
 
             }
         }
         private void ThreadPoolCheckVersion(object state)
         {
             cur = Process.GetCurrentProcess();
-            this.mainMsgControl1.AppendText(cur.ProcessName);
+            this.txMessage.AppendText(cur.ProcessName);
             curpcp = new PerformanceCounter("Process", "Working Set - Private", cur.ProcessName);
         }
 
@@ -499,7 +520,6 @@ namespace ClientLink
 
         private void Start()
         {
-
             try
             {
                 string fileName = Utils.GetPath("mail.exe");

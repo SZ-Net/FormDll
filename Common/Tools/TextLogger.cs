@@ -9,7 +9,7 @@ namespace Common.Tools
 {
     /// <summary>
     ///  private readonly TextLogger textLogger;
-    ///   textLogger = new TextLogger($"logs/{DateTime.Now:yyMMdd}.log");
+    ///  textLogger = new TextLogger($"logs/{DateTime.Now:yyMMdd}.log");
     /// </summary>
     public class TextLogger
     {
@@ -17,28 +17,29 @@ namespace Common.Tools
         public readonly string _dir;
 
         /// <summary>
-        ///   初始化 <see cref="T:System.Object" /> 类的新实例。
+        /// TextLogger
         /// </summary>
+        /// <param name="filePath"></param>
         public TextLogger(string filePath)
         {
-            if (filePath.StartsWith("/"))
-            {
-                filePath = filePath.TrimStart('/');
-            }
-            _filePath = Path.Combine(Directory.GetCurrentDirectory(), filePath.Replace("/", "\\"));
-            _dir = Path.GetDirectoryName(_filePath);
             try
             {
+                if (filePath.StartsWith("/"))
+                {
+                    filePath = filePath.TrimStart('/');
+                }
+                _filePath = Path.Combine(Directory.GetCurrentDirectory(), filePath.Replace("/", "\\"));
+                _dir = Path.GetDirectoryName(_filePath);
+
                 if (!Directory.Exists(_dir))
                 {
                     Directory.CreateDirectory(_dir);
                 }
             }
-            catch
+            catch(Exception)
             {
-
+                throw;
             }
-
         }
 
         public List<string> ReadLines()
