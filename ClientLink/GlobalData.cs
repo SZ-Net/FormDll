@@ -1,4 +1,4 @@
-﻿using BaseLib.Tools;
+﻿
 using ClientLink.Mode;
 using EasyNetQ;
 using System.Timers;
@@ -32,7 +32,7 @@ namespace ClientLink
 
         public const string AppName = "ClientLink_Debug";
 
-        public static TextLogger textLogger;
+        public static Common.Tools.TextLogger textLogger;
         /// <summary>
         /// 注册表路径
         /// </summary>

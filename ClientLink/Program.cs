@@ -1,10 +1,9 @@
-﻿using BaseLib.Tools;
-using ClientLink;
-using Shawn.Utils;
+﻿using ClientLink;
 using System;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using Utiliyt;
 
 namespace DLLClientLink
 {
@@ -33,7 +32,7 @@ namespace DLLClientLink
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;//处理非UI线程异常
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            GlobalData.textLogger = new TextLogger($"logs/{DateTime.Now:yyMMdd}.log");  //Log
+            GlobalData.textLogger = new Common.Tools.TextLogger($"logs/{DateTime.Now:yyMMdd}.log");  //Log
             Utils.SaveLog(GlobalData.LogoTxt.ToString());
 
             if (IsDuplicateInstance())
@@ -64,7 +63,7 @@ namespace DLLClientLink
                 string lang = Utils.RegReadValue(GlobalData.MyRegPath, GlobalData.MyRegKeyLanguage, "zh-Hans");
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);
 
-                BaseLib.fmLogin fmLogin = new BaseLib.fmLogin();
+                Common.fmLogin fmLogin = new Common.fmLogin();
                 fmLogin.ShowDialog();
                 if (fmLogin.LoginACK)
                 {

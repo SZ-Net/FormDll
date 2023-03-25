@@ -221,15 +221,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BaseLib\BaseLib.csproj">
-      <Project>{11FB7705-5D7E-4E61-B535-41F30E36DEEE}</Project>
-      <Name>BaseLib</Name>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{11fb7705-5d7e-4e61-b535-41f30e36deee}</Project>
+      <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lib.Core\Lib.Core.csproj">
+    <ProjectReference Include="..\Utiliyt\Utiliyt.csproj">
       <Project>{3338c8dd-dd4d-4853-a823-553ba37de0fc}</Project>
-      <Name>Lib.Core</Name>
+      <Name>Utiliyt</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

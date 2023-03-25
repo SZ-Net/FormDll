@@ -1,11 +1,10 @@
-﻿using BaseLib;
+﻿
 using ClientLink.Handler;
 using ClientLink.Mode;
 using ClientLink.Model;
 using ClientLink.Properties;
 using ClientLink.Resx;
 using NHotkey;
-using Shawn.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +17,7 @@ using System.Windows.Forms;
 
 namespace ClientLink
 {
-    public partial class ClientMain : ClientLink.Forms.BaseForm
+    public partial class ClientMain : Forms.BaseForm
     {
 
         private int lx;
@@ -220,7 +219,7 @@ namespace ClientLink
             switch (menuItem.Text.ToString())
             {
                 case "Login":
-                    fmLogin fmLogin = new fmLogin();
+                    Common.fmLogin fmLogin = new Common.fmLogin();
                     fmLogin.ShowDialog();
                     if (fmLogin.LoginACK)
                     {
@@ -237,7 +236,7 @@ namespace ClientLink
                     break;
 
                 case "About Client":
-                    BaseLib.Version version = new BaseLib.Version("About Client");
+                    Common.Version version = new Common.Version("About Client");
                     version.ShowDialog(this);
                     break;
                 case "Cascade":
@@ -301,7 +300,7 @@ namespace ClientLink
             };
             GlobalData.timer.Elapsed += (sender, args) =>
             {
-                SimpleLogHelper.Debug("System.Timers.Timer().");
+                Utiliyt.SimpleLogHelper.Debug("System.Timers.Timer().");
                 GlobalData.timer.Interval = 1000 * 10; // next time check,  eta *..
                 Timer_Tick();
             };
