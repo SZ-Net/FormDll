@@ -27,7 +27,6 @@ namespace DLLClientLink
             SimpleLogHelper.Debug("Program Start.");
 #endif
 
-            InitLog();
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
             Application.ThreadException += Application_ThreadException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;//处理非UI线程异常
@@ -63,6 +62,8 @@ namespace DLLClientLink
                 //设置语言环境
                 string lang = Utils.RegReadValue(GlobalData.MyRegPath, GlobalData.MyRegKeyLanguage, "zh-Hans");
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);
+
+                InitLog();
 
                 Common.fmLogin fmLogin = new Common.fmLogin();
                 fmLogin.ShowDialog();
