@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BaseLib.Tools;
-using DLLClientLink.Tool;
+﻿using BaseLib.Tools;
+using ClientLink.Mode;
+using EasyNetQ;
 using System.Timers;
 
-namespace DLLClientLink
+namespace ClientLink
 {
     class GlobalData
     {
-        public const string LogoTxt =@"
+        public const string LogoTxt = @"
    ___      _       _                      _       _        _              _     
   / __|    | |     (_)     ___    _ _     | |_    | |      (_)    _ _     | |__  
  | (__     | |     | |    / -_)  | ' \    |  _|   | |__    | |   | ' \    | / /  
@@ -38,14 +34,14 @@ namespace DLLClientLink
 
         public static TextLogger textLogger;
         /// <summary>
-        /// My Regedit Path
+        /// 注册表路径
         /// </summary>
         public const string MyRegPath = "Software\\ClientLinkUI";
 
         /// <summary>
         /// Language
         /// </summary>
-        public const string MyRegKeyLanguage = "CurrentLanguage"; 
+        public const string MyRegKeyLanguage = "CurrentLanguage";
 
         /// <summary>
         /// Config Path
@@ -60,7 +56,7 @@ namespace DLLClientLink
         /// <summary>
         /// dll Path
         /// </summary>
-        public static string dllPath = Utils.StartupPath()+"\\";
+        public static string dllPath = Utils.StartupPath() + "\\List";
 
         /// <summary>
         /// dll type name
@@ -84,9 +80,25 @@ namespace DLLClientLink
             get; set;
         }
 
-        public  static Timer timer
+        public static Timer timer
         {
             get; set;
         }
+
+
+        /// <summary>
+        /// 用户信息
+        /// </summary>
+        public static UserInfo userInfo { get; set; }
+
+        /// <summary>
+        /// EasyNetQ IBus
+        /// </summary>
+        public static IBus Bus { get; set; }
+
+        /// <summary>
+        /// Assembly 加载方式
+        /// </summary>
+        public static bool LoadInMemory { get; set; } = true;
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace DLLClientLink.Mode
+﻿namespace ClientLink.Mode
 {
     public enum LoginType
     {
@@ -6,3 +6,4 @@
         SkipLogin = 2
     }
 }
+    

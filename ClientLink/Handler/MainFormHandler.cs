@@ -1,12 +1,11 @@
-﻿using DLLClientLink.Mode;
-using DLLClientLink.Resx;
-using DLLClientLink.Tool;
+﻿using ClientLink.Mode;
+using ClientLink.Resx;
 using NHotkey;
 using NHotkey.WindowsForms;
 using System;
 using System.Windows.Forms;
 
-namespace DLLClientLink.Handler
+namespace ClientLink.Handler
 {
     /// <summary>
     /// 当对一个类应用 sealed 修饰符时，此修饰符会阻止其他类从该类继承。

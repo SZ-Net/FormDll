@@ -120,17 +120,20 @@
   <data name="SetUp.Text" xml:space="preserve">
     <value>SetUp</value>
   </data>
+  <data name="menuItem_System.Text" xml:space="preserve">
+    <value>System</value>
+  </data>
   <data name="Login.Text" xml:space="preserve">
     <value>Login</value>
   </data>
   <data name="Exit.Text" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="menuItem_System.Text" xml:space="preserve">
-    <value>System</value>
-  </data>
   <data name="About.Text" xml:space="preserve">
     <value>About Client</value>
+  </data>
+  <data name="menuItem_Help.Text" xml:space="preserve">
+    <value>Help</value>
   </data>
   <data name="menuItem1.Text" xml:space="preserve">
     <value>-</value>
@@ -147,12 +150,12 @@
   <data name="ShowLog.Text" xml:space="preserve">
     <value>ShowLog</value>
   </data>
-  <data name="menuItem_Help.Text" xml:space="preserve">
-    <value>Help</value>
-  </data>
   <metadata name="MainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>14, 17</value>
   </metadata>
+  <data name="menuItem_MDILayout.Text" xml:space="preserve">
+    <value>MDILayout</value>
+  </data>
   <data name="Cascade.Text" xml:space="preserve">
     <value>Cascade</value>
   </data>
@@ -161,9 +164,6 @@
   </data>
   <data name="TileVertical.Text" xml:space="preserve">
     <value>TileVertical</value>
-  </data>
-  <data name="menuItem_MDILayout.Text" xml:space="preserve">
-    <value>MDILayout</value>
   </data>
   <data name="menuItem_Refresh.Text" xml:space="preserve">
     <value>Refresh</value>
@@ -182,38 +182,38 @@
     <value>True</value>
   </metadata>
   <data name="dllCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 20</value>
+    <value>161, 31</value>
   </data>
   <data name="dllCount.Text" xml:space="preserve">
     <value>加载dll数量：</value>
   </data>
   <data name="RamValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 20</value>
+    <value>71, 31</value>
   </data>
   <data name="RamValue.Text" xml:space="preserve">
     <value>Ram:</value>
   </data>
   <data name="LocalIP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 20</value>
+    <value>42, 31</value>
   </data>
   <data name="LocalIP.Text" xml:space="preserve">
     <value>IP:</value>
   </data>
   <data name="User.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 20</value>
+    <value>72, 31</value>
   </data>
   <data name="User.Text" xml:space="preserve">
     <value>User:</value>
   </data>
   <data name="ClientStatusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 496</value>
+    <value>0, 426</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ClientStatusStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 16, 0</value>
+    <value>1, 0, 15, 0</value>
   </data>
   <data name="ClientStatusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>854, 26</value>
+    <value>793, 41</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ClientStatusStrip.TabIndex" type="System.Int32, mscorlib">
@@ -238,10 +238,13 @@
     <value>NoControl</value>
   </data>
   <data name="splitter1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 0</value>
+    <value>185, 0</value>
+  </data>
+  <data name="splitter1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="splitter1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>3, 496</value>
+    <value>3, 426</value>
   </data>
   <data name="splitter1.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -277,10 +280,13 @@
     <value>Fill</value>
   </data>
   <data name="tView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 29</value>
+    <value>0, 26</value>
+  </data>
+  <data name="tView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="tView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 467</value>
+    <value>168, 400</value>
   </data>
   <data name="tView.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -303,14 +309,20 @@
   <metadata name="pbGo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="pbGo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
   <data name="pbGo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pbGo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>135, 3</value>
+    <value>126, 2</value>
+  </data>
+  <data name="pbGo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="pbGo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 25</value>
+    <value>31, 22</value>
   </data>
   <data name="pbGo.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -330,31 +342,37 @@
   <data name="&gt;&gt;pbGo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="tbGO.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="tbSearch.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="tbGO.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="tbSearch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="tbSearch.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9pt</value>
   </data>
-  <data name="tbGO.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 3</value>
+  <data name="tbSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 2</value>
   </data>
-  <data name="tbGO.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 24</value>
+  <data name="tbSearch.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
-  <data name="tbGO.TabIndex" type="System.Int32, mscorlib">
+  <data name="tbSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 35</value>
+  </data>
+  <data name="tbSearch.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;tbGO.Name" xml:space="preserve">
-    <value>tbGO</value>
+  <data name="&gt;&gt;tbSearch.Name" xml:space="preserve">
+    <value>tbSearch</value>
   </data>
-  <data name="&gt;&gt;tbGO.Type" xml:space="preserve">
+  <data name="&gt;&gt;tbSearch.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbGO.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tbSearch.Parent" xml:space="preserve">
     <value>PanelSearch</value>
   </data>
-  <data name="&gt;&gt;tbGO.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tbSearch.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="PanelSearch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -363,8 +381,11 @@
   <data name="PanelSearch.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="PanelSearch.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
   <data name="PanelSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 29</value>
+    <value>168, 26</value>
   </data>
   <data name="PanelSearch.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -387,8 +408,11 @@
   <data name="PanelTreePanelSearch.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="PanelTreePanelSearch.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
   <data name="PanelTreePanelSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 496</value>
+    <value>168, 426</value>
   </data>
   <data name="PanelTreePanelSearch.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -420,8 +444,11 @@
   <data name="ExpanderPictureBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="ExpanderPictureBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
   <data name="ExpanderPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 29</value>
+    <value>17, 26</value>
   </data>
   <data name="ExpanderPictureBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -445,10 +472,13 @@
     <value>Right</value>
   </data>
   <data name="PanelExpander.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 0</value>
+    <value>168, 0</value>
+  </data>
+  <data name="PanelExpander.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="PanelExpander.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 496</value>
+    <value>17, 426</value>
   </data>
   <data name="PanelExpander.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -471,8 +501,11 @@
   <data name="PanelLeftAll.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="PanelLeftAll.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
   <data name="PanelLeftAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 496</value>
+    <value>185, 426</value>
   </data>
   <data name="PanelLeftAll.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -495,23 +528,8 @@
   <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>573, 21</value>
   </metadata>
-  <data name="tsMenuNotifyShow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 38</value>
-  </data>
-  <data name="tsMenuNotifyShow.Text" xml:space="preserve">
-    <value>显示</value>
-  </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 6</value>
-  </data>
-  <data name="tsMenuNotifyExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 38</value>
-  </data>
-  <data name="tsMenuNotifyExit.Text" xml:space="preserve">
-    <value>退出</value>
-  </data>
   <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 86</value>
+    <value>153, 90</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
     <value>contextMenuStrip2</value>
@@ -1657,6 +1675,21 @@
   <data name="notifyIcon1.Visible" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="tsMenuNotifyShow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 40</value>
+  </data>
+  <data name="tsMenuNotifyShow.Text" xml:space="preserve">
+    <value>显示</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="tsMenuNotifyExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 40</value>
+  </data>
+  <data name="tsMenuNotifyExit.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
   <metadata name="MsgPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1673,7 +1706,7 @@
     <value>3, 4, 3, 4</value>
   </data>
   <data name="mainMsgControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>651, 173</value>
+    <value>605, 156</value>
   </data>
   <data name="mainMsgControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1682,7 +1715,7 @@
     <value>mainMsgControl1</value>
   </data>
   <data name="&gt;&gt;mainMsgControl1.Type" xml:space="preserve">
-    <value>DLLClientLink.Forms.MainMsgControl, DLLClientLink, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>ClientLink.Forms.Message, ClientLink, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;mainMsgControl1.Parent" xml:space="preserve">
     <value>MsgPanel</value>
@@ -1694,10 +1727,13 @@
     <value>Bottom</value>
   </data>
   <data name="MsgPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>203, 323</value>
+    <value>188, 270</value>
+  </data>
+  <data name="MsgPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="MsgPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>651, 173</value>
+    <value>605, 156</value>
   </data>
   <data name="MsgPanel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1727,7 +1763,7 @@
     <value>64</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
+    <value>13, 28</value>
   </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3278,10 +3314,10 @@
     <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>854, 522</value>
+    <value>793, 467</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 9pt</value>
+    <value>Consolas, 9pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4584,6 +4620,6 @@
     <value>ClientMain</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>DLLClientLink.Forms.BaseForm, DLLClientLink, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>ClientLink.Forms.BaseForm, ClientLink, Version=1.0.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

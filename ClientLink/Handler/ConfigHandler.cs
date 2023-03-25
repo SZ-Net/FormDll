@@ -1,13 +1,9 @@
-﻿using DLLClientLink.Mode;
-using DLLClientLink.Tool;
+﻿using ClientLink.Mode;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DLLClientLink.Handler
+namespace ClientLink.Handler
 {
     class ConfigHandler
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace DLLClientLink
+namespace ClientLink
 {
     partial class SetUp
     {
@@ -92,7 +92,7 @@ namespace DLLClientLink
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Image = global::DLLClientLink.Properties.Resources.close_black;
+            this.button1.Image = global::ClientLink.Properties.Resources.close_black;
             this.button1.Location = new System.Drawing.Point(626, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
             this.button1.Name = "button1";

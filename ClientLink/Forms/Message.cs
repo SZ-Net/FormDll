@@ -1,24 +1,16 @@
-﻿using DLLClientLink.Base;
-using DLLClientLink.Tool;
+﻿using ClientLink.Base;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DLLClientLink.Forms
+namespace ClientLink.Forms
 {
-    public partial class MainMsgControl : UserControl
+    public partial class Message : UserControl
     {
         private string _msgFilter = string.Empty;
         delegate void AppendTextDelegate(string text);
 
-        public MainMsgControl()
+        public Message()
         {
             InitializeComponent();
         }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DLLClientLink.Resx {
+namespace ClientLink.Resx {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DLLClientLink.Resx {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DLLClientLink.Resx.ResUI", typeof(ResUI).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClientLink.Resx.ResUI", typeof(ResUI).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

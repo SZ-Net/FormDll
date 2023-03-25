@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DLLClientLink.Mode
+namespace ClientLink.Mode
 {
     public enum GlobalHotkey
     {

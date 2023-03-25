@@ -1,23 +1,14 @@
-﻿using DLLClientLink.Handler;
-using DLLClientLink.Mode;
-using DLLClientLink.Resx;
-using DLLClientLink.Tool;
+﻿using ClientLink.Handler;
+using ClientLink.Mode;
+using ClientLink.Resx;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
-namespace DLLClientLink
+namespace ClientLink
 {
-    public partial class SetUp : DLLClientLink.Forms.BaseForm
+    public partial class SetUp : ClientLink.Forms.BaseForm
 	{
         List<KeyEventItem> lstKey;
         public SetUp()
@@ -75,7 +66,7 @@ namespace DLLClientLink
             }
             else
             {
-                UI.ShowWarning(ResUI.OperationFailed);
+                MessageBoxUI.ShowWarning(ResUI.OperationFailed);
             }
         }
 

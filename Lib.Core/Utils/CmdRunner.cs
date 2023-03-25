@@ -10,10 +10,9 @@ namespace Shawn.Utils
     public static class CmdRunner
     {
         /// <summary>
-        /// cmd by cmd.exe
+        /// cmd by cmd.exe 打开控制面板
         /// </summary>
         /// <returns>[0] = output info，[1] = ret code</returns>
-        /// CmdRunner.RunCmdAsync("control"); 打开控制面板
         public static string[] RunCmdSync(string cmd, bool createNoWindow = false)
         {
             var pro = new Process

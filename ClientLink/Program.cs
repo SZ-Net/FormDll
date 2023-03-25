@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BaseLib.Tools;
-using DLLClientLink.Tool;
+﻿using BaseLib.Tools;
+using ClientLink;
 using Shawn.Utils;
+using System;
+using System.IO;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace DLLClientLink
 {
@@ -21,7 +17,7 @@ namespace DLLClientLink
         [STAThread]
         static void Main()
         {
-#if DEV
+#if DEV1
             InitLog();
             if (Environment.OSVersion.Version.Major >= 6)
             {
@@ -53,21 +49,20 @@ namespace DLLClientLink
                         {
                             Utils.ShowWindow(hwnd, 4);
                             Utils.SwitchToThisWindow(hwnd, true);
-                           
+
                             return;
                         }
                     }
                 }
                 catch { }
-                UI.ShowWarning($"ClientLink is already running(ClientLink已经运行)");
+                MessageBoxUI.ShowWarning($"ClientLink is already running(ClientLink已经运行)");
             }
             else
             {
-                
+
                 //设置语言环境
                 string lang = Utils.RegReadValue(GlobalData.MyRegPath, GlobalData.MyRegKeyLanguage, "zh-Hans");
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);
-                
 
                 BaseLib.fmLogin fmLogin = new BaseLib.fmLogin();
                 fmLogin.ShowDialog();
@@ -78,7 +73,7 @@ namespace DLLClientLink
                     Utils.SaveLog($"ClientLink start up | {Utils.GetVersion()} | {Utils.GetExePath()}");
 
                     Application.Run(new ClientMain());
-                    
+
                 }
             }
 

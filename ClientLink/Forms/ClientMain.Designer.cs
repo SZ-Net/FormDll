@@ -1,5 +1,5 @@
 ﻿
-namespace DLLClientLink
+namespace ClientLink
 {
     partial class ClientMain
     {
@@ -60,7 +60,7 @@ namespace DLLClientLink
             this.tView = new System.Windows.Forms.TreeView();
             this.PanelSearch = new System.Windows.Forms.Panel();
             this.pbGo = new System.Windows.Forms.PictureBox();
-            this.tbGO = new System.Windows.Forms.TextBox();
+            this.tbSearch = new System.Windows.Forms.TextBox();
             this.PanelExpander = new System.Windows.Forms.Panel();
             this.ExpanderPictureBox = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -69,7 +69,7 @@ namespace DLLClientLink
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsMenuNotifyExit = new System.Windows.Forms.ToolStripMenuItem();
             this.MsgPanel = new System.Windows.Forms.Panel();
-            this.mainMsgControl1 = new DLLClientLink.Forms.MainMsgControl();
+            this.mainMsgControl1 = new ClientLink.Forms.Message();
             this.ClientStatusStrip.SuspendLayout();
             this.PanelLeftAll.SuspendLayout();
             this.PanelTreePanelSearch.SuspendLayout();
@@ -263,22 +263,22 @@ namespace DLLClientLink
             // PanelSearch
             // 
             this.PanelSearch.Controls.Add(this.pbGo);
-            this.PanelSearch.Controls.Add(this.tbGO);
+            this.PanelSearch.Controls.Add(this.tbSearch);
             resources.ApplyResources(this.PanelSearch, "PanelSearch");
             this.PanelSearch.Name = "PanelSearch";
             // 
             // pbGo
             // 
-            this.pbGo.Image = global::DLLClientLink.Properties.Resources.query;
             resources.ApplyResources(this.pbGo, "pbGo");
+            this.pbGo.Image = global::ClientLink.Properties.Resources.query;
             this.pbGo.Name = "pbGo";
             this.pbGo.TabStop = false;
             this.pbGo.Click += new System.EventHandler(this.pbGo_Click);
             // 
-            // tbGO
+            // tbSearch
             // 
-            resources.ApplyResources(this.tbGO, "tbGO");
-            this.tbGO.Name = "tbGO";
+            resources.ApplyResources(this.tbSearch, "tbSearch");
+            this.tbSearch.Name = "tbSearch";
             // 
             // PanelExpander
             // 
@@ -290,7 +290,7 @@ namespace DLLClientLink
             // ExpanderPictureBox
             // 
             resources.ApplyResources(this.ExpanderPictureBox, "ExpanderPictureBox");
-            this.ExpanderPictureBox.Image = global::DLLClientLink.Properties.Resources.Expander;
+            this.ExpanderPictureBox.Image = global::ClientLink.Properties.Resources.Expander;
             this.ExpanderPictureBox.Name = "ExpanderPictureBox";
             this.ExpanderPictureBox.TabStop = false;
             this.ExpanderPictureBox.Click += new System.EventHandler(this.Expander_Click);
@@ -313,7 +313,7 @@ namespace DLLClientLink
             // 
             // tsMenuNotifyShow
             // 
-            this.tsMenuNotifyShow.Image = global::DLLClientLink.Properties.Resources.show;
+            this.tsMenuNotifyShow.Image = global::ClientLink.Properties.Resources.show;
             this.tsMenuNotifyShow.Name = "tsMenuNotifyShow";
             resources.ApplyResources(this.tsMenuNotifyShow, "tsMenuNotifyShow");
             this.tsMenuNotifyShow.Click += new System.EventHandler(this.tsMenuNotifyShow_Click);
@@ -352,7 +352,6 @@ namespace DLLClientLink
             this.Name = "ClientMain";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientMain_FormClosing);
             this.Load += new System.EventHandler(this.ClientMain_Load);
-            this.Shown += new System.EventHandler(this.ClientMain_Shown);
             this.Resize += new System.EventHandler(this.ClientMain_Resize);
             this.ClientStatusStrip.ResumeLayout(false);
             this.ClientStatusStrip.PerformLayout();
@@ -386,7 +385,7 @@ namespace DLLClientLink
         private System.Windows.Forms.TreeView tView;
         public System.Windows.Forms.Panel PanelSearch;
         private System.Windows.Forms.PictureBox pbGo;
-        private System.Windows.Forms.TextBox tbGO;
+        private System.Windows.Forms.TextBox tbSearch;
         private System.Windows.Forms.Panel PanelExpander;
         private System.Windows.Forms.PictureBox ExpanderPictureBox;
         private System.Windows.Forms.ToolStripStatusLabel RamValue;
@@ -407,7 +406,7 @@ namespace DLLClientLink
         private System.Windows.Forms.MenuItem LanguageDefault;
         private System.Windows.Forms.MenuItem LanguageZhHans;
         private System.Windows.Forms.Panel MsgPanel;
-        private Forms.MainMsgControl mainMsgControl1;
+        private Forms.Message mainMsgControl1;
         private System.Windows.Forms.MenuItem ShowLog;
         private System.Windows.Forms.MenuItem menuItem3;
     }

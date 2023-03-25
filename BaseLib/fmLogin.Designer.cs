@@ -47,16 +47,16 @@ namespace BaseLib
             // 
             // pnlTop
             // 
-            resources.ApplyResources(this.pnlTop, "pnlTop");
             this.pnlTop.BackColor = System.Drawing.SystemColors.Highlight;
             this.pnlTop.Controls.Add(this.txtX);
             this.pnlTop.Controls.Add(this.label1);
+            resources.ApplyResources(this.pnlTop, "pnlTop");
             this.pnlTop.Name = "pnlTop";
             // 
             // txtX
             // 
-            resources.ApplyResources(this.txtX, "txtX");
             this.txtX.BackColor = System.Drawing.SystemColors.Highlight;
+            resources.ApplyResources(this.txtX, "txtX");
             this.txtX.FlatAppearance.BorderSize = 0;
             this.txtX.ForeColor = System.Drawing.Color.Transparent;
             this.txtX.Image = global::BaseLib.Properties.Resources.close_black;

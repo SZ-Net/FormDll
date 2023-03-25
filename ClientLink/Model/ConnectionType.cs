@@ -1,4 +1,4 @@
-﻿namespace DLLClientLink.Mode
+﻿namespace ClientLink.Mode
 {
     public enum ConnectionType
     {

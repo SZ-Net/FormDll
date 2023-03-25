@@ -1,4 +1,4 @@
-﻿using DLLClientLink.Mode;
+﻿using ClientLink.Mode;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DLLClientLink.Forms
+namespace ClientLink.Forms
 {
     public partial class BaseForm : Form
     {
@@ -22,7 +22,7 @@ namespace DLLClientLink.Forms
 
         private void LoadCustom()
         {
-            
+
         }
 
     }

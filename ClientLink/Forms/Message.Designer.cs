@@ -1,6 +1,6 @@
-﻿namespace DLLClientLink.Forms
+﻿namespace ClientLink.Forms
 {
-    partial class MainMsgControl
+    partial class Message
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -67,33 +67,33 @@
             this.menuMsgBoxCopyAll,
             this.menuMsgBoxClear});
             this.cmsMsgBox.Name = "cmsMsgBox";
-            this.cmsMsgBox.Size = new System.Drawing.Size(209, 100);
+            this.cmsMsgBox.Size = new System.Drawing.Size(292, 156);
             // 
             // menuMsgBoxSelectAll
             // 
             this.menuMsgBoxSelectAll.Name = "menuMsgBoxSelectAll";
-            this.menuMsgBoxSelectAll.Size = new System.Drawing.Size(268, 24);
+            this.menuMsgBoxSelectAll.Size = new System.Drawing.Size(291, 38);
             this.menuMsgBoxSelectAll.Text = "Select All (Ctrl+A)";
             this.menuMsgBoxSelectAll.Click += new System.EventHandler(this.menuMsgBoxSelectAll_Click);
             // 
             // menuMsgBoxCopy
             // 
             this.menuMsgBoxCopy.Name = "menuMsgBoxCopy";
-            this.menuMsgBoxCopy.Size = new System.Drawing.Size(268, 24);
+            this.menuMsgBoxCopy.Size = new System.Drawing.Size(291, 38);
             this.menuMsgBoxCopy.Text = "Copy (Ctrl+C)";
             this.menuMsgBoxCopy.Click += new System.EventHandler(this.menuMsgBoxCopy_Click);
             // 
             // menuMsgBoxCopyAll
             // 
             this.menuMsgBoxCopyAll.Name = "menuMsgBoxCopyAll";
-            this.menuMsgBoxCopyAll.Size = new System.Drawing.Size(268, 24);
+            this.menuMsgBoxCopyAll.Size = new System.Drawing.Size(291, 38);
             this.menuMsgBoxCopyAll.Text = "Copy All";
             this.menuMsgBoxCopyAll.Click += new System.EventHandler(this.menuMsgBoxCopyAll_Click);
             // 
             // menuMsgBoxClear
             // 
             this.menuMsgBoxClear.Name = "menuMsgBoxClear";
-            this.menuMsgBoxClear.Size = new System.Drawing.Size(268, 24);
+            this.menuMsgBoxClear.Size = new System.Drawing.Size(291, 38);
             this.menuMsgBoxClear.Text = "Clear All";
             this.menuMsgBoxClear.Click += new System.EventHandler(this.menuMsgBoxClear_Click);
             // 
@@ -108,14 +108,14 @@
             this.gbMsgTitle.Size = new System.Drawing.Size(908, 327);
             this.gbMsgTitle.TabIndex = 6;
             this.gbMsgTitle.TabStop = false;
-            this.gbMsgTitle.Text = "Informations";
+            this.gbMsgTitle.Text = "log";
             // 
-            // MainMsgControl
+            // Message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbMsgTitle);
-            this.Name = "MainMsgControl";
+            this.Name = "Message";
             this.Size = new System.Drawing.Size(908, 327);
             this.cmsMsgBox.ResumeLayout(false);
             this.gbMsgTitle.ResumeLayout(false);

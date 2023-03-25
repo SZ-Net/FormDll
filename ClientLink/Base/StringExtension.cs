@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DLLClientLink.Base
+namespace ClientLink.Base
 {
     static class StringExtension
     {

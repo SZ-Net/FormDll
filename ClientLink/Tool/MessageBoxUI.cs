@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
 
-namespace DLLClientLink
+namespace ClientLink
 {
-    class UI
+    class MessageBoxUI
     {
         public static void Show(string msg)
         {

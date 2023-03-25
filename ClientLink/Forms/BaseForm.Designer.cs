@@ -1,7 +1,7 @@
-﻿namespace DLLClientLink.Forms
+﻿namespace ClientLink.Forms
 {
     partial class BaseForm
-    {
+    {   
         /// <summary>
         /// Required designer variable.
         /// </summary>

@@ -105,7 +105,9 @@ namespace WS_Fleck
 
         }
 
-
-
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

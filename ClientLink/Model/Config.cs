@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DLLClientLink.Mode
+namespace ClientLink.Mode
 {
     /// <summary>
     /// 本软件配置文件实体类

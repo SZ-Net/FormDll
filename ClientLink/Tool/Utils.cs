@@ -21,7 +21,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 
-namespace DLLClientLink
+namespace ClientLink
 {
     class Utils
     {
